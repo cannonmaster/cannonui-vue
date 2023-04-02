@@ -1,0 +1,8 @@
+.chihuoui-drag {
+  position: relative;
+  display: inline-flex;
+  z-index: 9996 !important;
+  touch-action: none;
+  user-select: none;
+  width: fit-content;
+}

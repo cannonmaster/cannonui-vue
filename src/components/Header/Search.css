@@ -64,6 +64,11 @@
 		display: flex;
 	}
 }
+@media (max-width: 26em) {
+	.search-input span:first-of-type {
+		display: none;
+	}
+}
 
 /* ------------------------------------------------------------ *\
 	DocSearch (Algolia)

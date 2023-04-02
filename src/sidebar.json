@@ -1,0 +1,366 @@
+{
+  "en": {
+    "vue": {
+      "General": [
+        {
+          "text": "Introduction",
+          "link": "en/introduction",
+          "show": true
+        }
+      ],
+      "Feedback": [
+        {
+          "text": "Page 4",
+          "link": "en/page-4",
+          "show": true
+        },
+        {
+          "text": "Switch",
+          "link": "en/vue/switch",
+          "show": true
+        },
+        {
+          "text": "Drag",
+          "link": "en/vue/drag",
+          "show": true
+        },
+        {
+          "text": "InfiniteLoading",
+          "link": "en/vue/infiniteloading",
+          "show": true
+        },
+        {
+          "text": "SearchBar",
+          "link": "en/vue/searchbar",
+          "show": true
+        }
+      ],
+      "Layout": [
+        {
+          "text": "Layout",
+          "link": "en/vue/layout",
+          "show": true
+        },
+        {
+          "text": "Col",
+          "link": "en/vue/col",
+          "show": false
+        },
+        {
+          "text": "Row",
+          "link": "en/vue/row",
+          "show": false
+        },
+        {
+          "text": "Skeleton",
+          "link": "en/vue/skeleton",
+          "show": true
+        }
+      ],
+      "Display": [
+        {
+          "text": "Table",
+          "link": "en/vue/table",
+          "show": true
+        },
+        {
+          "text": "Price",
+          "link": "en/vue/price",
+          "show": true
+        },
+        {
+          "text": "Swiper",
+          "link": "en/vue/swiper",
+          "show": true
+        },
+        {
+          "text": "SwiperItem",
+          "link": "en/vue/swiperitem",
+          "show": true
+        },
+        {
+          "text": "Video",
+          "link": "en/vue/video",
+          "show": true
+        }
+      ],
+      "Featured": [
+        {
+          "text": "Card",
+          "link": "en/vue/card",
+          "show": true
+        }
+      ]
+    },
+    "react": {
+      "General": [
+        {
+          "text": "Introduction",
+          "link": "en/introduction",
+          "show": true
+        }
+      ],
+      "Feedback": [
+        {
+          "text": "Page 4",
+          "link": "en/page-4",
+          "show": true
+        },
+        {
+          "text": "Switch",
+          "link": "en/react/switch",
+          "show": true
+        },
+        {
+          "text": "Drag",
+          "link": "en/react/drag",
+          "show": true
+        },
+        {
+          "text": "InfiniteLoading",
+          "link": "en/react/infiniteloading",
+          "show": true
+        },
+        {
+          "text": "SearchBar",
+          "link": "en/react/searchbar",
+          "show": true
+        }
+      ],
+      "Layout": [
+        {
+          "text": "Layout",
+          "link": "en/react/layout",
+          "show": true
+        },
+        {
+          "text": "Col",
+          "link": "en/react/col",
+          "show": false
+        },
+        {
+          "text": "Row",
+          "link": "en/react/row",
+          "show": false
+        },
+        {
+          "text": "Skeleton",
+          "link": "en/react/skeleton",
+          "show": true
+        }
+      ],
+      "Display": [
+        {
+          "text": "Table",
+          "link": "en/react/table",
+          "show": true
+        },
+        {
+          "text": "Price",
+          "link": "en/react/price",
+          "show": true
+        },
+        {
+          "text": "Swiper",
+          "link": "en/react/swiper",
+          "show": true
+        },
+        {
+          "text": "SwiperItem",
+          "link": "en/react/swiperitem",
+          "show": true
+        },
+        {
+          "text": "Video",
+          "link": "en/react/video",
+          "show": true
+        }
+      ],
+      "Featured": [
+        {
+          "text": "Card",
+          "link": "en/react/card",
+          "show": true
+        }
+      ]
+    }
+  },
+  "zh-CN": {
+    "vue": {
+      "通用": [
+        {
+          "text": "按钮",
+          "link": "zh-CN/button",
+          "show": true
+        }
+      ],
+      "基础组件": [],
+      "布局组件": [
+        {
+          "text": "布局",
+          "link": "zh-CN/vue/layout",
+          "show": true
+        },
+        {
+          "text": "布局辅助列",
+          "link": "zh-CN/vue/col",
+          "show": false
+        },
+        {
+          "text": "布局辅助行",
+          "link": "zh-CN/vue/row",
+          "show": false
+        },
+        {
+          "text": "骨架屏",
+          "link": "zh-CN/vue/skeleton",
+          "show": true
+        }
+      ],
+      "操作反馈": [
+        {
+          "text": "开关",
+          "link": "zh-CN/vue/switch",
+          "show": true
+        },
+        {
+          "text": "拉拽",
+          "link": "zh-CN/vue/drag",
+          "show": true
+        },
+        {
+          "text": "滚动加载",
+          "link": "zh-CN/vue/infiniteloading",
+          "show": true
+        },
+        {
+          "text": "搜索框",
+          "link": "zh-CN/vue/searchbar",
+          "show": true
+        }
+      ],
+      "数据展示": [
+        {
+          "text": "表格",
+          "link": "zh-CN/vue/table",
+          "show": true
+        },
+        {
+          "text": "价格",
+          "link": "zh-CN/vue/price",
+          "show": true
+        },
+        {
+          "text": "走马灯",
+          "link": "zh-CN/vue/swiper",
+          "show": true
+        },
+        {
+          "text": "走马灯子项",
+          "link": "zh-CN/vue/swiperitem",
+          "show": true
+        },
+        {
+          "text": "视频播放器",
+          "link": "zh-CN/vue/video",
+          "show": true
+        }
+      ],
+      "特色组件": [
+        {
+          "text": "商品卡片",
+          "link": "zh-CN/vue/card",
+          "show": true
+        }
+      ]
+    },
+    "react": {
+      "通用": [
+        {
+          "text": "按钮",
+          "link": "zh-CN/button",
+          "show": true
+        }
+      ],
+      "基础组件": [],
+      "布局组件": [
+        {
+          "show": true,
+          "text": "布局",
+          "link": "zh-CN/react/layout"
+        },
+        {
+          "text": "布局辅助列",
+          "link": "zh-CN/react/col",
+          "show": false
+        },
+        {
+          "text": "布局辅助行",
+          "link": "zh-CN/react/row",
+          "show": false
+        },
+        {
+          "text": "骨架屏",
+          "link": "zh-CN/react/skeleton",
+          "show": true
+        }
+      ],
+      "操作反馈": [
+        {
+          "text": "开关",
+          "link": "zh-CN/react/switch",
+          "show": true
+        },
+        {
+          "text": "拉拽",
+          "link": "zh-CN/react/drag",
+          "show": true
+        },
+        {
+          "text": "滚动加载",
+          "link": "zh-CN/react/infiniteloading",
+          "show": true
+        },
+        {
+          "text": "搜索框",
+          "link": "zh-CN/react/searchbar",
+          "show": true
+        }
+      ],
+      "数据展示": [
+        {
+          "text": "表格",
+          "link": "zh-CN/react/table",
+          "show": true
+        },
+        {
+          "text": "价格",
+          "link": "zh-CN/react/price",
+          "show": true
+        },
+        {
+          "text": "走马灯",
+          "link": "zh-CN/react/swiper",
+          "show": true
+        },
+        {
+          "text": "走马灯子项",
+          "link": "zh-CN/react/swiperitem",
+          "show": true
+        },
+        {
+          "text": "视频播放器",
+          "link": "zh-CN/react/video",
+          "show": true
+        }
+      ],
+      "特色组件": [
+        {
+          "text": "商品卡片",
+          "link": "zh-CN/react/card",
+          "show": true
+        }
+      ]
+    }
+  }
+}

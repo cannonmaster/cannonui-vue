@@ -6,7 +6,7 @@ import SkipToContent from './SkipToContent.astro';
 import SidebarToggle from './SidebarToggle';
 import LanguageSelect from './LanguageSelect';
 import Search from './Search';
-
+import ThemeToggleButton from './ThemeToggleButton';
 type Props = {
 	currentPage: string;
 };
@@ -28,6 +28,10 @@ const lang = getLanguageFromURL(currentPage);
 			</a>
 		</div>
 		<div style="flex-grow: 1;"></div>
+		<div id="theme">
+
+			<ThemeToggleButton client:load/>
+		</div>
 		{KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}
 		<div class="search-item">
 			<Search client:idle />
@@ -48,11 +52,18 @@ const lang = getLanguageFromURL(currentPage);
 		position: sticky;
 		top: 0;
 	}
-
+	#theme {
+		display: flex;
+	}
+	@media (min-width: 30em) {
+		#theme {
+			display: flex;
+		}
+	}
 	.logo {
 		flex: 1;
 		display: flex;
-		overflow: hidden;
+		/* overflow: hidden; */
 		width: 30px;
 		font-size: 2rem;
 		flex-shrink: 0;
@@ -140,6 +151,10 @@ const lang = getLanguageFromURL(currentPage);
 			max-width: 400px;
 		}
 	}
+
+	@media (max-width: 26em) {
+	}
+	
 </style>
 
 <style is:global>

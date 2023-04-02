@@ -1,0 +1,25 @@
+.box-item {
+  background: var(--theme-bg);
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+.demo {
+  border: 1px solid var(--theme-border-color);
+  border-radius: 6px;
+  padding: 42px 24px 50px;
+  transition: all 2s ease 0s;
+}
+.flex-content {
+  line-height: 40px;
+  color: var(--theme-text);
+  text-align: center;
+  border-radius: 6px;
+  // background: #ff8881;
+  background: hsla(var(--color-blue), var(--theme-accent-opacity));
+  &.flex-content-light {
+    background: #ffc7c4;
+  }
+  &.flex-content-height {
+    height: 50px;
+  }
+}

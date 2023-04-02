@@ -4,9 +4,8 @@ import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import q from './utils/q';
 import template from './utils/template';
 import chalk from 'chalk';
-import * as nav from '../src/config';
+import { SIDEBAR, frameworks, KNOWN_LANGUAGE_CODES } from '../src/config';
 import prettier from 'prettier';
-// const prettier = require('prettier');
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
@@ -25,8 +24,6 @@ let cmp = {
 let cmpPath = '';
 let filePath = '';
 let content = '';
-const frameworks = ['react', 'vue'];
-const lang = ['en', 'zh-CN'];
 enum PathExistValidate {
   No = 0,
   Yes = 1,
@@ -45,7 +42,8 @@ function indexGenerate() {
       mkdirSync(dir);
     }
     filePath = join(`${dir}/`, 'index.ts');
-    content = template('index', cmp.name);
+    if (framework === 'vue') content = template('index_vue', cmp.name);
+    if (framework === 'react') content = template('index_react', cmp.name);
     writeFile();
   });
   return returnGenerate('index 文件创建完成');
@@ -66,14 +64,9 @@ function cmpGenerate() {
   return returnGenerate('react 文件创建完成');
 }
 function cssGenerate() {
-  frameworks.forEach((framework) => {
-    filePath = join(
-      `${cmpPath}/${framework}`,
-      `${cmp.name.toLowerCase()}.scss`
-    );
-    content = template('css', cmp.name);
-    writeFile();
-  });
+  filePath = join(`${cmpPath}`, `${cmp.name.toLowerCase()}.scss`);
+  content = template('css', cmp.name);
+  writeFile();
 
   return returnGenerate('css 文件创建完成');
 }
@@ -98,28 +91,49 @@ function docGenerate() {
 }
 function packageJsonUpdate() {
   const category = cmp.category.split('-');
-  lang.forEach((lang) => {
-    if (lang === 'zh-CN') {
-      nav.SIDEBAR[lang][category[1]] = nav.SIDEBAR[lang][category[1]] || [];
-      nav.SIDEBAR[lang][category[1]].push({
-        text: `${cmp.cName}`,
-        link: `${lang}/${cmp.name}`,
-      });
-    }
+  KNOWN_LANGUAGE_CODES.forEach((lang) => {
+    frameworks.forEach((framework) => {
+      if (lang === 'zh-CN') {
+        SIDEBAR[lang][framework][category[1]] =
+          SIDEBAR[lang][framework][category[1]] || [];
+        SIDEBAR[lang][framework][category[1]].push({
+          text: `${cmp.cName}`,
+          link: `${lang}/${framework}/${cmp.name.toLowerCase()}`,
+          show: true,
+        });
+      }
 
-    if (lang === 'en') {
-      nav.SIDEBAR[lang][category[0]] = nav.SIDEBAR[lang][category[0]] || [];
-      nav.SIDEBAR[lang][category[0]].push({
-        text: `${cmp.name}`,
-        link: `${lang}/${cmp.name}`,
-      });
-    }
+      if (lang === 'en') {
+        SIDEBAR[lang][framework][category[0]] =
+          SIDEBAR[lang][framework][category[0]] || [];
+        SIDEBAR[lang][framework][category[0]].push({
+          text: `${cmp.name}`,
+          link: `${lang}/${framework}/${cmp.name.toLowerCase()}`,
+          show: true,
+        });
+      }
+    });
   });
 
-  filePath = join(__dirname, '../src/config.ts');
-  content = JSON.stringify(nav, null, 4);
-  writeFile();
+  filePath = join(__dirname, '../src/sidebar.json');
+  content = JSON.stringify(SIDEBAR, null, 4);
+
+  writeFile(PathExistValidate.No);
   return returnGenerate('json 文件更新完成');
+}
+function addPage() {
+  KNOWN_LANGUAGE_CODES.forEach((lang) => {
+    frameworks.forEach((framework) => {
+      filePath = join(
+        __dirname,
+        `../src/pages/${lang}/${framework}`,
+        `${cmp.name.toLowerCase()}.mdx`
+      );
+      content = template('page', cmp.name);
+      writeFile();
+    });
+  });
+  return returnGenerate('页面添加成功');
 }
 function returnGenerate(message: string) {
   return new Promise((resolve, reject) => {
@@ -134,7 +148,11 @@ function formatFile(
 ) {
   return prettier.format(file, options);
 }
-function writeFile() {
+function writeFile(checkPathExists = PathExistValidate.Yes) {
+  if (!checkPathExists) {
+    writeFileSync(filePath, formatFile(content, filePath));
+    return;
+  }
   if (!existsSync(filePath)) {
     writeFileSync(filePath, formatFile(content, filePath));
     return;
@@ -148,7 +166,8 @@ async function generateCmp() {
   await cssGenerate();
   await demoGenerate();
   await docGenerate();
-  // await packageJsonUpdate();
+  await packageJsonUpdate();
+  await addPage();
 
   console.log(chalk.green(`${cmp.name}组件创建完成🍺`));
 }

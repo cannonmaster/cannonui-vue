@@ -1,0 +1,73 @@
+// 主色调
+$primary-color: #fa2c19 !default;
+$primary-color-end: #fa6419 !default;
+// 次内容
+$text-color: #808080 !default;
+
+// 特殊禁用色
+$disable-color: #cccccc !default;
+$white: #fff !default;
+$black: #000 !default;
+$required-color: #fa2c19 !default;
+
+// Font
+$font-size-0: 10px !default;
+$font-size-1: 12px !default;
+$font-size-2: 14px !default;
+$font-size-3: 16px !default;
+$font-size-4: 18px !default;
+$font-weight-bold: 400 !default;
+
+$font-size-small: $font-size-1 !default;
+$font-size-base: $font-size-2 !default;
+$font-size-large: $font-size-3 !default;
+$line-height-base: 1.5 !default;
+
+//switch
+$switch-close-bg-color: #ebebeb !default;
+$switch-close--cline-bg-color: #f0f0f0 !default;
+$switch-width: 36px !default;
+$switch-height: 21px !default;
+$switch-line-height: 21px !default;
+$switch-border-radius: 21px !default;
+$switch-inside-width: 13px !default;
+$switch-inside-height: 13px !default;
+$switch-inside-open-transform: translateX(146%) !default;
+$switch-inside-close-transform: translateX(30%) !default;
+$col-default-margin-bottom: 15px !default;
+//infiniteloading
+$infinite-bottom-color: #c8c8c8;
+
+// skeleton
+$skeleton-content-avatar-background-color: #efefef !default;
+$skeleton-content-line-background-color: #efefef !default;
+$skeleton-animation-background-color: linear-gradient(
+  90deg,
+  hsla(0, 0%, 100%, 0),
+  hsla(0, 0%, 100%, 0.5) 50%,
+  hsla(0, 0%, 100%, 0) 80%
+) !default;
+
+// Table
+$table-border-color: #ececec !default;
+$table-cols-padding: 10px !default;
+$table-tr-even-bg-color: #f3f3f3 !default;
+$table-tr-odd-bg-color: $white !default;
+
+//price
+$price-number-size: 24px;
+
+// swiper
+$swiper-pagination-item-background-color: #ddd !default;
+// searchbar
+$searchbar-background: $white !default;
+$searchbar-right-out-color: $black !default;
+$searchbar-padding: 9px 16px !default;
+$searchbar-width: 100% !default;
+$searchbar-action-text-color: #323233 !default;
+$searchbar-input-background: #f7f7f7 !default;
+$searchbar-input-padding: 0 28px !default;
+$searchbar-input-height: 32px !default;
+$searchbar-input-width: 100% !default;
+$searchbar-input-border-radius: 16px !default;
+$searchbar-input-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04) !default;

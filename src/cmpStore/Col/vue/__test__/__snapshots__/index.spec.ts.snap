@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Col and gutter 1`] = `
+"<view class="chihuoui-row
+        chihuoui-row-flex
+        chihuoui-row-align-flex-center
+        chihuoui-row-type-flex
+        chihuoui-row-justify-center
+        chihuoui-row-flex-wrap">
+  <view class="chihuoui-col chihuoui-col-gutter chihuoui-col-offset-0 chihuoui-col-8" style="padding-left: 3px; padding-right: 3px;">8</view>
+  <view class="chihuoui-col chihuoui-col-gutter chihuoui-col-offset-0 chihuoui-col-8" style="padding-left: 3px; padding-right: 3px;">8</view>
+  <view class="chihuoui-col chihuoui-col-gutter chihuoui-col-offset-0 chihuoui-col-8" style="padding-left: 3px; padding-right: 3px;">8</view>
+</view>"
+`;

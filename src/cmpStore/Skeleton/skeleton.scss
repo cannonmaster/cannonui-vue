@@ -1,0 +1,53 @@
+.skeleton {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  .content {
+    display: flex;
+    .content-line {
+      display: flex;
+      flex-direction: column;
+      .blockTitle,
+      .blockLine {
+        width: 100%;
+        margin-bottom: 10px;
+        background-color: $skeleton-content-line-background-color;
+      }
+      .blockTitle {
+        width: 30%;
+      }
+      .blockLine ~ .blockLine:last-of-type {
+        width: 70%;
+      }
+      .blockTitle:last-of-type,
+      .blockLine:last-of-type {
+        margin-bottom: 0;
+      }
+      .blockTitle--round,
+      .blockLine--round {
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .skeleton-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: $skeleton-animation-background-color;
+    background-repeat: no-repeat;
+    animation: backops 2s ease-in-out 0s infinite;
+  }
+  @keyframes backops {
+    0% {
+      background-position-x: -500px;
+    }
+    to {
+      background-position-x: calc(500px + 100%);
+    }
+  }
+}

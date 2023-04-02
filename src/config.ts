@@ -1,3 +1,4 @@
+import sidebar from './sidebar.json';
 export const SITE = {
   title: 'Documentation',
   description: 'Your website description.',
@@ -42,20 +43,14 @@ export const ALGOLIA = {
   apiKey: 'XXXXXXXXXX',
 };
 
+export const frameworks: ('react' | 'vue')[] = ['react', 'vue'];
+
 export type Sidebar = Record<
   typeof KNOWN_LANGUAGE_CODES[number],
-  Record<string, { text: string; link: string }[]>
+  Record<
+    typeof frameworks[number],
+    Record<string, { text: string; link: string; show: boolean }[]>
+  >
 >;
-export const SIDEBAR: Sidebar = {
-  'en': {
-    General: [
-      { text: 'Introduction', link: 'en/introduction' },
-      { text: 'Page 2', link: 'en/page-2' },
-      { text: 'Page 3', link: 'en/page-3' },
-    ],
-    Feedback: [{ text: 'Page 4', link: 'en/page-4' }],
-  },
-  'zh-CN': {
-    通用: [{ text: '按钮', link: 'zh-CN/button' }],
-  },
-};
+// @ts-ignore
+export const SIDEBAR: Sidebar = sidebar;

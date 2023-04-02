@@ -1,0 +1,21 @@
+.chihuoui-price {
+  font-size: $font-size-3;
+  display: inline;
+  color: $primary-color;
+  &__symbol {
+    display: inline-block;
+    font-size: $font-size-3;
+  }
+  &__number {
+    display: inline-block;
+    font-size: $price-number-size;
+  }
+  &__point {
+    display: inline-block;
+    font-size: $price-number-size;
+  }
+  &__decimal {
+    display: inline-block;
+    font-size: $font-size-4;
+  }
+}
