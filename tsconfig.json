@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "baseUrl": ".",
+    "declaration": true,
     "rootDir": ".",
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -22,7 +23,9 @@
     "jsxImportSource": "react",
     "paths": {
       "@/*": ["src/*"],
-    }
+      "@cannonui/vue/*": ["dist/cmpStore/*"]
+    },
+    "outDir": "./cannonVue"
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "exclude": ["./node_modules/*"]

@@ -4,3 +4,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+@mixin moreline-clamp($line: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: $line;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+  word-break: break-all;
+}

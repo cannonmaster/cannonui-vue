@@ -1,6 +1,7 @@
 # build output
 dist/
-
+# test
+ui-test/
 # dependencies
 node_modules/
 

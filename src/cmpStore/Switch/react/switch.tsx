@@ -53,12 +53,12 @@ export const Switch: FunctionComponent<
       ...(style || {}),
     };
   };
-  const onClick = (e: any) => {
+  const handleClick = (e: any) => {
     if (disable) {
       return;
     }
     if (!isAsync) {
-      setValue(!value);
+      setValue((value) => !value);
     }
     onChange && onChange(!value, e);
   };
@@ -67,7 +67,7 @@ export const Switch: FunctionComponent<
   }, [checked]);
   return (
     <div
-      onClick={(e) => onClick(e)}
+      onClick={handleClick}
       style={getStyles()}
       className={classes()}
     >

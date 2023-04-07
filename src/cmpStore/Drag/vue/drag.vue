@@ -2,19 +2,15 @@
 @import "../drag.scss";
 </style>
 <template>
-  <div
-  :class="classes"
-  :style="getStyles"
-  ref="mydrag"
-  >
+  <div :class="classes" :style="getStyles" ref="mydrag">
     <slot></slot>
   </div>
 </template>
 <script lang="ts">
 import { reactive, ref, PropType, CSSProperties, toRefs, computed, onMounted } from "vue"
 import createComponent from "@/utils/vue_component"
-import {useDrag, useGesture} from '@vueuse/gesture'
-import {useSpring, useMotionProperties} from '@vueuse/motion'
+import { useDrag, useGesture } from '@vueuse/gesture'
+import { useSpring, useMotionProperties, PermissiveMotionProperties } from '@vueuse/motion'
 const { componentName, create } = createComponent("drag")
 export default create({
   props: {
@@ -33,37 +29,37 @@ export default create({
   },
   emits: [],
   setup(props) {
-    const {attract, direction, style} = props
+    const { attract, direction, style } = props
     const mydrag = ref()
-    const classes = computed(()=>{
-      return {[componentName]: true}
+    const classes = computed(() => {
+      return { [componentName]: true }
     })
     const { motionProperties } = useMotionProperties(mydrag, {
       cursor: 'grab',
       x: 0,
       y: 0,
     })
-    const getStyles = computed(()=>{
+    const getStyles = computed(() => {
       return style
     })
-    const { set } = useSpring(motionProperties)
-    const rightLocation = computed(()=>{
+    const { set } = useSpring(motionProperties as Partial<PermissiveMotionProperties>)
+    const rightLocation = computed(() => {
       return info.screenWidth - info.boundary.right
     })
-    const bottomLocation = computed(()=>{
+    const bottomLocation = computed(() => {
       return info.screenHeight - info.boundary.bottom
     })
-    const getMovement = (clientX:number,clientY:number, moveX:number, moveY:number) => {
+    const getMovement = (clientX: number, clientY: number, moveX: number, moveY: number) => {
       if ((moveX + info.left + info.elWidth) > rightLocation.value) {
         info.mx = info.screenWidth - info.left - info.elWidth
-      } else if (clientX < info.boundary.left+info.elWidth) {
-        info.mx =-info.left
+      } else if (clientX < info.boundary.left + info.elWidth) {
+        info.mx = -info.left
       } else {
         info.mx = moveX
       }
       if ((moveY + info.top + info.elHeight) > bottomLocation.value) {
         info.my = info.screenHeight - info.top - info.elHeight
-      } else if (clientY < info.boundary.top+info.elHeight) {
+      } else if (clientY < info.boundary.top + info.elHeight) {
         info.my = -info.top
       } else {
         info.my = moveY
@@ -71,64 +67,66 @@ export default create({
     }
     const gesture = useGesture(
       {
-        onDrag: ({ movement: [x, y], event: e }: TouchEvent | PointerEvent) => {
+        onDrag: ({ movement: [x, y], event: e }: { movement: [number, number], event: MouseEvent | TouchEvent }) => {
           e.preventDefault()
-          if (e.clientX !== undefined) {
-            getMovement(e.clientX, e.clientY, x, y)
-          } 
+          if (e instanceof MouseEvent) {
+            if (e.clientX !== undefined) {
+              getMovement(e.clientX, e.clientY, x, y)
+            }
+          }
           else {
             const targetTouch = e.targetTouches[0]
             if (targetTouch !== undefined) {
-              getMovement(targetTouch.clientX, targetTouch.clientY,x,y)
+              getMovement(targetTouch.clientX, targetTouch.clientY, x, y)
             }
           }
 
           if (direction === 'y') {
-            set({y:info.my})
+            set({ y: info.my })
           }
           else if (direction === 'x') {
-            set({x:info.mx})
+            set({ x: info.mx })
           }
           else {
-            set({ x:info.mx,y:info.my})
+            set({ x: info.mx, y: info.my })
           }
         },
-        onDragEnd: ({movement: [x,y], event:e})=>{
-          e.preventDefault() 
-          if (attract && direction!=='y') {
+        onDragEnd: ({ movement: [x, y], event: e }) => {
+          e.preventDefault()
+          if (attract && direction !== 'y') {
             if (e.clientX !== undefined) {
-              if(info.left + info.elWidth+x > info.middleLine) {
-                
-                set({x:x+ info.screenWidth - (info.left+x+info.elWidth)})
-                gesture.config.drag.initial = [x+ info.screenWidth - (info.left+x+info.elWidth), info.my]
+              if (info.left + info.elWidth + x > info.middleLine) {
+
+                set({ x: x + info.screenWidth - (info.left + x + info.elWidth) })
+                gesture.config!.drag!.initial = [x + info.screenWidth - (info.left + x + info.elWidth), info.my]
               } else {
-              //  gesture.config.drag.initial = [x, info.my] 
-                set({x:-info.left})
-               gesture.config.drag.initial = [-info.left, info.my] 
+                //  gesture.config.drag.initial = [x, info.my] 
+                set({ x: -info.left })
+                gesture.config!.drag!.initial = [-info.left, info.my]
               }
             }
             else {
-              if(x+info.left+info.boundary.left+info.elWidth > info.middleLine) {
-                set({x:info.screenWidth - (x+info.left+info.boundary.left+info.elWidth) + x})
-                gesture.config.drag.initial = [info.screenWidth - (x+info.left+info.boundary.left+info.elWidth) + x,info.my]
-              } 
-              else {
-                set({x: -info.left, y: info.my})
-                gesture.config.drag.initial=[-info.left, info.my]
+              if (x + info.left + info.boundary.left + info.elWidth > info.middleLine) {
+                set({ x: info.screenWidth - (x + info.left + info.boundary.left + info.elWidth) + x })
+                gesture.config!.drag!.initial = [info.screenWidth - (x + info.left + info.boundary.left + info.elWidth) + x, info.my]
               }
-            }   
+              else {
+                set({ x: -info.left, y: info.my })
+                gesture.config!.drag!.initial = [-info.left, info.my]
+              }
+            }
           }
           // let moveX = 0
           // if (props.direction!=='y' && props.attract) {
           //   if (event.clientX !== undefined) {
-               
+
           //     if (event.clientX>=info.middleLine) {
           //         moveX = info.screenWidth - info.elWidth - info.left - info.boundary.right
           //         set({x: moveX,y:info.my})
           //         console.log('123');
           //     } 
           //     else {
-                  
+
           //         set({x:info.boundary.left,y:info.my})
           //         moveX= info.boundary.left 
           //     } 
@@ -150,9 +148,9 @@ export default create({
           //   gesture.config.drag.initial = [info.mx, info.my];
           // }
           else {
-            gesture.config.drag.initial = [info.mx, info.my];
+            gesture.config!.drag!.initial = [info.mx, info.my];
           }
-        } 
+        }
       },
       {
         domTarget: mydrag,
@@ -170,14 +168,14 @@ export default create({
       updateY: 0,
       positions: {
         startX: 0,
-        startY:0,
+        startY: 0,
       },
       screenWidth: 0,
       screenHeight: 0,
       elWidth: 0,
       elHeight: 0,
       boundary: {
-        left:0,
+        left: 0,
         top: 0,
         right: 0,
         bottom: 0
@@ -185,8 +183,8 @@ export default create({
       middleLine: 0
     })
 
-    const getInfo = ()=>{
-      
+    const getInfo = () => {
+
       const elm = document.documentElement
       const dragProperty = mydrag.value.getBoundingClientRect()
       info.screenWidth = elm.clientWidth || 375
@@ -195,9 +193,9 @@ export default create({
       info.elHeight = mydrag.value.offsetHeight
       info.left = dragProperty.left
       info.top = dragProperty.top
-      info.middleLine = info.screenWidth/2 + info.elWidth/2 
+      info.middleLine = info.screenWidth / 2 + info.elWidth / 2
     }
-    onMounted(()=>{
+    onMounted(() => {
       getInfo()
     })
     return {

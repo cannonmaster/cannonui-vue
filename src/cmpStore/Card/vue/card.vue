@@ -13,15 +13,15 @@
         <template v-if="isHaveSlot('price')">
           <slot name="price"></slot>
         </template>
-        <Price :price="price" v-else />
+        <Price :symbol="symbol" :price="price" v-else />
         <template v-if="isHaveSlot('origin')">
           <slot name="origin"></slot>
         </template>
-        <Price v-else class="chihuoui-card__right-price-origin" :price="vipPrice" />
+        <Price v-else class="chihuoui-card__right-price-origin" :price="vipPrice" :symbol="symbol" />
       </div>
       <div class="chihuoui-card__right-other">
-        <template v-if="isHaveSlot('shop-tag')">
-          <slot name="shop-tag"></slot>
+        <template v-if="isHaveSlot('shop-custom-desc')">
+          <slot name="shop-custom-desc"></slot>
         </template>
         <template v-else>
           <span>{{ shopDesc }}</span>
@@ -32,13 +32,14 @@
         <div class="chihuoui-card__right-shop-name">
           {{ shopName }}
         </div>
-        <slot name="footer"></slot>
+        <template v-if="isHaveSlot('footer')">
+          <slot name="footer"></slot>
+        </template>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { PropType, CSSProperties, toRefs, computed } from "vue"
 import Price from '@/cmpStore/Price/vue'
 import createComponent from "@/utils/vue_component"
 const { componentName, create } = createComponent("card")
@@ -50,6 +51,10 @@ export default create({
       default: ''
     },
     title: {
+      type: String,
+      default: ''
+    },
+    symbol: {
       type: String,
       default: ''
     },

@@ -49,11 +49,12 @@ export default create({
   emits: [],
   setup(props) {
     const { thousand, needSymbol, symbol, price, decimalPoint } = toRefs(props)
+
     const checkPoint = (num: string | number) => {
       return String(num).indexOf('.') > -1
     }
     const getSymbol = computed(() => {
-      return symbol.value
+      return symbol.value || '¥'
     })
     const getThousand = computed(() => {
       return formatThousands(price.value)

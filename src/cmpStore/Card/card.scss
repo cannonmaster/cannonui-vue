@@ -17,7 +17,7 @@
     flex: 1;
     padding: 0 10px 8px;
     &-title {
-      @include moreline-ellipsis();
+      @include moreline-clamp(2);
       line-height: 1.5;
       font-size: 14px;
     }
@@ -57,6 +57,9 @@
       span {
         margin-right: 5px;
         font-size: $font-size-0;
+      }
+      .chihuoui-card__shop-desc {
+        @include moreline-ellipsis();
       }
     }
     .chihuoui-card__right-shop {
