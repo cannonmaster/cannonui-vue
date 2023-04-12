@@ -1,5 +1,6 @@
 import vue from '@vitejs/plugin-vue';
 import path, { resolve } from 'path';
+import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 export default defineConfig((config) => ({
@@ -14,7 +15,7 @@ export default defineConfig((config) => ({
       fileName: 'cannon-vue',
       formats: ['esm', 'umd', 'iife'],
       cssCodeSplit: true,
-      chunkSizeWarningLimit: 500,
+      chunkSizeWarningLimit: 500
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
@@ -24,29 +25,29 @@ export default defineConfig((config) => ({
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
-          vue: 'Vue',
-        },
-      },
+          vue: 'Vue'
+        }
+      }
     },
-    outDir: 'cannonVue',
+    outDir: 'cannonVue'
   },
   esbuild: {
-    drop: config.mode !== 'development' ? ['console', 'debugger'] : [],
+    drop: config.mode !== 'development' ? ['console', 'debugger'] : []
   },
   resolve: {
     alias: [
       {
         find: '@',
-        replacement: path.resolve(__dirname, 'src/'),
-      },
-    ],
+        replacement: path.resolve(__dirname, 'src/')
+      }
+    ]
   },
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/styles/variables.scss";`,
-      },
-    },
+        additionalData: `@import "@/styles/variables.scss";`
+      }
+    }
   },
   plugins: [
     dts({
@@ -70,15 +71,18 @@ declare module 'vue' {
             content: `
               ${contents}\n\n
               ${append}   
-            `,
+            `
           };
         }
         return {
           filePath,
-          content: contents,
+          content: contents
         };
-      },
+      }
     }),
-    vue(),
-  ],
+    visualizer({
+      open: true
+    }),
+    vue()
+  ]
 }));

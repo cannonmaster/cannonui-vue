@@ -21,8 +21,7 @@
       </div>
       <div class="chihuoui-card__right-other">
         <template v-if="isHaveSlot('shop-custom-desc')">
-          <slot name="shop-custom-desc"></slot>
-        </template>
+          <slot name="shop-custom-desc"></slot>       </template>
         <template v-else>
           <span>{{ shopDesc }}</span>
           <span>{{ delivery }}</span>

@@ -23,6 +23,7 @@
     "build": "astro build",
     "vueuibuild": "vite build --config cmpstore.vue.config.js && esno scripts/generate-typing.ts",
     "preview": "astro preview",
+    "dr": "pnpm publish --dry-run",
     "astro": "astro",
     "test": "jest",
     "g:cmp": "esno scripts/generate-cmp.ts"
@@ -69,6 +70,7 @@
     "jest-environment-jsdom": "^29.3.1",
     "prettier": "^2.8.0",
     "prettier-plugin-organize-imports": "^3.2.2",
+    "rollup-plugin-visualizer": "^5.9.0",
     "sass": "^1.57.1",
     "terser": "^5.16.8",
     "ts-jest": "^29.0.3",
