@@ -22,3 +22,21 @@ pnpm-debug.log*
 
 # wallaby.js
 wallably.js
+
+# lcoal test
+ui-test/
+
+# vsc extension
+vscx/
+
+# plugin such as prettier
+plugin/
+
+# md
+md/
+
+#vue ui build folder
+cannonVue/
+
+# vsc custom setting
+.vscode/settings.json

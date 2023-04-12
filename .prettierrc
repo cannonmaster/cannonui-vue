@@ -1,5 +1,12 @@
 {
   "singleQuote": true,
   "quoteProps": "preserve",
-  "singleAttributePerLine": true
+  "singleAttributePerLine": true,
+  "tabWidth": 2,
+  "plugins": ["prettier-plugin-organize-imports"],
+  "prettier-plugin-organize-imports": {
+    "removeUnusedImport": false,
+    "organizeImportsSkipDestructiveCodeActions": true
+  },
+  "trailingComma": "none"
 }

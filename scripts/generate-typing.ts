@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import prettier from 'prettier';
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-const typingsDir = path.join(__dirname, '../cannonVue/typings/cmpStore');
+const typingsDir = path.join(__dirname, '../cannonVue/types/cmpStore');
 
 // Read all directories in the typings directory
 fs.promises
@@ -21,17 +22,29 @@ fs.promises
         }
       })
       .filter(Boolean);
-
+    const install = `
+      declare namespace _default {
+        export { install };
+      }
+      export function install(app: any): void;
+      export default _default;
+    `;
     // Write the entry file
     const entryFilePath = path.join(
       __dirname,
-      '../cannonVue/typings',
+      '../cannonVue/types',
       'index.d.ts'
     );
+    const code = install + '\n' + imports.join('\n');
     fs.promises
-      .writeFile(entryFilePath, imports.join('\n'))
+      .writeFile(entryFilePath, code)
       .then(() => {
         console.log(`Entry file written to ${entryFilePath}`);
+      })
+      .then(() => {
+        prettier.format(fs.readFileSync(entryFilePath, 'utf8'), {
+          filepath: entryFilePath
+        });
       })
       .catch((err) => {
         console.error(`Error writing entry file: ${err}`);

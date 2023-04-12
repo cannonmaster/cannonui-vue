@@ -1,13 +1,12 @@
 import {
   App,
-  Component,
   ComponentPropsOptions,
   defineComponent,
   RenderFunction,
 } from 'vue';
 
 const cmpGenerate = (name: string) => {
-  const componentName = 'chihuoui-' + name;
+  const componentName = 'cannonui-' + name;
   return {
     componentName,
     create: function (partialComponent: {
