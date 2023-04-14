@@ -135,7 +135,7 @@
     "scrollbarSlider.border": "#fe64f",
     "tab.activeForeground": "#000000",
     "gitDecoration.modifiedResourceForeground": "#000000",
-    "tab.inactiveHoverForeground": "#000" 
+    "tab.inactiveHoverForeground": "#000"
   },
   "peacock.color": "#f9e64f"
 }

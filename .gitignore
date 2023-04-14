@@ -40,3 +40,6 @@ cannonVue/
 
 # vsc custom setting
 .vscode/settings.json
+
+# stats html
+stats.html
