@@ -81,9 +81,9 @@ declare module 'vue' {
         };
       }
     }),
+    vue(),
     visualizer({
       open: true
-    }),
-    vue()
+    })
   ]
 }));

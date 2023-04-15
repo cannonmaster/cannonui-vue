@@ -23,7 +23,7 @@
     "build": "astro build",
     "vueuibuild": "vite build --config cmpstore.vue.config.js && esno scripts/generate-typing.ts",
     "preview": "astro preview",
-    "dr": "pnpm publish --dry-run",
+    "dr": "pnpm publish --dry-run --no-git-checks",
     "astro": "astro",
     "test": "jest",
     "g:cmp": "esno scripts/generate-cmp.ts"
