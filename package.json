@@ -1,7 +1,7 @@
 {
   "name": "@cannonui/vue",
   "type": "module",
-  "version": "0.8.2",
+  "version": "0.6.0",
   "private": false,
   "files": [
     "cannonVue"
@@ -21,12 +21,14 @@
     "start": "astro dev",
     "check": "astro check && tsc",
     "build": "astro build",
-    "vueuibuild": "vite build --config cmpstore.vue.config.js && esno scripts/generate-typing.ts",
     "preview": "astro preview",
-    "dr": "pnpm publish --dry-run --no-git-checks",
     "astro": "astro",
+    "dr": "pnpm publish --dry-run --no-git-checks",
     "test": "jest",
-    "g:cmp": "esno scripts/generate-cmp.ts"
+    "g:cmp": "esno scripts/generate-cmp.ts",
+    "p:dr-vue": "cd cannonVue && pnpm publish --dry-run --no-git-checks",
+    "p:vue": "cd cannonVue && pnpm publish",
+    "vueuibuild": "vite build --config cmpstore.vue.config.js && esno scripts/generate-typing.ts && node scripts/vue/generate-package.js && node scripts/copy-readme-license.js"
   },
   "dependencies": {
     "@algolia/client-search": "^4.13.1",
