@@ -23,13 +23,14 @@ Using Cannonui is very simple. In your Vue.js project, you only need to first im
 import CannonUI from '@cannonui/cannonui';
 import '@nutui/nutui/dist/style.css';
 import { createApp } from 'vue';
-import App **from** './App.vue';
+import App from './App.vue';
 import './style.css';
+
 createApp(App).use(CannonUI).mount('#app');
 ```
 Then you can use the NutUI component in the template:
 
-```js
+```vue
 <script lang="ts">
  const state = reactive({
     imgUrl:
