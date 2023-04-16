@@ -5,6 +5,7 @@ cannonVue/
 ui-test/
 # dependencies
 node_modules/
+**/node_modules/
 
 # logs
 npm-debug.log*
@@ -24,16 +25,16 @@ pnpm-debug.log*
 wallably.js
 
 # lcoal test
-ui-test/
+# ui-test/
 
 # vsc extension
-vscx/
+# vscx/
 
 # plugin such as prettier
 plugin/
 
 # md
-md/
+# md/
 
 #vue ui build folder
 cannonVue/

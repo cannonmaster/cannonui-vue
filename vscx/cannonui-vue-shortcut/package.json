@@ -1,0 +1,85 @@
+{
+  "name": "cannonui-vue-shortcut",
+  "displayName": "Cannonui: Vue Shortcut",
+  "description": "a list of shorcut to speed up the development for cannonui vue",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:vue",
+    "onLanguage:javascript",
+    "onLanguage:typescript"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "vue",
+        "extensions": [
+          ".vue"
+        ]
+      },
+      {
+        "id": "html",
+        "extensions": [
+          ".vue"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "vue",
+        "scopeName": "source.vue",
+        "path": "./syntaxes/vue.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "vue-html",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/snippets.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "extension.previewComponent",
+        "title": "Preview Component"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run esbuild-base --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "pnpm run esbuild-base -- --sourcemap",
+    "test-compile": "tsc -p ./",
+    "esbuild-watch": "pnpm run esbuild-base -- --sourcemap --watch",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "pnpm vsce package --no-dependencies",
+    "publish": "pnpm vsce publish --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.77.0",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "@vscode/test-electron": "^2.3.0",
+    "esbuild": "^0.17.15",
+    "eslint": "^8.36.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5"
+  }
+}
