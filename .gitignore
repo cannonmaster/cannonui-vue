@@ -1,6 +1,5 @@
 # build output
 dist/
-cannonVue/
 # test
 ui-test/
 # dependencies
@@ -25,10 +24,10 @@ pnpm-debug.log*
 wallably.js
 
 # lcoal test
-# ui-test/
+ui-test/
 
 # vsc extension
-# vscx/
+vscx/
 
 # plugin such as prettier
 plugin/
