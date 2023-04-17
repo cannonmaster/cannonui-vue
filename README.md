@@ -1,6 +1,6 @@
-# Cannonui
+# CannonUI
 
-Cannonui is a mobile UI component library based on Vue.js and React, characterized by high quality, strong usability, and good extensibility. Cannonui is in the development stage and will gradually add various basic and business components, such as buttons, forms, lists, popups, carousels, etc. Cannonui's goal is to speed up mobile development efficiency.
+CannonUI is a mobile UI component library based on Vue.js and React, characterized by high quality, strong usability, and good extensibility. CannonUI is in the development stage and will gradually add various basic and business components, such as buttons, forms, lists, popups, carousels, etc. CannonUI's goal is to speed up mobile development efficiency.
 
 ## Features
 
@@ -9,26 +9,26 @@ Cannonui is a mobile UI component library based on Vue.js and React, characteriz
 
 ## Installation
 
-Cannonui can be installed via npm:
+CannonUI for vue can be installed via npm:
 
 ```bash
-npm install nutui --save
+npm install @cannonui/vue --save
 ```
 
 ## Quick Start
 
-Using Cannonui is very simple. In your Vue.js project, you only need to first import Cannonui:
+Using CannonUI is very simple. In your Vue.js project, you only need to first import CannonUI:
 
 ```js
-import CannonUI from '@cannonui/cannonui';
-import '@nutui/nutui/dist/style.css';
 import { createApp } from 'vue';
 import App from './App.vue';
 import './style.css';
+import CannonUI from '@cannonui/vue';
+import '@cannonui/vue/style.css';
 
 createApp(App).use(CannonUI).mount('#app');
 ```
-Then you can use the NutUI component in the template:
+Then you can use the CannonUI component in the template:
 
 ```vue
 <script lang="ts">
@@ -37,7 +37,7 @@ Then you can use the NutUI component in the template:
       '',
     title: 'test',
     price: '388',
-    vipPrice: '378',
+    vipPrice: '368',
     shopDesc: 'test',
     delivery: 'test',
     shopName: 'test'
