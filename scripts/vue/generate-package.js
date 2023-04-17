@@ -4,7 +4,7 @@ import path from 'path';
 const packageJson = {
   name: '@cannonui/vue',
   type: 'module',
-  version: '0.8.3',
+  version: '0.6.6',
   private: false,
   files: ['*'],
   main: './cannon-vue.umd.cjs',
