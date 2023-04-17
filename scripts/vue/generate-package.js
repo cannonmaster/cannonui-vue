@@ -15,7 +15,7 @@ const packageJson = {
       import: './cannon-vue.esm.js',
       require: './cannon-vue.umd.cjs'
     },
-    './cannonVue/style.css': './style.css'
+    './style.css': './style.css'
   }
 };
 

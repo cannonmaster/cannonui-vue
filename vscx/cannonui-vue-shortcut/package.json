@@ -57,7 +57,7 @@
   "scripts": {
     "vscode:prepublish": "pnpm run esbuild-base --minify",
     "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
-    "esbuild": "pnpm run esbuild-base -- --sourcemap",
+    "esbuild": "pnpm run esbuild-base --sourcemap",
     "test-compile": "tsc -p ./",
     "esbuild-watch": "pnpm run esbuild-base -- --sourcemap --watch",
     "compile": "tsc -p ./",

@@ -26,8 +26,8 @@
     "dr": "pnpm publish --dry-run --no-git-checks",
     "test": "jest",
     "g:cmp": "esno scripts/generate-cmp.ts",
-    "p:dr-vue": "cd cannonVue && pnpm publish --dry-run --no-git-checks",
-    "p:vue": "cd cannonVue && pnpm publish --access public",
+    "p:dr-vue": "cd cannonVue && pnpm publish --tag alpha --access public --dry-run --no-git-checks",
+    "p:vue": "cd cannonVue && pnpm publish --tag alpha --access public",
     "vueuibuild": "vite build --config cmpstore.vue.config.js && esno scripts/generate-typing.ts && node scripts/vue/generate-package.js && node scripts/copy-readme-license.js"
   },
   "dependencies": {
