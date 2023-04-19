@@ -1,34 +1,51 @@
 <style lang="scss" scoped>
-@import "../card.scss";
+@import '../card.scss';
 </style>
 <template>
-  <div class="chihuoui-card">
-    <div class="chihuoui-card__left">
-      <img :src="imgUrl" alt="" />
+  <div class="cannonui-card">
+    <div class="cannonui-card__left">
+      <img
+        :src="imgUrl"
+        alt=""
+      />
     </div>
-    <div class="chihuoui-card__right">
-      <div class="chihuoui-card__right-title">{{ title }}</div>
+    <div class="cannonui-card__right">
+      <div class="cannonui-card__right-title">{{ title }}</div>
       <slot name="prolist"></slot>
-      <div v-if="isNeedPrice" class="chihuoui-card__right-price">
+      <div
+        v-if="isNeedPrice"
+        class="cannonui-card__right-price"
+      >
         <template v-if="isHaveSlot('price')">
           <slot name="price"></slot>
         </template>
-        <Price :symbol="symbol" :price="price" v-else />
+        <Price
+          :is-strike="true"
+          :symbol="symbol"
+          :price="price"
+          v-else
+        />
         <template v-if="isHaveSlot('origin')">
           <slot name="origin"></slot>
         </template>
-        <Price v-else class="chihuoui-card__right-price-origin" :price="vipPrice" :symbol="symbol" />
+        <Price
+          v-else
+          class="cannonui-card__right-price-origin"
+          :price="vipPrice"
+          :symbol="symbol"
+        />
       </div>
-      <div class="chihuoui-card__right-other">
+      <div class="cannonui-card__right-other">
         <template v-if="isHaveSlot('shop-custom-desc')">
-          <slot name="shop-custom-desc"></slot>       </template>
+          <slot name="shop-custom-desc"></slot>
+        </template>
         <template v-else>
           <span>{{ shopDesc }}</span>
           <span>{{ delivery }}</span>
         </template>
       </div>
-      <div class="chihuoui-card__right-shop">
-        <div class="chihuoui-card__right-shop-name">
+      <div class="cannonui-card__right-shop">
+        <div class="cannonui-card__right-shop-name">
           {{ shopName }}
         </div>
         <template v-if="isHaveSlot('footer')">
@@ -39,9 +56,9 @@
   </div>
 </template>
 <script lang="ts">
-import Price from '@/cmpStore/Price/vue'
-import createComponent from "@/utils/vue_component"
-const { componentName, create } = createComponent("card")
+import Price from '@/cmpStore/Price/vue';
+import createComponent from '@/utils/vue_component';
+const { componentName, create } = createComponent('card');
 export default create({
   components: { Price },
   props: {
@@ -85,11 +102,11 @@ export default create({
   emits: [],
   setup(props, { emit, slots }) {
     const isHaveSlot = (slot: string) => {
-      return slots[slot]
-    }
+      return slots[slot];
+    };
     return {
       isHaveSlot
-    }
-  },
-})
+    };
+  }
+});
 </script>

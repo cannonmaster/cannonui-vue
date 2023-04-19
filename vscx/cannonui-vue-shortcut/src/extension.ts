@@ -19,7 +19,7 @@ const provideCompletionItems = () => {
 const resolveCompletionItem = (item: vscode.CompletionItem) => {
   const name = (<string>item.label).slice(9);
   const description: ComponentMeta = componentMap[name];
-  const propsText = description.props || '';
+  const propsText = description.props.join(' ') || '';
   const closeTag = `</${item.label}>`;
   item.insertText = `<${item.label} ${propsText}>${closeTag}`;
 

@@ -1,31 +1,31 @@
-.skeleton {
+.cannonui-skeleton {
   display: inline-block;
   position: relative;
   overflow: hidden;
   vertical-align: middle;
   .content {
     display: flex;
-    .content-line {
+    .content--wrapper {
       display: flex;
       flex-direction: column;
-      .blockTitle,
-      .blockLine {
+      .block-title,
+      .block-line {
         width: 100%;
         margin-bottom: 10px;
         background-color: $skeleton-content-line-background-color;
       }
-      .blockTitle {
+      .block-title {
         width: 30%;
       }
-      .blockLine ~ .blockLine:last-of-type {
+      .block-line ~ .block-line:last-of-type {
         width: 70%;
       }
-      .blockTitle:last-of-type,
-      .blockLine:last-of-type {
+      .block-title:last-of-type,
+      .block-line:last-of-type {
         margin-bottom: 0;
       }
-      .blockTitle--round,
-      .blockLine--round {
+      .block-title--round,
+      .block-line--round {
         border-radius: 10px;
       }
     }

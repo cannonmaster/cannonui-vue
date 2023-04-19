@@ -92,41 +92,37 @@ const template = (type: keyof templatesProps, name: string): string => {
 	`,
     page: `
 ---
-title: "Introduction"
+title: ${name}
 description: "Docs intro"
 layout: "@/layouts/MainLayout.astro"
+cname: ${name.toLowerCase()}
 ---
 
+{/* TODO: remove unnessary cmp*/}
 import ${name}React from '@/cmpStore/${name}/react/demo'
 import ${name}Vue from '@/cmpStore/${name}/vue/demo.vue'
 
+{/* TODO: remove unnessary cmp*/}
 <${name}React client:visible/>
 <${name}Vue client:visible/>
 
 
 ### 介绍
 
+## 效果演示
+
+<div class="phone">
+  <div class="phone-top">Skeleton</div>
+  <div class="phone-content">
+	{/* TODO: add / update the cmp such as lang*/}
+  </div>
+  <div class="phone-bottom"></div>
+</div>
+
 ## 代码演示
 
-### 基础用法1
-
-## API
 
 ### Props
-
-| 参数         | 说明                             | 类型   | 默认值           |
-|--------------|----------------------------------|--------|------------------|
-| name         | 图标名称或图片链接               | String | -                |
-| color        | 图标颜色                         | String | -                |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'              |
-
-### Events
-
-| 事件名 | 说明           | 回调参数     |
-|--------|----------------|--------------|
-| click  | 点击图标时触发 | event: Event |
 		
 	`,
     doc: `#  ${name}组件
@@ -137,31 +133,19 @@ import ${name}Vue from '@/cmpStore/${name}/vue/demo.vue'
 
 ### 安装
 
-${''}
+## 效果演示
+
+<div class="phone">
+  <div class="phone-top">Skeleton</div>
+  <div class="phone-content">
+
+  </div>
+  <div class="phone-bottom"></div>
+</div>
 
 ## 代码演示
 
-### 基础用法1
-
-
-
-## API
-
 ### Props
-
-| 参数         | 说明                             | 类型   | 默认值           |
-|--------------|----------------------------------|--------|------------------|
-| name         | 图标名称或图片链接               | String | -                |
-| color        | 图标颜色                         | String | -                |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'              |
-
-### Events
-
-| 事件名 | 说明           | 回调参数     |
-|--------|----------------|--------------|
-| click  | 点击图标时触发 | event: Event |
 		`,
   };
 

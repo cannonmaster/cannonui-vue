@@ -1,6 +1,6 @@
 @import '../../styles/mixins/text-ellipsis.scss';
 
-.chihuoui-card {
+.cannonui-card {
   display: flex;
   width: 100%;
   &__left {
@@ -27,30 +27,30 @@
       height: 18px;
       line-height: 18px;
       margin-top: 9px;
-      .chihuoui-price {
-        .chihuoui-price__big {
+      .cannonui-price {
+        .cannonui-price__big {
           font-size: 18px;
         }
-        .chihuoui-price__symbol,
-        .chihuoui-price__point,
-        .chihuoui-price__small {
+        .cannonui-price__symbol,
+        .cannonui-price__point,
+        .cannonui-price__small {
           font-size: 12px;
         }
       }
-      .chihuoui-card__right-price-origin {
-        &.chihuoui-price {
+      .cannonui-card__right-price-origin {
+        &.cannonui-price {
           margin-left: 2px;
           color: #d2a448;
-          .chihuoui-price__big,
-          .chihuoui-price__symbol,
-          .chihuoui-price__point,
-          .chihuoui-price__small {
+          .cannonui-price__big,
+          .cannonui-price__symbol,
+          .cannonui-price__point,
+          .cannonui-price__small {
             font-size: 12px;
           }
         }
       }
     }
-    .chihuoui-card__right-other {
+    .cannonui-card__right-other {
       display: flex;
       align-items: center;
       padding: 5px 0 2px;
@@ -58,15 +58,15 @@
         margin-right: 5px;
         font-size: $font-size-0;
       }
-      .chihuoui-card__shop-desc {
+      .cannonui-card__shop-desc {
         @include moreline-ellipsis();
       }
     }
-    .chihuoui-card__right-shop {
+    .cannonui-card__right-shop {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      .chihuoui-card__right-shop-name {
+      .cannonui-card__right-shop-name {
         line-height: 1.5;
         color: #999;
         font-size: 12px;

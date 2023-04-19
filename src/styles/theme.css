@@ -81,6 +81,7 @@
 
 	/* Custom */
 	--theme-border-color: rgba(5, 5, 5, 0.06);
+	--theme-cmp-border-color: #000;
 }
 
 body {
@@ -123,6 +124,8 @@ body {
 
 	/* Custom */
 	--theme-border-color: rgba(253, 253, 253, 0.12);
+
+	--theme-cmp-border-color: #fff;
 }
 
 ::selection {

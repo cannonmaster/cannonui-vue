@@ -1,4 +1,4 @@
-.chihuoui-price {
+.cannonui-price {
   font-size: $font-size-3;
   display: inline;
   color: $primary-color;
@@ -16,6 +16,24 @@
   }
   &__decimal {
     display: inline-block;
-    font-size: $font-size-4;
+    font-size: $font-size-2;
+  }
+}
+.is-strike {
+  text-decoration: none;
+  position: relative;
+  &::before {
+    top: 50%; /*tweak this to adjust the vertical position if it's off a bit due to your font family */
+    background: red; /*this is the color of the line*/
+    opacity: 0.7;
+    content: '';
+    width: 110%;
+    position: absolute;
+    height: 0.1em;
+    border-radius: 0.1em;
+    left: -5%;
+    white-space: nowrap;
+    display: block;
+    transform: rotate(-15deg);
   }
 }

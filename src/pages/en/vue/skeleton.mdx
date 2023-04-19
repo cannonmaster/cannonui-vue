@@ -1,33 +1,86 @@
 ---
-title: 'Introduction'
+title: 'Skeleton Component'
 description: 'Docs intro'
 layout: '@/layouts/MainLayout.astro'
+cname: skeleton
 ---
 
 import SkeletonVue from '@/cmpStore/Skeleton/vue/demo.vue';
 
-<SkeletonVue client:visible />
+The Skeleton component is used to display a loading state while content is being fetched or loaded asynchronously. It provides a placeholder that resembles the actual content and is intended to provide visual feedback to the user that something is happening.
 
-### 介绍
+The Skeleton component consists of a customizable placeholder block that has the same size and shape as the actual content it is replacing. When the actual content is ready to be displayed, the Skeleton component is replaced by the actual content.
 
-## 代码演示
+This component is commonly used in web and mobile applications where content is fetched asynchronously from a server to improve the user experience by providing visual feedback while content is being loaded. This can reduce the perceived loading time and make your application feel more responsive.
 
-### 基础用法 1
+### Example Usages
 
-## API
+<div class="cmp-usage__wrapper">
+  <SkeletonVue client:visible />
+</div>
+
+Here’s an example of how to use the Card component:
+
+```vue
+<style lang="scss" scoped></style>
+<template>
+  <Skeleton
+    row="6"
+    animated
+    round
+    :loading="loading"
+    height="20px"
+    width="300px"
+  >
+    <div
+      class="content"
+      style="width: 300px"
+    >
+      <h3 class="content--title">Skeleton Component</h3>
+      <div class="content--desc">
+        The Skeleton component can be used to improve the user experience of
+        your application by providing visual feedback while content is being
+        loaded. This can reduce the perceived loading time and make your
+        application feel more responsive.
+      </div>
+    </div>
+  </Skeleton>
+</template>
+<script lang="ts">
+import { onMounted, ref } from 'vue';
+import Skeleton from './skeleton.vue';
+export default {
+  props: {},
+  emits: [],
+  components: { Skeleton },
+  setup(props) {
+    const loading = ref(true);
+    onMounted(() => {
+      // mock async req
+      setTimeout(() => {
+        loading.value = false;
+      }, 3000);
+    });
+    return {
+      loading
+    };
+  }
+};
+</script>
+```
 
 ### Props
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+| Prop       | Type      | Default   | Description                                   |
+| ---------- | --------- | --------- | --------------------------------------------- |
+| `width`    | `String`  | `'100px'` | The width of the skeleton component.          |
+| `height`   | `String`  | `'100px'` | The height of the skeleton item and title.    |
+| `animated` | `Boolean` | `false`   | Whether to show animation.                    |
+| `loading`  | `Boolean` | `false`   | Whether to show the skeleton component.       |
+| `row`      | `String`  | `'1'`     | The number of rows in the skeleton component. |
+| `title`    | `Boolean` | `false`   | Whether to show the title.                    |
+| `round`    | `Boolean` | `false`   | Whether to show rounded corners.              |
 
-### Events
+### Slots
 
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+- `default`: The content to be displayed after the async req is loaded.

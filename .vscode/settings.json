@@ -3,7 +3,8 @@
     "prettier.singleAttributePerLine": true,
     "editor.formatOnSave": true,
     "editor.wordWrap": "on",
-    "editor.stickyScroll.enabled": true
+    "editor.stickyScroll.enabled": true,
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
 } // {
 //   "typescript.tsdk": "node_modules/typescript/lib",
 //   "workbench.editor.decorations.colors": false,

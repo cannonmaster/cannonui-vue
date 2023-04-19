@@ -1,35 +1,95 @@
 ---
-title: "Introduction"
-description: "Docs intro"
-layout: "@/layouts/MainLayout.astro"
+title: 'Skeleton 组件'
+description: 'Docs intro'
+layout: '@/layouts/MainLayout.astro'
+cname: skeleton
 ---
 
-import SkeletonReact from "@/cmpStore/Skeleton/react/demo"
-import SkeletonVue from "@/cmpStore/Skeleton/vue/demo.vue"
-
-<SkeletonReact />
-<SkeletonVue />
+import SkeletonVue from '@/cmpStore/Skeleton/vue/demo.vue';
 
 ### 介绍
 
+Skeleton 组件用于在内容被异步获取或加载时显示加载状态。它提供了一个类似于实际内容的占位符，旨在向用户提供视觉反馈，表明有些操作正在进行。
+
+Skeleton 组件由可自定义的占位符块组成，其大小和形状与要替换的实际内容相同。当实际内容准备好显示时，Skeleton 组件会被实际内容替换。
+
+这个组件通常用于 Web 和移动应用程序中，在从服务器异步获取内容时提供视觉反馈，从而改善用户体验。这可以减少用户感知的加载时间，使您的应用程序更具响应性。
+
+### 效果演示
+
+<div class="phone">
+  <div class="phone-top">Skeleton</div>
+  <div class="phone-content">
+    <SkeletonVue
+      lang="zh-EN"
+      client:visible
+    />
+  </div>
+  <div class="phone-bottom"></div>
+</div>
+
 ## 代码演示
 
-### 基础用法 1
+```vue
+<style lang="scss" scoped></style>
+<template>
+  <Skeleton
+    row="6"
+    animated
+    round
+    :loading="loading"
+    height="20px"
+    width="300px"
+  >
+    <div
+      class="content"
+      style="width: 300px"
+    >
+      <h3 class="content--title">Skeleton Component</h3>
+      <div class="content--desc">
+        The Skeleton component can be used to improve the user experience of
+        your application by providing visual feedback while content is being
+        loaded. This can reduce the perceived loading time and make your
+        application feel more responsive.
+      </div>
+    </div>
+  </Skeleton>
+</template>
+<script lang="ts">
+import { onMounted, ref } from 'vue';
+import Skeleton from './skeleton.vue';
+export default {
+  props: {},
+  emits: [],
+  components: { Skeleton },
+  setup(props) {
+    const loading = ref(true);
+    onMounted(() => {
+      // mock async req
+      setTimeout(() => {
+        loading.value = false;
+      }, 3000);
+    });
+    return {
+      loading
+    };
+  }
+};
+</script>
+```
 
-## API
+### 属性
 
-### Props
+| 属性       | 类型      | 默认值    | 描述                   |
+| ---------- | --------- | --------- | ---------------------- |
+| `width`    | `String`  | `'100px'` | 骨架屏组件的宽度。     |
+| `height`   | `String`  | `'100px'` | 骨架屏项和标题的高度。 |
+| `animated` | `Boolean` | `false`   | 是否显示动画效果。     |
+| `loading`  | `Boolean` | `false`   | 是否显示骨架屏组件。   |
+| `row`      | `String`  | `'1'`     | 骨架屏组件中的行数。   |
+| `title`    | `Boolean` | `false`   | 是否显示标题。         |
+| `round`    | `Boolean` | `false`   | 是否显示圆角。         |
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+### 插槽
 
-### Events
-
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+- `default`: 在异步请求加载完成后要显示的内容.
