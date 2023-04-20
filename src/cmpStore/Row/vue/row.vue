@@ -1,12 +1,15 @@
 <template>
-  <view :class="classes()">
+  <view
+    :class="classes.join(' ')"
+    :style="styles"
+  >
     <slot></slot>
   </view>
 </template>
 <script lang="ts">
-import { PropType, CSSProperties, toRefs, computed, provide } from "vue"
-import createComponent from "@/utils/vue_component"
-const { componentName, create } = createComponent("row")
+import createComponent from '@/utils/vue_component';
+import { provide } from 'vue';
+const { componentName, create } = createComponent('row');
 export default create({
   props: {
     type: {
@@ -19,41 +22,42 @@ export default create({
     },
     justify: {
       type: String,
-      default: "center"
+      default: 'center'
     },
     align: {
       type: String,
-      default: "flex-center"
+      default: 'flex-center'
     },
-    flex: {
+    wrap: {
       type: String,
-      default: "wrap"
+      default: 'nowrap'
     }
   },
   emits: [],
   setup(props) {
-
-    provide('gutter', props.gutter)
-    const prefixCls = `${componentName}`
-    const gClass = (key:string, val: string)=>{
-      return key ? prefixCls+'-'+key + '-' + val : prefixCls + '-' + val
-    }
-    const classes = ()=>{
-      return `
-        ${prefixCls}
-        ${gClass('', props.type)}
-        ${gClass('align', props.align)}
-        ${gClass('type', props.type)}
-        ${gClass('justify', props.justify)}
-        ${gClass('flex', props.flex)}
-      `
-    }
+    const prefixCls = `${componentName}`;
+    provide('gutter', props.gutter);
+    const generateClass = (key: string, val: string) => {
+      return key ? prefixCls + '-' + key + '-' + val : prefixCls + '-' + val;
+    };
+    const styles = {
+      'column-gap': +props.gutter / 2 + 'px'
+    };
+    const classes = [
+      `${prefixCls}`,
+      generateClass('', props.type),
+      generateClass('align', props.align),
+      generateClass('type', props.type),
+      generateClass('justify', props.justify),
+      generateClass('flex', props.wrap)
+    ];
     return {
-      classes
-    }
-  },
-})
+      classes,
+      styles
+    };
+  }
+});
 </script>
 <style lang="scss">
-  @import '../row.scss'
+@import '../row.scss';
 </style>

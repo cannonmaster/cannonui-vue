@@ -1,4 +1,4 @@
-.chihuoui-col {
+.cannonui-col {
   float: left;
   box-sizing: border-box;
   word-break: break-all;
@@ -14,10 +14,10 @@
 }
 
 @for $i from 1 through 24 {
-  .chihuoui-col-offset-#{$i} {
+  .cannonui-col-offset-#{$i} {
     margin-left: calc(100 / 24) * $i * 1%;
   }
-  .chihuoui-col-#{$i} {
+  .cannonui-col-#{$i} {
     width: calc(100 / 24) * $i * 1%;
   }
 }

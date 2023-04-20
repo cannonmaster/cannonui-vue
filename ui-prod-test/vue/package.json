@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@cannonui/vue": "^0.6.6",
+    "@cannonui/vue": "^0.6.8",
     "vue": "^3.2.47"
   },
   "devDependencies": {
