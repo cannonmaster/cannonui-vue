@@ -1,5 +1,4 @@
 <script lang="ts">
-import { onMounted, reactive, ref } from 'vue';
 export default {
   props: {
     lang: {
@@ -9,64 +8,65 @@ export default {
   },
   emits: [],
   components: {},
-  setup(props) {
-    const loading = ref(true);
-    const state = reactive({
-      title: 'Title',
-      content: `The Skeleton component can be used to improve the user experience of
-          your application by providing visual feedback while content is being
-          loaded. This can reduce the perceived loading time and make your
-          application feel more responsive.`
-    });
-    onMounted(() => {
-      // mock async req
-      setTimeout(() => {
-        loading.value = false;
-      }, 3000);
-    });
-    return {
-      loading,
-      state
-    };
-  }
+  setup(props) {}
 };
 </script>
 
 <template>
-  <div class="phone">
-    <div class="phone-top">Card</div>
-    <div class="phone-content">
-      <section class="cmp-usage__section--showcase">
-        <cannonui-skeleton
-          row="3"
-          animated
-          round
-          title
-          :loading="loading"
-          height="16px"
-          width="300px"
-        >
-          <div
-            class="content"
-            style="width: 300px"
-          >
-            <h4 class="content--title">{{ state.title }}</h4>
-            <div class="content--desc">
-              {{ state.content }}
-            </div>
-          </div>
-        </cannonui-skeleton>
-      </section>
-    </div>
-    <div class="phone-bottom"></div>
-  </div>
+  <cannonui-row
+    type="flex"
+    gutter="20"
+    justify="start"
+    align="flex-center"
+    wrap="nowrap"
+  >
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+  </cannonui-row>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .content--title {
   font-size: 1rem;
 }
 .content--desc {
   font-size: 0.8rem;
+}
+
+.flex-content {
+  line-height: 40px;
+  color: var(--theme-text);
+  text-align: center;
+  border-radius: 6px;
+  // background: #ff8881;
+  background: cyan;
+  &.flex-content-light {
+    background: #ffc7c4;
+  }
+  &.flex-content-height {
+    height: 50px;
+  }
 }
 </style>

@@ -1,3 +1,7 @@
+##  v0.8.2 (2023-04-20)
+- ⚡ added Drag component
+##  v0.8.0 (2023-04-19)
+- ⚡ added Layout component
 ##  v0.6.8 (2023-04-18)
 
 - ⚡ added stackblitz

@@ -1,33 +1,116 @@
 ---
-title: 'Introduction'
-description: 'Docs intro'
+title: 'Layout Component'
+description: 'Layout Component Docs intro'
 layout: '@/layouts/MainLayout.astro'
+cname: 'layout'
 ---
 
 import LayoutVue from '@/cmpStore/Layout/vue/demo.vue';
 
-<LayoutVue />
+The Row and Col components are used to create flexible and responsive layouts in Vue.js applications. The Row component creates a horizontal row that can contain one or more Col components, which are used to define the content within the row.
 
-### 介绍
+### Example Usage
 
-## 代码演示
+<div class="phone">
+  <div class="phone-top">Layout</div>
+  <div class="phone-content">
+    <LayoutVue />
+  </div>
+  <div class="phone-bottom"></div>
+</div>
 
-### 基础用法 1
+Here's an example of how to use the `Layout` component:
 
-## API
+```vue
+<script lang="ts">
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {}
+};
+</script>
+
+<template>
+  <cannonui-row
+    type="flex"
+    gutter="20"
+    justify="start"
+    align="flex-center"
+    wrap="nowrap"
+  >
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+  </cannonui-row>
+</template>
+
+<style scoped lang="scss">
+.content--title {
+  font-size: 1rem;
+}
+.content--desc {
+  font-size: 0.8rem;
+}
+
+.flex-content {
+  line-height: 40px;
+  color: var(--theme-text);
+  text-align: center;
+  border-radius: 6px;
+  // background: #ff8881;
+  background: cyan;
+  &.flex-content-light {
+    background: #ffc7c4;
+  }
+  &.flex-content-height {
+    height: 50px;
+  }
+}
+</style>
+```
 
 ### Props
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+The `Row` component has the following props:
 
-### Events
+| Prop    | Type          | Default       | Description                                                                                                         |
+| ------- | ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- |
+| type    | String        | 'flex'        | The layout mode. Can be set to 'flex' or 'grid'.                                                                    |
+| gutter  | Number/String | 0             | The gap between columns.                                                                                            |
+| justify | String        | 'center'      | The horizontal alignment of columns. Can be set to 'start', 'end', 'center', 'space-around' or 'space-between'.     |
+| align   | String        | 'flex-center' | The vertical alignment of columns. Can be set to 'top', 'middle', 'bottom', 'stretch' or 'baseline'.                |
+| wrap    | String        | 'nowrap'      | Whether to wrap the columns when they exceed the container width. Can be set to 'wrap', 'wrap-reverse' or 'nowrap'. |
 
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+The `Col` component has the following props:
+
+| Prop   | Type          | Default | Description                                                                     |
+| ------ | ------------- | ------- | ------------------------------------------------------------------------------- |
+| span   | Number/String | '24'    | The number of columns occupied by the column.                                   |
+| offset | Number/String | '0'     | The number of columns to offset the column from the left side of the container. |

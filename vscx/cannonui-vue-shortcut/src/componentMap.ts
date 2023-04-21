@@ -13,5 +13,8 @@ export const componentMap: Record<string, ComponentMeta> = {
   },
   col: {
     props: ["span='3' offset='0'"]
+  },
+  drag: {
+    props: ["attract='false' direction='all' style=''"]
   }
 };

@@ -1,32 +1,116 @@
 ---
-title: "Introduction"
-description: "Docs intro"
-layout: "@/layouts/MainLayout.astro"
+title: 'Layout 布局组件'
+description: 'Layout Docs intro'
+layout: '@/layouts/MainLayout.astro'
+cname: 'layout'
 ---
 
-import LayoutReact from "@/cmpStore/Layout/react"
-import LayoutVue from "@/cmpStore/Layout/vue"
+import LayoutVue from '@/cmpStore/Layout/vue/demo.vue';
 
-### 介绍
+Row 和 Col 组件在 Vue.js 应用程序中用于创建灵活和响应式的布局。Row 组件创建一个水平行，可以包含一个或多个 Col 组件，用于定义行中的内容。
 
-## 代码演示
+### 效果展示
 
-### 基础用法 1
+<div class="phone">
+  <div class="phone-top">布局组件</div>
+  <div class="phone-content">
+    <LayoutVue />
+  </div>
+  <div class="phone-bottom"></div>
+</div>
 
-## API
+这里是在 Vue.js 应用程序中如何使用 Layout 组件的示例：
+
+```vue
+<script lang="ts">
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {}
+};
+</script>
+
+<template>
+  <cannonui-row
+    type="flex"
+    gutter="20"
+    justify="start"
+    align="flex-center"
+    wrap="nowrap"
+  >
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+    <cannonui-col
+      span="3"
+      offset="0"
+    >
+      <div class="flex-content">span:3</div>
+    </cannonui-col>
+  </cannonui-row>
+</template>
+
+<style scoped lang="scss">
+.content--title {
+  font-size: 1rem;
+}
+.content--desc {
+  font-size: 0.8rem;
+}
+
+.flex-content {
+  line-height: 40px;
+  color: var(--theme-text);
+  text-align: center;
+  border-radius: 6px;
+  // background: #ff8881;
+  background: cyan;
+  &.flex-content-light {
+    background: #ffc7c4;
+  }
+  &.flex-content-height {
+    height: 50px;
+  }
+}
+</style>
+```
 
 ### Props
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+`Row`组件具有以下属性：
 
-### Events
+| 属性名  | 类型          | 默认值        | 描述                                                                                  |
+| ------- | ------------- | ------------- | ------------------------------------------------------------------------------------- |
+| type    | String        | 'flex'        | 布局模式。可设置为'flex'或'grid'。                                                    |
+| gutter  | Number/String | 0             | 列之间的间隙。                                                                        |
+| justify | String        | 'center'      | 列的水平对齐方式。可设置为'start'，'end'，'center'，'space-around'或'space-between'。 |
+| align   | String        | 'flex-center' | 列的垂直对齐方式。可设置为'top'，'middle'，'bottom'，'stretch'或'baseline'。          |
+| wrap    | String        | 'nowrap'      | 当列超出容器宽度时是否换行。可设置为'wrap'，'wrap-reverse'或'nowrap'。                |
 
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+`Col`组件具有以下属性：
+
+| 属性名 | 类型          | 默认值 | 描述                 |
+| ------ | ------------- | ------ | -------------------- |
+| span   | Number/String | '24'   | 列占据的栅格数。     |
+| offset | Number/String | '0'    | 列左侧的偏移栅格数。 |

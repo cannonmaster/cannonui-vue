@@ -1,33 +1,70 @@
 ---
-title: 'Introduction'
-description: 'Docs intro'
+title: '拖拽组件'
+description: 'drag 组件文档介绍'
 layout: '@/layouts/MainLayout.astro'
+cname: 'drag'
 ---
 
 import DragVue from '@/cmpStore/Drag/vue/demo.vue';
 
-<DragVue />
+此组件允许您在指定的方向和边界内拖动元素。
 
-### 介绍
+### 效果展示
 
-## 代码演示
+<DragVue client:visible />
 
-### 基础用法 1
+以下是如何使用拖拽组件的代码示例：
 
-## API
+```vue
+<script lang="ts">
+import { onMounted, reactive, ref } from 'vue';
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {}
+};
+</script>
+
+<template>
+  <div>
+    <cannonui-drag direction="all">
+      <span style="padding: 10px; background: cyan">drag</span>
+    </cannonui-drag>
+  </div>
+  <div>
+    <cannonui-drag direction="x">
+      <span style="padding: 10px 20px; background: pink">x</span>
+    </cannonui-drag>
+  </div>
+  <div>
+    <cannonui-drag direction="y">
+      <span style="padding: 10px 20px; background: orange">y</span>
+    </cannonui-drag>
+  </div>
+  <div>
+    <cannonui-drag
+      attract
+      direction="all"
+    >
+      <span style="padding: 10px 20px; background: cyan">abc123</span>
+    </cannonui-drag>
+  </div>
+</template>
+
+<style scoped lang="scss"></style>
+```
 
 ### Props
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
-
-### Events
-
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+| Prop      | Type   | Description                             |
+| --------- | ------ | --------------------------------------- |
+| attract   | bool   | 指定是否将被拖动的元素吸附到边界。      |
+| direction | string | 指定可以拖动元素的方向。默认值为“all”。 |
+| style     | string | 指定元素的样式。                        |
+| boundary  | object | 指定被拖动元素的边界的对象。            |
