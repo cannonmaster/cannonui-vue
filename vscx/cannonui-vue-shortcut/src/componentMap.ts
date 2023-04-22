@@ -16,5 +16,8 @@ export const componentMap: Record<string, ComponentMeta> = {
   },
   drag: {
     props: ["attract='false' direction='all' style=''"]
+  },
+  switch: {
+    props: ["modelValue='false' activeValue='true' inactiveValue='false' disable='false' activeColor='' inactiveColor='' activeText='' inactiveText=''"]
   }
 };

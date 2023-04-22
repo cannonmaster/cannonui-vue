@@ -1,33 +1,43 @@
 ---
-title: 'Introduction'
+title: 'Switch Component Introduction'
 description: 'Docs intro'
 layout: '@/layouts/MainLayout.astro'
+cname: 'switch'
 ---
 
 import SwitchVue from '@/cmpStore/Switch/vue/demo.vue';
 
+The switch component is a reusable UI element that can be used to represent an on/off or true/false state in a web application. The code provided is a Vue 3 implementation of the switch component that can be easily integrated into a Vue application.
+
+### Example Usages
+
 <SwitchVue client:visible />
 
-### 介绍
+Here’s an example of how to use the Card component:
 
-## 代码演示
+```vue
 
-### 基础用法 1
-
-## API
+```
 
 ### Props
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+| Prop Name     | Type                       | Default Value | Description                                            |
+| ------------- | -------------------------- | ------------- | ------------------------------------------------------ |
+| modelValue    | String or Boolean          | false         | The current value of the switch                        |
+| activeValue   | String, Number, or Boolean | true          | The value of the switch when it is active              |
+| inactiveValue | String, Number, or Boolean | false         | The value of the switch when it is inactive            |
+| loading       | Boolean                    | false         | Whether the switch is in a loading state               |
+| disable       | Boolean                    | false         | Whether the switch is disabled                         |
+| activeColor   | String                     | ""            | The background color of the switch when it is active   |
+| inactiveColor | String                     | ""            | The background color of the switch when it is inactive |
+| activeText    | String                     | ""            | The text to display when the switch is active          |
+| inactiveText  | String                     | ""            | The text to display when the switch is inactive        |
 
 ### Events
 
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+## Events
+
+| Event Name          | Payload                                      | Description                                                               |
+| ------------------- | -------------------------------------------- | ------------------------------------------------------------------------- |
+| `update:modelValue` | `String`, `Number`, or `Boolean`             | This event is emitted whenever the value of the switch component changes. |
+| `change`            | `String`, `Number`, or `Boolean` and `Event` | This event is emitted whenever the value of the switch component changes. |

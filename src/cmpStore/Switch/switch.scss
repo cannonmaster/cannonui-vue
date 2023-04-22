@@ -1,4 +1,4 @@
-.chihuoui-switch {
+.cannonui-switch {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -22,7 +22,7 @@
     border-radius: 50%;
     background: $white;
     transition: transform 0.3s;
-    .chihuoui-switch-label {
+    .cannonui-switch-label {
       color: $white;
       font-size: $font-size-1;
       &.open {

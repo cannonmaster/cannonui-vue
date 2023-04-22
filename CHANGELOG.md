@@ -1,3 +1,5 @@
+##  v0.8.6 (2023-04-21)
+- ⚡ added Switch component
 ##  v0.8.2 (2023-04-20)
 - ⚡ added Drag component
 ##  v0.8.0 (2023-04-19)

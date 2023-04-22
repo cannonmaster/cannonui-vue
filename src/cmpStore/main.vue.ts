@@ -4,9 +4,10 @@ import Skeleton from './Skeleton/vue';
 import Col from './Col/vue';
 import Row from './Row/vue';
 import Drag from './Drag/vue';
+import Switch from './Switch/vue';
 const version = '0.9.0';
 function install(app: App) {
-  const packages = [Card,Skeleton, Col, Row, Drag];
+  const packages = [Card, Switch, Skeleton, Col, Row, Drag];
 
   packages.forEach((pkg: any) => {
     if (pkg.install) {
@@ -16,5 +17,5 @@ function install(app: App) {
     }
   });
 }
-export { install, Card, Skeleton, Col, Row, Drag };
+export { install, Card, Skeleton, Col, Row, Switch, Drag };
 export default { install, version };
