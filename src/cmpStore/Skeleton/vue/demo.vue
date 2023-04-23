@@ -7,53 +7,59 @@
 }
 </style>
 <template>
-  <section class="cmp-usage__section">
-    <h2 class="cmp-usage__title">{{ state.h2_title.round }}</h2>
-    <section class="cmp-usage__section--showcase">
-      <Skeleton
-        row="3"
-        animated
-        round
-        title
-        :loading="loading"
-        height="16px"
-        width="300px"
-      >
-        <div
-          class="content"
-          style="width: 300px"
-        >
-          <h4 class="content--title">{{ state.title }}</h4>
-          <div class="content--desc">
-            {{ state.content }}
-          </div>
-        </div>
-      </Skeleton>
-    </section>
-  </section>
-  <section class="cmp-usage__section">
-    <h2 class="cmp-usage__title">{{ state.h2_title.basic }}</h2>
-    <section class="cmp-usage__section--showcase">
-      <Skeleton
-        row="3"
-        animated
-        title
-        :loading="loading"
-        height="20px"
-        width="300px"
-      >
-        <div
-          class="content"
-          style="width: 300px"
-        >
-          <h4 class="content--title">{{ state.title }}</h4>
-          <div class="content--desc">
-            {{ state.content }}
-          </div>
-        </div>
-      </Skeleton>
-    </section>
-  </section>
+  <div class="phone">
+    <div class="phone-top">Skeleton</div>
+    <div class="phone-content">
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ state.h2_title.round }}</h2>
+        <section class="cmp-usage__section--showcase">
+          <Skeleton
+            row="3"
+            animated
+            round
+            title
+            :loading="loading"
+            height="16px"
+            width="300px"
+          >
+            <div
+              class="content"
+              style="width: 300px"
+            >
+              <h4 class="content--title">{{ state.title }}</h4>
+              <div class="content--desc">
+                {{ state.content }}
+              </div>
+            </div>
+          </Skeleton>
+        </section>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ state.h2_title.basic }}</h2>
+        <section class="cmp-usage__section--showcase">
+          <Skeleton
+            row="3"
+            animated
+            title
+            :loading="loading"
+            height="20px"
+            width="300px"
+          >
+            <div
+              class="content"
+              style="width: 300px"
+            >
+              <h4 class="content--title">{{ state.title }}</h4>
+              <div class="content--desc">
+                {{ state.content }}
+              </div>
+            </div>
+          </Skeleton>
+        </section>
+      </section>
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
 </template>
 <script lang="ts">
 import { onMounted, reactive, ref } from 'vue';

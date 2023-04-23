@@ -5,9 +5,10 @@ import Col from './Col/vue';
 import Row from './Row/vue';
 import Drag from './Drag/vue';
 import Switch from './Switch/vue';
+import InfiniteLoading from './InfiniteLoading/vue';
 const version = '0.9.0';
 function install(app: App) {
-  const packages = [Card, Switch, Skeleton, Col, Row, Drag];
+  const packages = [Card, Switch, Skeleton, Col, Row, Drag, InfiniteLoading];
 
   packages.forEach((pkg: any) => {
     if (pkg.install) {

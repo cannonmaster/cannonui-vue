@@ -1,33 +1,107 @@
 ---
-title: 'Introduction'
-description: 'Docs intro'
+title: '开关组件介绍'
+description: '文档简介'
 layout: '@/layouts/MainLayout.astro'
+cname: 'switch'
 ---
 
 import SwitchVue from '@/cmpStore/Switch/vue/demo.vue';
 
-<SwitchVue />
+开关组件是一种可重用的 UI 元素，可用于表示 Web 应用程序中的开/关或真/假状态。提供的代码是开关组件的 Vue 3 实现，可以轻松集成到 Vue 应用程序中。
 
-### 介绍
+### 效果展示
 
-## 代码演示
+<SwitchVue
+  client:visible
+  lang="zh-CN"
+/>
 
-### 基础用法 1
+下面是使用卡片组件的示例：
 
-## API
+```vue
+<script lang="ts">
+import { ref } from 'vue';
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {
+    const isAsync = ref(false);
+    const change = (value: Boolean, e: any) => {
+      console.log('change function called');
+    };
+    const changeAsync = (value: Boolean, e: any) => {
+      setTimeout(() => {
+        isAsync.value = !isAsync.value;
+      }, 2000);
+    };
+    const checked = ref(false);
+    return {
+      checked,
+      isAsync,
+      changeAsync,
+      change
+    };
+  }
+};
+</script>
 
-### Props
+<template>
+  <h2>Basic</h2>
+  <cannonui-switch v-model="checked" />
+  <h2>Disabled</h2>
+  <cannonui-switch
+    disable
+    v-model="checked"
+  />
+  <h2>onChange</h2>
+  <cannonui-switch
+    v-model="checked"
+    @change="change"
+  />
+  <h2>Async</h2>
+  <cannonui-switch
+    :model-Value="isAsync"
+    @change="changeAsync"
+  />
+  <h2>Customize color</h2>
+  <cannonui-switch
+    v-model="checked"
+    activeColor="cyan"
+  />
+  <h2>Customize text</h2>
+  <cannonui-switch
+    v-model="checked"
+    activeText="开"
+    inactiveText="关"
+  />
+</template>
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+<style scoped lang="scss"></style>
+```
 
-### Events
+### 属性
 
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+| 属性名称      | 类型                      | 默认值 | 描述                           |
+| ------------- | ------------------------- | ------ | ------------------------------ |
+| modelValue    | String 或 Boolean         | false  | 开关的当前值                   |
+| activeValue   | String，Number 或 Boolean | true   | 开关处于激活状态时的值         |
+| inactiveValue | String，Number 或 Boolean | false  | 开关处于非激活状态时的值       |
+| loading       | Boolean                   | false  | 开关是否处于加载状态           |
+| disable       | Boolean                   | false  | 开关是否被禁用                 |
+| activeColor   | String                    | ""     | 开关处于激活状态时的背景色     |
+| inactiveColor | String                    | ""     | 开关处于非激活状态时的背景色   |
+| activeText    | String                    | ""     | 开关处于激活状态时显示的文本   |
+| inactiveText  | String                    | ""     | 开关处于非激活状态时显示的文本 |
+
+### 事件
+
+| 事件名称            | 负载                                   | 描述                                       |
+| ------------------- | -------------------------------------- | ------------------------------------------ |
+| `update:modelValue` | `String`，`Number`或`Boolean`          | 每当开关组件的值发生变化时，将发出此事件。 |
+| `change`            | `String`，`Number`或`Boolean`和`Event` | 每当开关组件的值发生变化时，将发出此事件。 |

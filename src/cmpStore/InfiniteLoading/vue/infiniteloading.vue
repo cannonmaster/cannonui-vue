@@ -1,13 +1,11 @@
 <style lang="scss" scoped>
-@import "../infiniteloading.scss";
+@import '../infiniteloading.scss';
 </style>
 <template>
-  <view :class="classes" ref="scroller">
-    <div class="infinite-top" ref="infiniteTop" :style="styles">
-      <div class="top-content">
-        <span class="title">{{ loadingText }}</span>
-      </div>
-    </div>
+  <view
+    :class="classes"
+    ref="scroller"
+  >
     <view class="infinite-body">
       <slot></slot>
     </view>
@@ -22,12 +20,9 @@
   </view>
 </template>
 <script lang="ts">
-import { ref, PropType, CSSProperties, toRefs, computed, onMounted, reactive, onUnmounted } from "vue"
-import createComponent from "@/utils/vue_component"
-import { useDrag, useScroll, useGesture } from '@vueuse/gesture'
-import { useSpring, useMotionProperties } from '@vueuse/motion'
-import { emit } from "process"
-const { componentName, create } = createComponent("infiniteloading")
+import createComponent from '@/utils/vue_component';
+import { computed, onMounted, onUnmounted, reactive, ref, toRefs } from 'vue';
+const { componentName, create } = createComponent('infiniteloading');
 export default create({
   props: {
     loadingText: {
@@ -44,7 +39,7 @@ export default create({
     },
     threshold: {
       type: Number,
-      default: 20
+      default: 0
     },
     hasMore: {
       type: Boolean,
@@ -53,122 +48,78 @@ export default create({
   },
   emits: ['loadMore', 'refreshOnPull'],
   setup(props, { emit }) {
-    const scroller = ref()
-    const infiniteTop = ref()
-    const parentEle = ref()
-    const { motionProperties } = useMotionProperties(scroller, {
-      cursor: 'grab',
-      x: 0,
-      y: 0
-    })
-
+    const scroller = ref();
+    const infiniteTop = ref();
+    const parentEle = ref();
     const info = reactive({
       top: 0,
       isTouching: false,
       isLoadingMore: false,
       prevScrollTop: 0,
-      direction: 'down'
-    })
-    const topRefreshHeight = ref(0)
-    const { set } = useSpring(motionProperties as any)
-    const gesture = useGesture(
-      {
-        onDrag: ({ offset: [x, y], movement: [moveX, moveY], dragging }) => {
-          info.isTouching = true
-          const { scrollTop } = parentEle.value
-          console.log(scrollTop);
+      direction: 'down',
+      totalHeight: 0
+    });
 
-          if (scrollTop === 0) {
-            if (moveY <= topRefreshHeight.value) {
-              info.top = moveY
-            }
-            else {
-              info.top = topRefreshHeight.value
-            }
-          }
-        },
-        onDragEnd: async ({ offset: [x, y], movement: [moveX, moveY] }) => {
-          info.isTouching = false
-          const { scrollTop } = parentEle.value
-          if (props.isRefreshOnPull && moveY >= topRefreshHeight.value && scrollTop === 0) {
-            emit('refreshOnPull', () => { info.top = 0 })
-          }
-        },
-      },
-      {
-        domTarget: scroller,
-        eventOptions: {
-          passive: false
-        }
-      }
-    )
-    const getParentEle = (el: HTMLElement) => {
-      // parentEle.value = el && el.parentNode
-      return el && el.parentNode
-    }
+    onMounted(() => {
+      parentEle.value = getParentEle(scroller.value as HTMLElement);
+      parentEle.value.addEventListener('scroll', handleScroll);
+    });
 
-    const styles = computed(() => {
-
-      return {
-        height: info.top < 0 ? 0 : `${info.top}px`,
-        transition: info.isTouching ? 'height 0s cubic-bezier(0.25,0.1,0.25,1)' : 'height 0.2s cubic-bezier(0.25,0.1,0.25,1)'
-      }
-    })
-    const classes = computed(() => {
-      return {
-        [componentName]: true
-      }
-    })
-    const getInfo = () => {
-      topRefreshHeight.value = ((infiniteTop.value as HTMLDivElement).firstElementChild as HTMLElement).offsetHeight + 10
-    }
-
-    const isScrollingBottom = () => {
-      const { scrollHeight, scrollTop, clientHeight } = parentEle.value
-      const offsetDistance = scrollHeight - scrollTop - clientHeight
-      if (info.prevScrollTop < scrollTop) {
-        info.direction = 'down'
-      } else {
-        info.direction = 'up'
-      }
-      info.prevScrollTop = scrollTop
-
-      return offsetDistance <= props.threshold && info.direction === 'down'
-    }
-
-    const loadingCompleted = () => {
-      info.isLoadingMore = false
-    }
-
+    onUnmounted(() => {
+      parentEle.value.removeEventListener('scroll', handleScroll);
+    });
     const handleScroll = () => {
       requestAnimationFrame(() => {
         if (!isScrollingBottom() || !props.hasMore || info.isLoadingMore)
-          return false
+          return false;
 
-        info.isLoadingMore = true
-        emit('loadMore', loadingCompleted)
-      })
-    }
+        info.isLoadingMore = true;
+        emit('loadMore', loadingCompleted);
+      });
+    };
 
-    onMounted(() => {
-      getInfo()
-      parentEle.value = getParentEle(scroller.value as HTMLElement)
-      parentEle.value.addEventListener('scroll',
-        handleScroll
-      )
-    })
+    const getParentEle = (el: HTMLElement) => {
+      return el && el.parentNode;
+    };
 
-    onUnmounted(() => {
-      parentEle.value.removeEventListener('scroll', handleScroll)
-    })
+    const styles = computed(() => {
+      return {
+        height: info.top < 0 ? 0 : `${info.top}px`,
+        transition: info.isTouching
+          ? 'height 0s cubic-bezier(0.25,0.1,0.25,1)'
+          : 'height 0.6s cubic-bezier(0.25,0.1,0.25,1)'
+      };
+    });
+    const classes = computed(() => {
+      return {
+        [componentName]: true
+      };
+    });
+
+    const isScrollingBottom = () => {
+      const { scrollHeight, scrollTop, clientHeight } = parentEle.value;
+      if (info.prevScrollTop < scrollTop) {
+        info.direction = 'down';
+      } else {
+        info.direction = 'up';
+      }
+      const offsetDistance = scrollHeight - scrollTop - clientHeight;
+      info.prevScrollTop = scrollTop;
+
+      return offsetDistance <= props.threshold && info.direction === 'down';
+    };
+
+    const loadingCompleted = () => {
+      info.isLoadingMore = false;
+    };
 
     return {
       classes,
       scroller,
       styles,
       infiniteTop,
-      ...toRefs(info),
-    }
-  },
-})
+      ...toRefs(info)
+    };
+  }
+});
 </script>

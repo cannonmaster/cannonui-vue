@@ -1,81 +1,87 @@
 <template>
-  <section class="cmp-usage__section">
-    <h2 class="cmp-usage__title">{{ state.h2_title.basic }} - 8 * 3</h2>
-    <section class="cmp-usage__section--showcase">
-      <Row>
-        <Col span="8">
-          <div class="flex-content">span:8</div>
-        </Col>
-        <Col span="8">
-          <div class="flex-content">span:8</div>
-        </Col>
-        <Col span="8">
-          <div class="flex-content">span:8</div>
-        </Col>
-      </Row>
-    </section>
-  </section>
-  <section class="cmp-usage__section">
-    <h2 class="cmp-usage__title">{{ state.h2_title.basic }} - 24 * 1</h2>
-    <section class="cmp-usage__section--showcase">
-      <Row>
-        <Col span="24">
-          <div class="flex-content">span:24</div>
-        </Col>
-      </Row>
-    </section>
-  </section>
-  <section class="cmp-usage__section">
-    <h2 class="cmp-usage__title">{{ state.h2_title.offset }} - offset6</h2>
-    <section class="cmp-usage__section--showcase">
-      <Row gutter="20">
-        <Col
-          span="6"
-          offset="6"
-        >
-          <div class="flex-content">span:6</div>
-        </Col>
-        <Col span="12">
-          <div class="flex-content">span:12</div>
-        </Col>
-      </Row>
-    </section>
-  </section>
-  <section class="cmp-usage__section">
-    <h2 class="cmp-usage__title">{{ state.h2_title.gutter }}</h2>
-    <section class="cmp-usage__section--showcase">
-      <Row gutter="20">
-        <Col span="8">
-          <div class="flex-content">span:8</div>
-        </Col>
-        <Col span="8">
-          <div class="flex-content">span:8</div>
-        </Col>
-        <Col span="8">
-          <div class="flex-content">span:8</div>
-        </Col>
-      </Row>
-    </section>
-  </section>
-  <section class="cmp-usage__section">
-    <h2 class="cmp-usage__title">{{ state.h2_title.basic }} - offset4</h2>
-    <section class="cmp-usage__section--showcase">
-      <Row gutter="20">
-        <Col
-          span="6"
-          offset="4"
-        >
-          <div class="flex-content">span:6</div>
-        </Col>
-        <Col span="6">
-          <div class="flex-content">span:6</div>
-        </Col>
-        <Col span="8">
-          <div class="flex-content">span:8</div>
-        </Col>
-      </Row>
-    </section>
-  </section>
+  <div class="phone">
+    <div class="phone-top">Layout</div>
+    <div class="phone-content">
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ state.h2_title.basic }} - 8 * 3</h2>
+        <section class="cmp-usage__section--showcase">
+          <Row>
+            <Col span="8">
+              <div class="flex-content">span:8</div>
+            </Col>
+            <Col span="8">
+              <div class="flex-content">span:8</div>
+            </Col>
+            <Col span="8">
+              <div class="flex-content">span:8</div>
+            </Col>
+          </Row>
+        </section>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ state.h2_title.basic }} - 24 * 1</h2>
+        <section class="cmp-usage__section--showcase">
+          <Row>
+            <Col span="24">
+              <div class="flex-content">span:24</div>
+            </Col>
+          </Row>
+        </section>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ state.h2_title.offset }} - offset6</h2>
+        <section class="cmp-usage__section--showcase">
+          <Row gutter="20">
+            <Col
+              span="6"
+              offset="6"
+            >
+              <div class="flex-content">span:6</div>
+            </Col>
+            <Col span="12">
+              <div class="flex-content">span:12</div>
+            </Col>
+          </Row>
+        </section>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ state.h2_title.gutter }}</h2>
+        <section class="cmp-usage__section--showcase">
+          <Row gutter="20">
+            <Col span="8">
+              <div class="flex-content">span:8</div>
+            </Col>
+            <Col span="8">
+              <div class="flex-content">span:8</div>
+            </Col>
+            <Col span="8">
+              <div class="flex-content">span:8</div>
+            </Col>
+          </Row>
+        </section>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ state.h2_title.basic }} - offset4</h2>
+        <section class="cmp-usage__section--showcase">
+          <Row gutter="20">
+            <Col
+              span="6"
+              offset="4"
+            >
+              <div class="flex-content">span:6</div>
+            </Col>
+            <Col span="6">
+              <div class="flex-content">span:6</div>
+            </Col>
+            <Col span="8">
+              <div class="flex-content">span:8</div>
+            </Col>
+          </Row>
+        </section>
+      </section>
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
 </template>
 <style lang="scss" scoped>
 @import '../demo.scss';

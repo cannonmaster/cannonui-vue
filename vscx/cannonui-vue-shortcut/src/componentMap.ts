@@ -18,6 +18,10 @@ export const componentMap: Record<string, ComponentMeta> = {
     props: ["attract='false' direction='all' style=''"]
   },
   switch: {
-    props: ["modelValue='false' activeValue='true' inactiveValue='false' disable='false' activeColor='' inactiveColor='' activeText='' inactiveText=''"]
+    props: ["modelValue='false' activeValue='true' inactiveValue='false' disable activeColor='' inactiveColor='' activeText='' inactiveText=''"]
+  },
+  infiniteloading: {
+    props: ["loadingText='' hasNoMoreData='' threshold='' :hasMore='fn' "]
   }
-};
+}
+;

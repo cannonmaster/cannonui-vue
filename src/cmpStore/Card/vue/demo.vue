@@ -26,89 +26,97 @@
 }
 </style>
 <template>
-  <section class="cmp-usage__section">
-    <h2 class="cmp-usage__title">{{ state.h2_title.basic }}</h2>
-    <section class="cmp-usage__section--showcase">
-      <Card
-        :img-url="state.imgUrl"
-        :title="state.title"
-        :price="state.price"
-        :vipPrice="state.vipPrice"
-        :shopDesc="state.shopDesc"
-        :delivery="state.delivery"
-        :shopName="state.shopName"
-        :symbol="state.symbol"
-      >
-      </Card>
-    </section>
-  </section>
-  <section class="cmp-usage__section">
-    <h2 class="cmp-usage__title">{{ state.h2_title.custom_prolist_tag }}</h2>
-    <section class="cmp-usage__section--showcase">
-      <Card
-        :img-url="state.imgUrl"
-        :title="state.title"
-        :price="state.price"
-        :vipPrice="state.vipPrice"
-        :shopDesc="state.shopDesc"
-        :delivery="state.delivery"
-        :shopName="state.shopName"
-        :symbol="state.symbol"
-      >
-        <template #prolist>
-          <div class="prolist-tag-group">
-            <span
-              class="prolist-tag"
-              v-for="item in state.prolist"
-              >{{ item }}</span
-            >
-          </div>
-        </template>
-      </Card>
-    </section>
-  </section>
-  <section class="cmp-usage__section">
-    <h2 class="cmp-usage__title">{{ state.h2_title.custom_shop_desc }}</h2>
-    <section class="cmp-usage__section--showcase">
-      <Card
-        :img-url="state.imgUrl"
-        :title="state.title"
-        :price="state.price"
-        :vipPrice="state.vipPrice"
-        :shopDesc="state.shopDesc"
-        :delivery="state.delivery"
-        :shopName="state.shopName"
-        :symbol="state.symbol"
-      >
-        <template #shop-custom-desc>
-          <div class="custom-desc">
-            {{ state.shopCustomDesc }}
-          </div>
-        </template>
-      </Card>
-    </section>
-  </section>
-  <section class="cmp-usage__section">
-    <h2 class="cmp-usage__title">{{ state.h2_title.custom_footer }}</h2>
-    <section class="cmp-usage__section--showcase">
-      <Card
-        :img-url="state.imgUrl"
-        :title="state.title"
-        :price="state.price"
-        :vipPrice="state.vipPrice"
-        :shopDesc="state.shopDesc"
-        :delivery="state.delivery"
-        :shopName="state.shopName"
-        :symbol="state.symbol"
-      >
-        <template #footer>
-          <div class="custom-footer">
-            {{ state.shopCustomFooter }}
-          </div>
-        </template>
-      </Card>
-    </section>
-  </section>
+  <div class="phone">
+    <div class="phone-top">Skeleton</div>
+    <div class="phone-content">
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ state.h2_title.basic }}</h2>
+        <section class="cmp-usage__section--showcase">
+          <Card
+            :img-url="state.imgUrl"
+            :title="state.title"
+            :price="state.price"
+            :vipPrice="state.vipPrice"
+            :shopDesc="state.shopDesc"
+            :delivery="state.delivery"
+            :shopName="state.shopName"
+            :symbol="state.symbol"
+          >
+          </Card>
+        </section>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">
+          {{ state.h2_title.custom_prolist_tag }}
+        </h2>
+        <section class="cmp-usage__section--showcase">
+          <Card
+            :img-url="state.imgUrl"
+            :title="state.title"
+            :price="state.price"
+            :vipPrice="state.vipPrice"
+            :shopDesc="state.shopDesc"
+            :delivery="state.delivery"
+            :shopName="state.shopName"
+            :symbol="state.symbol"
+          >
+            <template #prolist>
+              <div class="prolist-tag-group">
+                <span
+                  class="prolist-tag"
+                  v-for="item in state.prolist"
+                  >{{ item }}</span
+                >
+              </div>
+            </template>
+          </Card>
+        </section>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ state.h2_title.custom_shop_desc }}</h2>
+        <section class="cmp-usage__section--showcase">
+          <Card
+            :img-url="state.imgUrl"
+            :title="state.title"
+            :price="state.price"
+            :vipPrice="state.vipPrice"
+            :shopDesc="state.shopDesc"
+            :delivery="state.delivery"
+            :shopName="state.shopName"
+            :symbol="state.symbol"
+          >
+            <template #shop-custom-desc>
+              <div class="custom-desc">
+                {{ state.shopCustomDesc }}
+              </div>
+            </template>
+          </Card>
+        </section>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ state.h2_title.custom_footer }}</h2>
+        <section class="cmp-usage__section--showcase">
+          <Card
+            :img-url="state.imgUrl"
+            :title="state.title"
+            :price="state.price"
+            :vipPrice="state.vipPrice"
+            :shopDesc="state.shopDesc"
+            :delivery="state.delivery"
+            :shopName="state.shopName"
+            :symbol="state.symbol"
+          >
+            <template #footer>
+              <div class="custom-footer">
+                {{ state.shopCustomFooter }}
+              </div>
+            </template>
+          </Card>
+        </section>
+      </section>
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
 </template>
 
 <script lang="ts">

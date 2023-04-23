@@ -16,7 +16,70 @@ The switch component is a reusable UI element that can be used to represent an o
 Here’s an example of how to use the Card component:
 
 ```vue
+<script lang="ts">
+import { ref } from 'vue';
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {
+    const isAsync = ref(false);
+    const change = (value: Boolean, e: any) => {
+      console.log('change function called');
+    };
+    const changeAsync = (value: Boolean, e: any) => {
+      setTimeout(() => {
+        isAsync.value = !isAsync.value;
+      }, 2000);
+    };
+    const checked = ref(false);
+    return {
+      checked,
+      isAsync,
+      changeAsync,
+      change
+    };
+  }
+};
+</script>
 
+<template>
+  <h2>Basic</h2>
+  <cannonui-switch v-model="checked" />
+  <h2>Disabled</h2>
+  <cannonui-switch
+    disable
+    v-model="checked"
+  />
+  <h2>onChange</h2>
+  <cannonui-switch
+    v-model="checked"
+    @change="change"
+  />
+  <h2>Async</h2>
+  <cannonui-switch
+    :model-Value="isAsync"
+    @change="changeAsync"
+  />
+  <h2>Customize color</h2>
+  <cannonui-switch
+    v-model="checked"
+    activeColor="cyan"
+  />
+  <h2>Customize text</h2>
+  <cannonui-switch
+    v-model="checked"
+    activeText="开"
+    inactiveText="关"
+  />
+</template>
+
+<style scoped lang="scss"></style>
 ```
 
 ### Props

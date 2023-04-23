@@ -1,6 +1,6 @@
 import sidebar from './sidebar.json';
 export const SITE = {
-  title: 'Documentation',
+  title: '??? UI',
   description: 'Your website description.',
   defaultLanguage: 'en_US',
 };
