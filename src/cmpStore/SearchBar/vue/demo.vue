@@ -1,27 +1,74 @@
-<style lang="scss" scoped>
-@import "../searchbar.scss";
-</style>
+<style lang="scss" scoped></style>
 <template>
-  <h3>基本使用</h3>
-  <SearchBar v-model="searchValue" placeholder="基本使用" background="cyan" :focus-style="{ border: '1px solid cyan' }" />
-  <h3>基本使用</h3>
-  <SearchBar v-model="searchValue" placeholder="基本使用" background="yellow" label="测试" shape="round"
-    :focus-style="{ border: '1px solid cyan' }" />
+  <div class="phone">
+    <div class="phone-top">Search</div>
+    <div class="phone-content">
+      <h3>{{ h2_title.basic }}</h3>
+      <SearchBar
+        v-model="searchValue"
+        :placeholder="h2_title.basic"
+        background="cyan"
+        :focus-style="{ border: '1px solid cyan' }"
+      />
+      <h3></h3>
+      <SearchBar
+        v-model="searchValue"
+        :placeholder="h2_title.round"
+        background="yellow"
+        :label="h2_title.leftText"
+        shape="round"
+        :focus-style="{ border: '1px solid cyan' }"
+      />
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
 </template>
 <script lang="ts">
-import { reactive, toRefs } from "vue";
-import SearchBar from "./searchbar.vue"
+interface Translation {
+  [key: string]: {
+    h2_title: {
+      basic: string;
+      round: string;
+      leftText: string;
+    };
+  };
+}
+const translation: Translation = {
+  en: {
+    h2_title: {
+      basic: 'Basic',
+      round: 'Round',
+      leftText: 'left label'
+    }
+  },
+  'zh-CN': {
+    h2_title: {
+      basic: '基本使用',
+      round: '圆角',
+      leftText: '左标签'
+    }
+  }
+};
+import { reactive, toRefs } from 'vue';
+import SearchBar from './searchbar.vue';
 export default {
-  props: {},
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
   emits: [],
   components: { SearchBar },
   setup(props) {
+    const { lang } = props;
     const state = reactive({
-      searchValue: ''
-    })
+      searchValue: '',
+      ...translation[lang]
+    });
     return {
       ...toRefs(state)
-    }
-  },
-}
+    };
+  }
+};
 </script>

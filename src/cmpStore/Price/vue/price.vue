@@ -48,7 +48,7 @@ export default create({
     },
     symbol: {
       type: String,
-      default: '¥'
+      default: '$'
     },
     price: {
       type: [String, Number],

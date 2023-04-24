@@ -1,33 +1,92 @@
 ---
-title: 'Introduction'
-description: 'Docs intro'
+title: 'Search 组件介绍'
+description: 'Search 文档介绍'
 layout: '@/layouts/MainLayout.astro'
+cname: 'search'
 ---
 
 import SearchBarVue from '@/cmpStore/SearchBar/vue/demo.vue';
 
-<SearchBarVue client:visible />
+CannonUI 搜索栏组件是一个可定制的 Vue.js 组件，用于创建搜索栏。
 
-### 介绍
+### 使用示例
 
-## 代码演示
+<SearchBarVue
+  lang="zh-CN"
+  client:visible
+/>
 
-### 基础用法 1
+这是一个使用 Card 组件的示例：
 
-## API
+```vue
+<style lang="scss" scoped></style>
+<template>
+  <div class="phone">
+    <div class="phone-top">Skeleton</div>
+    <div class="phone-content">
+      <h3>basic</h3>
+      <cannonui-searchbar
+        v-model="searchValue"
+        placeholder="this is a placeholder"
+        background="cyan"
+        :focus-style="{ border: '1px solid cyan' }"
+      />
+      <h3>round</h3>
+      <cannonui-searchbar
+        v-model="searchValue"
+        placeholder="this is a placeholder"
+        background="yellow"
+        label="left text"
+        shape="round"
+        :focus-style="{ border: '1px solid cyan' }"
+      />
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
+</template>
+<script lang="ts">
+import { reactive, toRefs } from 'vue';
+export default {
+  props: {},
+  emits: [],
+  components: {},
+  setup(props) {
+    const state = reactive({
+      searchValue: ''
+    });
+    return {
+      ...toRefs(state)
+    };
+  }
+};
+</script>
+```
 
-### Props
+## Props
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+可以传递以下 props 给 CannonUI 搜索栏组件：
 
-### Events
+| Prop            | Type    | Default | Description                                                                                       |
+| --------------- | ------- | ------- | ------------------------------------------------------------------------------------------------- |
+| clearable       | Boolean | true    | 是否在搜索栏中显示一个清除按钮以清除输入字段。                                                    |
+| inputType       | String  | 'text'  | 要呈现的输入元素的类型。                                                                          |
+| shape           | String  | ''      | 搜索栏的形状。可以设置为“round”（圆形）。                                                         |
+| label           | String  | ''      | 要在搜索栏上方显示的标签文本。                                                                    |
+| disabled        | Boolean | false   | 搜索栏是否禁用。                                                                                  |
+| autoFocus       | Boolean | false   | 页面加载时搜索栏是否应自动聚焦。                                                                  |
+| readonly        | Boolean | false   | 搜索栏是否只读。                                                                                  |
+| background      | String  | ''      | 搜索栏的背景颜色。                                                                                |
+| inputBackground | String  | ''      | 搜索栏中输入字段的背景颜色。                                                                      |
+| maxLength       | Number  | 9999    | 可在搜索栏中输入的最大字符数。                                                                    |
+| focusStyle      | Object  | {}      | 包含应用于搜索栏聚焦时的 CSS 样式的对象。                                                         |
+| modelValue      | String  | ''      | 搜索栏的值。                                                                                      |
+| placeholder     | String  | ''      | 在搜索栏中没有值时要显示的占位符文本。                                                            |
+| inputAlign      | String  | 'left'  | 搜索栏中输入字段的文本对齐方式。可以设置为“left”（左对齐）、“center”（居中）或“right”（右对齐）。 |
 
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+## 事件
+
+CannonUI 搜索栏组件会发出以下事件：
+
+| Event name | Arguments | Description                          |
+| ---------- | --------- | ------------------------------------ |
+| search     | value     | 用户按下回车键或单击搜索图标时发出。 |

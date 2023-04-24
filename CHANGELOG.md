@@ -1,3 +1,5 @@
+##  v0.9.2 (2023-04-24)
+- ⚡ added price component
 ##  v0.9.1 (2023-04-23)
 - ⚡ added Search component
 ##  v0.9.0 (2023-04-22)

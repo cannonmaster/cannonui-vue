@@ -25,6 +25,9 @@ export const componentMap: Record<string, ComponentMeta> = {
   },
   search: {
     props: ["clearable inputType='textarea' shape='' label='' background='' inputBackground='' maxLength='9999' v-model='' placeholder='' input-align='left'"] 
+  },
+  price: {
+    props: ["isStrike=false thousand needSymbol symbol='$' price=0 decimalPoint=2"]
   }
 }
 ;

@@ -1,33 +1,89 @@
 ---
-title: 'Introduction'
-description: 'Docs intro'
+title: 'Search Component Introduction'
+description: 'Search Docs intro'
 layout: '@/layouts/MainLayout.astro'
+cname: 'search'
 ---
 
 import SearchBarVue from '@/cmpStore/SearchBar/vue/demo.vue';
 
+The CannonUI Searchbar Component is a Vue.js component used to create a customizable search bar.
+
+### Example Usages
+
 <SearchBarVue client:visible />
 
-### 介绍
+Here’s an example of how to use the Card component:
 
-## 代码演示
+```vue
+<style lang="scss" scoped></style>
+<template>
+  <div class="phone">
+    <div class="phone-top">Skeleton</div>
+    <div class="phone-content">
+      <h3>basic</h3>
+      <cannonui-searchbar
+        v-model="searchValue"
+        placeholder="this is a placeholder"
+        background="cyan"
+        :focus-style="{ border: '1px solid cyan' }"
+      />
+      <h3>round</h3>
+      <cannonui-searchbar
+        v-model="searchValue"
+        placeholder="this is a placeholder"
+        background="yellow"
+        label="left text"
+        shape="round"
+        :focus-style="{ border: '1px solid cyan' }"
+      />
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
+</template>
+<script lang="ts">
+import { reactive, toRefs } from 'vue';
+export default {
+  props: {},
+  emits: [],
+  components: {},
+  setup(props) {
+    const state = reactive({
+      searchValue: ''
+    });
+    return {
+      ...toRefs(state)
+    };
+  }
+};
+</script>
+```
 
-### 基础用法 1
+## Props
 
-## API
+The following props can be passed to the CannonUI Searchbar Component:
 
-### Props
+| Prop            | Type    | Default | Description                                                                                          |
+| --------------- | ------- | ------- | ---------------------------------------------------------------------------------------------------- |
+| clearable       | Boolean | true    | Whether to display a clear button in the search bar to clear the input field.                        |
+| inputType       | String  | 'text'  | The type of input element to render.                                                                 |
+| shape           | String  | ''      | The shape of the search bar. Can be set to 'round'.                                                  |
+| label           | String  | ''      | The label text to display above the search bar.                                                      |
+| disabled        | Boolean | false   | Whether the search bar is disabled.                                                                  |
+| autoFocus       | Boolean | false   | Whether the search bar should be focused automatically when the page loads.                          |
+| readonly        | Boolean | false   | Whether the search bar is read-only.                                                                 |
+| background      | String  | ''      | The background color of the search bar.                                                              |
+| inputBackground | String  | ''      | The background color of the input field in the search bar.                                           |
+| maxLength       | Number  | 9999    | The maximum number of characters that can be entered in the search bar.                              |
+| focusStyle      | Object  | {}      | An object containing CSS styles to apply to the search bar when it is focused.                       |
+| modelValue      | String  | ''      | The value of the search bar.                                                                         |
+| placeholder     | String  | ''      | The placeholder text to display in the search bar when there is no value.                            |
+| inputAlign      | String  | 'left'  | The text alignment of the input field in the search bar. Can be set to 'left', 'center', or 'right'. |
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+## Events
 
-### Events
+The following events are emitted by the CannonUI Searchbar Component:
 
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+| Event name | Arguments | Description                                                           |
+| ---------- | --------- | --------------------------------------------------------------------- |
+| search     | value     | Emitted when the user presses the enter key or clicks the search icon |

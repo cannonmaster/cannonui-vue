@@ -1,14 +1,16 @@
 ---
-title: "Introduction"
-description: "Docs intro"
-layout: "@/layouts/MainLayout.astro"
+title: 'Price 组件'
+description: 'Docs intro'
+layout: '@/layouts/MainLayout.astro'
+cname: 'price'
 ---
 
-import PriceReact from "@/cmpStore/Price/react/demo"
-import PriceVue from "@/cmpStore/Price/vue/demo.vue"
+import PriceVue from '@/cmpStore/Price/vue/demo.vue';
 
-<PriceReact client:visible />
-<PriceVue client:visible />
+<PriceVue
+  lang="zh-CN"
+  client:visible
+/>
 
 ### 介绍
 
