@@ -41,7 +41,16 @@ import {
   useMotionProperties,
   useSpring
 } from '@vueuse/motion';
-import { computed, onMounted, onUnmounted, reactive, ref, watch } from 'vue';
+import {
+  computed,
+  onActivated,
+  onDeactivated,
+  onMounted,
+  onUnmounted,
+  reactive,
+  ref,
+  watch
+} from 'vue';
 const { componentName, create } = createComponent('drag');
 export default create({
   props: {
@@ -91,6 +100,7 @@ export default create({
       x: 0,
       y: 0
     });
+    const isKeepAlive = ref(false);
     const { set } = useSpring(
       motionProperties as Partial<PermissiveMotionProperties>
     );
@@ -152,6 +162,14 @@ export default create({
         }
       }
     );
+    onActivated(() => {
+      if (isKeepAlive.value) {
+        isKeepAlive.value = false;
+      }
+    });
+    onDeactivated(() => {
+      isKeepAlive.value = true;
+    });
     const getInfo = () => {
       const elm = document.documentElement;
       const dragProperty = mydrag.value.getBoundingClientRect();

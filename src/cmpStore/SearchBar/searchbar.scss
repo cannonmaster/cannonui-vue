@@ -1,9 +1,9 @@
-.chihuoui-theme-dark {
-  .chihuoui-searchbar {
+.cannonui-theme-dark {
+  .cannonui-searchbar {
     background: $black;
     &__search-label {
     }
-    .chihuoui-searchbar__input-clear {
+    .cannonui-searchbar__input-clear {
     }
     &__right-search-icon,
     &__left-search-icon {
@@ -12,7 +12,7 @@
 }
 .val-text {
 }
-.chihuoui-searchbar {
+.cannonui-searchbar {
   position: relative;
   display: flex;
   align-items: center;
@@ -39,7 +39,7 @@
     right: 5px;
     top: 53%;
   }
-  .chihuoui-searchbar__input-box {
+  .cannonui-searchbar__input-box {
   }
   &__input {
     border: 0;
@@ -63,8 +63,8 @@
     position: absolute !important;
     z-index: 888;
     right: 3px;
-    top: 47%;
-    transform: translate(-50%, -40%);
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
   .pos-right {
     right: 40px;

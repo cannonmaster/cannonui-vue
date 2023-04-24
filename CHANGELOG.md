@@ -1,3 +1,5 @@
+##  v0.9.1 (2023-04-23)
+- ⚡ added Search component
 ##  v0.9.0 (2023-04-22)
 - ⚡ added Infinite loading component
 ##  v0.8.6 (2023-04-21)

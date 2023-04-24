@@ -1,33 +1,137 @@
 ---
-title: 'Introduction'
-description: 'Docs intro'
+title: 'Infinite loading'
+description: '文档介绍'
 layout: '@/layouts/MainLayout.astro'
+cname: 'infinite'
 ---
 
 import InfiniteLoadingVue from '@/cmpStore/InfiniteLoading/vue/demo.vue';
 
-<InfiniteLoadingVue />
+InfiniteLoading 组件是一个可重用的 Vue 组件，可实现内容的无限滚动和加载。该组件旨在易于定制和使用。
 
-### 介绍
+### 示例用法
 
-## 代码演示
+<InfiniteLoadingVue
+  lang="zh-CN"
+  client:visible
+/>
 
-### 基础用法 1
+这是使用 infinite 组件的示例：
 
-## API
+```vue
+<style lang="scss" scoped>
+.styleul {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.styleli {
+  margin-top: 10px;
+  font-size: 16px;
+  height: 50px;
+  text-align: center;
+}
+</style>
+<template>
+  <div class="phone">
+    <div class="phone-top">Infinite loading</div>
+    <div class="phone-content">
+      <ul class="styleul">
+        <cannonui-infiniteloading
+          :loading-text="loading"
+          :has-no-more-data="hasNoMore"
+          :hasMore="hasMore"
+          @refresh-on-pull="(completed) => refreshOnPull(completed)"
+          @load-more="(completed) => loadMore(completed)"
+        >
+          <li
+            v-for="(item, index) in defaultlist"
+            :key="index"
+            class="styleli"
+          >
+            {{ item }}
+          </li>
+        </cannonui-infiniteloading>
+      </ul>
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
+</template>
+<script lang="ts">
+import { onMounted, reactive, ref, toRefs } from 'vue';
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {
+    const { lang } = props;
+    const data = reactive({
+      defaultlist: [],
+      loading: 'loading...',
+      hasNoMore: 'no data'
+    });
+    const hasMore = ref(true);
+    const loadMore = (completed: () => void) => {
+      console.log(123);
+      setTimeout(() => {
+        const len = data.defaultlist.length;
+        if (len > 30) {
+          hasMore.value = false;
+          completed();
+          return;
+        }
+        for (let i = len; i < len + 10; i++) {
+          data.defaultlist.push(`${i}`);
+        }
+        completed();
+      }, 600);
+    };
+    const refreshOnPull = (completed: () => void) => {
+      return new Promise((res, rej) => {
+        setTimeout(() => {
+          completed();
+          res('1');
+        }, 2000);
+      });
+    };
+    onMounted(() => {
+      init();
+    });
+    const init = () => {
+      for (let i = 0; i < 10; i++) {
+        data.defaultlist.push(`${i}`);
+      }
+    };
+    return {
+      refreshOnPull,
+      ...toRefs(data),
+      hasMore,
+      loadMore
+    };
+  }
+};
+</script>
+```
 
-### Props
+## Props
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+| Prop 名称       | 类型    | 默认值       | 描述                                               |
+| --------------- | ------- | ------------ | -------------------------------------------------- |
+| loadingText     | String  | 'loading...' | 组件正在加载更多数据时显示的文本。                 |
+| hasNoMoreData   | String  | 'no data~'   | 所有可用数据都已加载时显示的文本。                 |
+| isRefreshOnPull | Boolean | true         | 一个布尔值，确定是否应在下拉到页面顶部时刷新组件。 |
+| threshold       | Number  | 0            | 组件开始加载更多数据的页面底部距离。               |
+| hasMore         | Boolean | true         | 一个布尔值，确定是否有更多可用数据可供加载。       |
 
-### Events
+## 事件
 
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+| 事件名称 | 描述                                                               |
+| -------- | ------------------------------------------------------------------ |
+| loadMore | 当组件需要加载更多数据时触发。该事件应由父组件处理以获取更多数据。 |

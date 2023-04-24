@@ -1,7 +1,8 @@
 ---
-title: 'Infiniteloading'
+title: 'Infinite loading'
 description: 'Docs intro'
 layout: '@/layouts/MainLayout.astro'
+cname: 'infinite'
 ---
 
 import InfiniteLoadingVue from '@/cmpStore/InfiniteLoading/vue/demo.vue';
@@ -12,21 +13,119 @@ The InfiniteLoading component is a reusable Vue component that enables infinite 
 
 <InfiniteLoadingVue client:visible />
 
-Here’s an example of how to use the Card component:
+Here’s an example of how to use the infinite component:
 
 ```vue
-
+<style lang="scss" scoped>
+.styleul {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.styleli {
+  margin-top: 10px;
+  font-size: 16px;
+  height: 50px;
+  text-align: center;
+}
+</style>
+<template>
+  <div class="phone">
+    <div class="phone-top">Infinite loading</div>
+    <div class="phone-content">
+      <ul class="styleul">
+        <cannonui-infiniteloading
+          :loading-text="loading"
+          :has-no-more-data="hasNoMore"
+          :hasMore="hasMore"
+          @refresh-on-pull="(completed) => refreshOnPull(completed)"
+          @load-more="(completed) => loadMore(completed)"
+        >
+          <li
+            v-for="(item, index) in defaultlist"
+            :key="index"
+            class="styleli"
+          >
+            {{ item }}
+          </li>
+        </cannonui-infiniteloading>
+      </ul>
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
+</template>
+<script lang="ts">
+import { onMounted, reactive, ref, toRefs } from 'vue';
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {
+    const { lang } = props;
+    const data = reactive({
+      defaultlist: [],
+      loading: 'loading...',
+      hasNoMore: 'no data'
+    });
+    const hasMore = ref(true);
+    const loadMore = (completed: () => void) => {
+      console.log(123);
+      setTimeout(() => {
+        const len = data.defaultlist.length;
+        if (len > 30) {
+          hasMore.value = false;
+          completed();
+          return;
+        }
+        for (let i = len; i < len + 10; i++) {
+          data.defaultlist.push(`${i}`);
+        }
+        completed();
+      }, 600);
+    };
+    const refreshOnPull = (completed: () => void) => {
+      return new Promise((res, rej) => {
+        setTimeout(() => {
+          completed();
+          res('1');
+        }, 2000);
+      });
+    };
+    onMounted(() => {
+      init();
+    });
+    const init = () => {
+      for (let i = 0; i < 10; i++) {
+        data.defaultlist.push(`${i}`);
+      }
+    };
+    return {
+      refreshOnPull,
+      ...toRefs(data),
+      hasMore,
+      loadMore
+    };
+  }
+};
+</script>
 ```
 
 ## Props
 
-| Prop Name       | Type    | Default Value   | Description                                                                                                   |
-| --------------- | ------- | --------------- | ------------------------------------------------------------------------------------------------------------- |
-| loadingText     | String  | '加载...'       | The text to display when the component is loading more data.                                                  |
-| hasNoMoreData   | String  | '全部加载完成~' | The text to display when all available data has been loaded.                                                  |
-| isRefreshOnPull | Boolean | true            | A boolean value that determines whether the component should refresh when pulled down to the top of the page. |
-| threshold       | Number  | 0               | The distance from the bottom of the page at which the component should start loading more data.               |
-| hasMore         | Boolean | true            | A boolean value that determines whether there is more data available to load.                                 |
+| Prop Name       | Type    | Default Value | Description                                                                                                   |
+| --------------- | ------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| loadingText     | String  | 'loading...'  | The text to display when the component is loading more data.                                                  |
+| hasNoMoreData   | String  | 'no data~'    | The text to display when all available data has been loaded.                                                  |
+| isRefreshOnPull | Boolean | true          | A boolean value that determines whether the component should refresh when pulled down to the top of the page. |
+| threshold       | Number  | 0             | The distance from the bottom of the page at which the component should start loading more data.               |
+| hasMore         | Boolean | true          | A boolean value that determines whether there is more data available to load.                                 |
 
 ## Events
 

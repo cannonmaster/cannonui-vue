@@ -21,7 +21,16 @@
 </template>
 <script lang="ts">
 import createComponent from '@/utils/vue_component';
-import { computed, onMounted, onUnmounted, reactive, ref, toRefs } from 'vue';
+import {
+  computed,
+  onActivated,
+  onDeactivated,
+  onMounted,
+  onUnmounted,
+  reactive,
+  ref,
+  toRefs
+} from 'vue';
 const { componentName, create } = createComponent('infiniteloading');
 export default create({
   props: {
@@ -58,6 +67,19 @@ export default create({
       prevScrollTop: 0,
       direction: 'down',
       totalHeight: 0
+    });
+
+    const isKeepAlive = ref(false);
+    onActivated(() => {
+      if (isKeepAlive.value) {
+        isKeepAlive.value = false;
+        parentEle.value.addEventListener('scroll', handleScroll);
+      }
+    });
+
+    onDeactivated(() => {
+      isKeepAlive.value = true;
+      parentEle.value.removeEventListener('scroll', handleScroll);
     });
 
     onMounted(() => {

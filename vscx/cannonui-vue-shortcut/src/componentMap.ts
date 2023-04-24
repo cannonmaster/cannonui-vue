@@ -22,6 +22,9 @@ export const componentMap: Record<string, ComponentMeta> = {
   },
   infiniteloading: {
     props: ["loadingText='' hasNoMoreData='' threshold='' :hasMore='fn' "]
+  },
+  search: {
+    props: ["clearable inputType='textarea' shape='' label='' background='' inputBackground='' maxLength='9999' v-model='' placeholder='' input-align='left'"] 
   }
 }
 ;
