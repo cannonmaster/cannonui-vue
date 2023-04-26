@@ -1,37 +1,109 @@
 ---
-title: 'Price 组件'
-description: 'Docs intro'
+title: '介绍'
+description: '文档介绍'
 layout: '@/layouts/MainLayout.astro'
 cname: 'price'
 ---
 
 import PriceVue from '@/cmpStore/Price/vue/demo.vue';
 
+`CannonUI Price` 组件是一个可重用的 UI 组件，用于显示格式化的价格。它支持自定义符号、小数点和删除线样式。
+
+# 示例用法
+
 <PriceVue
-  lang="zh-CN"
   client:visible
+  lang="zh-CN"
 />
 
-### 介绍
+这是使用 Price 组件的示例：
 
-## 代码演示
+```vue
+<style lang="scss" scoped></style>
+<template>
+  <div class="position-center">
+    <div class="phone">
+      <div class="phone-top">price</div>
+      <div class="phone-content">
+        <h2>{{ h2_title.basic }}</h2>
+        <cannonui-price
+          :thousand="true"
+          :price="10000"
+          :need-symbol="false"
+        />
+        <h2>{{ h2_title.thousand }}</h2>
+        <cannonui-price
+          :thousand="true"
+          :price="10000"
+          :need-symbol="true"
+        />
+        <h2>{{ h2_title.nothousand }}</h2>
+        <cannonui-price
+          :thousand="false"
+          :price="10000"
+          :need-symbol="true"
+        />
+      </div>
+      <div class="phone-bottom"></div>
+    </div>
+  </div>
+</template>
+<script lang="ts">
+interface Translation {
+  [key: string]: {
+    h2_title: {
+      basic: string;
+      thousand: string;
+      nothousand: string;
+    };
+  };
+}
+const translation: Translation = {
+  en: {
+    h2_title: {
+      basic: 'Basic',
+      thousand: 'Thousand',
+      nothousand: 'No thousand'
+    }
+  },
+  'zh-CN': {
+    h2_title: {
+      basic: '基本使用',
+      thousand: '千分位',
+      nothousand: '无千分位'
+    }
+  }
+};
+import { reactive, toRefs } from 'vue';
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {
+    const { lang } = props;
+    const state = reactive({
+      ...translation[lang]
+    });
+    return {
+      ...toRefs(state)
+    };
+  }
+};
+</script>
+```
 
-### 基础用法 1
+## Props
 
-## API
-
-### Props
-
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
-
-### Events
-
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+| 属性名称     | 类型             | 默认值 | 描述                                    |
+| ------------ | ---------------- | ------ | --------------------------------------- |
+| isStrike     | Boolean          | false  | 如果为 `true`，则在价格上添加删除线样式 |
+| thousand     | Boolean          | true   | 使用逗号格式化数字，表示千位数          |
+| needSymbol   | Boolean          | true   | 如果为 `true`，则显示指定的符号         |
+| symbol       | String           | '$'    | 要显示在价格旁边的符号                  |
+| price        | String 或 Number | 0      | 要在组件中显示的价格值                  |
+| decimalPoint | Number           | 2      | 要显示的价格值的小数点位数              |

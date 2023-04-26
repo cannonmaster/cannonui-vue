@@ -45,14 +45,14 @@ const template = (type: keyof templatesProps, name: string): string => {
 			const defaultProps = {} as ${name}Props
 			export const ${name}: FunctionComponent<Partial<${name}Props> & React.HTMLAttributes<HTMLDivElement>> = (props) => {
 			const { children } = { ...defaultProps, ...props }
-			return <div className="chihuoui-${name.toLowerCase()}">${name}</div>
+			return <div className="cannonui-${name.toLowerCase()}">${name}</div>
 			}
 
 			${name}.defaultProps = defaultProps
-			${name}.displayName = 'Chihuoui${name}'
+			${name}.displayName = 'Cannonui${name}'
 		`,
     css: `
-			.chihuoui-${name.toLowerCase()} {}
+			.cannonui-${name.toLowerCase()} {}
 		`,
     react_demo: `
 			import React from 'react'
@@ -76,6 +76,13 @@ const template = (type: keyof templatesProps, name: string): string => {
 		@import '../${name.toLowerCase()}.scss'
 		</style>
 		<template>
+			<div class="phone">
+				<div class="phone-top">${name}</div>
+					<div class="phone-content">
+						{/* TODO: add / update the cmp such as lang*/}
+					</div>
+				<div class="phone-bottom"></div>
+			</div>
 		</template>
 		<script lang="ts">
 		    import ${name} from './${name.toLowerCase()}.vue'
@@ -102,25 +109,17 @@ cname: ${name.toLowerCase()}
 import ${name}React from '@/cmpStore/${name}/react/demo'
 import ${name}Vue from '@/cmpStore/${name}/vue/demo.vue'
 
+### Example Usages
+
 {/* TODO: remove unnessary cmp*/}
 <${name}React client:visible/>
 <${name}Vue client:visible/>
 
+Here’s an example of how to use the infinite component:
 
-### 介绍
+\`\`\`vue
 
-## 效果演示
-
-<div class="phone">
-  <div class="phone-top">Skeleton</div>
-  <div class="phone-content">
-	{/* TODO: add / update the cmp such as lang*/}
-  </div>
-  <div class="phone-bottom"></div>
-</div>
-
-## 代码演示
-
+\`\`\`
 
 ### Props
 		

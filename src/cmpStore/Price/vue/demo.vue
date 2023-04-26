@@ -3,19 +3,19 @@
   <div class="phone">
     <div class="phone-top">Skeleton</div>
     <div class="phone-content">
-      <h2>{{ h2_title.basic }}</h2>
+      <h2 class="cmp-usage__title">{{ h2_title.basic }}</h2>
       <Price
         :thousand="true"
         :price="10000"
         :need-symbol="false"
       />
-      <h2>{{ h2_title.thousand }}</h2>
+      <h2 class="cmp-usage__title">{{ h2_title.thousand }}</h2>
       <Price
         :thousand="true"
         :price="10000"
         :need-symbol="true"
       />
-      <h2>{{ h2_title.nothousand }}</h2>
+      <h2 class="cmp-usage__title">{{ h2_title.nothousand }}</h2>
       <Price
         :thousand="false"
         :price="10000"

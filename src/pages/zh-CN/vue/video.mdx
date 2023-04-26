@@ -1,14 +1,15 @@
 ---
-title: "Introduction"
-description: "Docs intro"
-layout: "@/layouts/MainLayout.astro"
+title: 'Introduction'
+description: 'Docs intro'
+layout: '@/layouts/MainLayout.astro'
 ---
 
-import VideoReact from "@/cmpStore/Video/react/demo"
-import VideoVue from "@/cmpStore/Video/vue/demo.vue"
+import VideoVue from '@/cmpStore/Video/vue/demo.vue';
 
-<VideoReact client:visible />
-<VideoVue client:visible />
+<VideoVue
+  client:visible
+  lang="zh-CN"
+/>
 
 ### 介绍
 

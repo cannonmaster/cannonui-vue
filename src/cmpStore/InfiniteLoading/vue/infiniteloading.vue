@@ -120,6 +120,7 @@ export default create({
 
     const isScrollingBottom = () => {
       const { scrollHeight, scrollTop, clientHeight } = parentEle.value;
+
       if (info.prevScrollTop < scrollTop) {
         info.direction = 'down';
       } else {

@@ -28,6 +28,9 @@ export const componentMap: Record<string, ComponentMeta> = {
   },
   price: {
     props: ["isStrike=false thousand needSymbol symbol='$' price=0 decimalPoint=2"]
+  },
+  video: {
+    props: ["src='' autoplay=false volumn=0.5 poster='' loop=false controls=true muted=false disabled=false playsinline=false preload='' touchPlay=false "]
   }
 }
 ;

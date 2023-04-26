@@ -1,3 +1,5 @@
+##  v0.9.3 (2023-04-26)
+- ⚡ added video component
 ##  v0.9.2 (2023-04-24)
 - ⚡ added price component
 ##  v0.9.1 (2023-04-23)

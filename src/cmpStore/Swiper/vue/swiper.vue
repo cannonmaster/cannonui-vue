@@ -1,34 +1,64 @@
 <style lang="scss" scoped>
-@import "../swiper.scss";
+@import '../swiper.scss';
 </style>
 <template>
-  <view ref="container" :class="classes" @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd"
-    @touchcancel="onTouchEnd">
-    <view :class="{
-      [`${componentName}__inner`]: true,
-      [`${componentName}__vertical`]: isVertical
-    }" :style="state.style">
+  <view
+    ref="container"
+    :class="classes"
+    @touchstart="onTouchStart"
+    @touchmove="onTouchMove"
+    @touchend="onTouchEnd"
+    @touchcancel="onTouchEnd"
+  >
+    <view
+      :class="{
+        [`${componentName}__inner`]: true,
+        [`${componentName}__vertical`]: isVertical
+      }"
+      :style="state.style"
+    >
       <slot></slot>
     </view>
     <slot name="page"></slot>
-    <view :class="{
-      [`${componentName}__pagination`]: true,
-      [`${componentName}__pagination-vertical`]: isVertical
-    }" v-if="paginationVisible && !slots.page">
-      <i :style="{
-        backgroundColor: activePagination === index ? paginationColor : '#ddd'
-      }" :class="{ [`${componentName}__pagination-item`]: true, active: activePagination === index }"
-        v-for="(item, index) in state.children.length" :key="index" />
+    <view
+      :class="{
+        [`${componentName}__pagination`]: true,
+        [`${componentName}__pagination-vertical`]: isVertical
+      }"
+      v-if="paginationVisible && !slots.page"
+    >
+      <i
+        :style="{
+          backgroundColor: activePagination === index ? paginationColor : '#ddd'
+        }"
+        :class="{
+          [`${componentName}__pagination-item`]: true,
+          active: activePagination === index
+        }"
+        v-for="(item, index) in state.children.length"
+        :key="index"
+      />
     </view>
   </view>
-
 </template>
 <script lang="ts">
-import { PropType, CSSProperties, toRefs, computed, VNode, ComponentPublicInstance, ComponentInternalInstance, reactive, ref, provide, onDeactivated, onBeforeUnmount, watch, nextTick } from "vue"
-import createComponent from "@/utils/vue_component"
-import { useTouch } from "./use-touch"
-import useExpose from "@/utils/vue_useExpose"
-const { componentName, create } = createComponent("swiper")
+import createComponent from '@/utils/vue_component';
+import useExpose from '@/utils/vue_useExpose';
+import {
+  ComponentInternalInstance,
+  ComponentPublicInstance,
+  VNode,
+  computed,
+  nextTick,
+  onBeforeUnmount,
+  onDeactivated,
+  provide,
+  reactive,
+  ref,
+  watch
+} from 'vue';
+import { useTouch } from './use-touch';
+const { componentName, create } = createComponent('swiper');
 export default create({
   props: {
     width: {
@@ -86,7 +116,7 @@ export default create({
   },
   emits: ['change'],
   setup(props, { emit, slots }) {
-    const container = ref()
+    const container = ref();
     const state = reactive({
       active: 0,
       num: 0,
@@ -100,137 +130,142 @@ export default create({
       children: [] as ComponentPublicInstance[],
       childrenVNode: [] as VNode[],
       style: {}
-    })
-    const touch = useTouch()
+    });
+    const touch = useTouch();
     const classes = computed(() => {
       const prefix = componentName;
       return {
         [prefix]: true
-      }
-    })
-    const isVertical = computed(() => props.direction === 'vertical')
+      };
+    });
+    const isVertical = computed(() => props.direction === 'vertical');
 
     const delTa = computed(() => {
-      return isVertical.value ? touch.state.deltaY : touch.state.deltaX
-    })
+      return isVertical.value ? touch.state.deltaY : touch.state.deltaX;
+    });
 
     const isCorrectDirection = computed(() => {
-      return touch.state.direction === props.direction
-    })
+      return touch.state.direction === props.direction;
+    });
 
     const childCount = computed(() => {
-      return state.children.length
-    })
+      return state.children.length;
+    });
 
-    const size = computed(() =>
-      state[isVertical.value ? 'height' : 'width']
-    )
+    const size = computed(() => state[isVertical.value ? 'height' : 'width']);
 
-    const trackSize = computed(() => childCount.value * size.value)
+    const trackSize = computed(() => childCount.value * size.value);
 
     const minOffset = computed(() => {
       if (state.rect) {
-        const base = isVertical.value ? state.rect.height : state.rect.width
+        const base = isVertical.value ? state.rect.height : state.rect.width;
 
-        return base - size.value * childCount.value
+        return base - size.value * childCount.value;
       }
-      return 0
-    })
+      return 0;
+    });
 
     const activePagination = computed(() => {
-      return (state.active + childCount.value) % childCount.value
-    })
+      return (state.active + childCount.value) % childCount.value;
+    });
 
     const init = (active: number = +props.initPage) => {
       stopAutoPlay();
-      state.rect = container.value.getBoundingClientRect()
-      active = Math.min(childCount.value - 1, active)
-      state.width = props.width ? +props.width : (state.rect as DOMRect).width
-      state.height = props.height ? +props.height : (state.rect as DOMRect).height
-      state.active = active
-      state.offset = getOffset(state.active)
-      state.moving = true
-      autoplay()
-      getStyle()
-    }
+      state.rect = container.value.getBoundingClientRect();
+      active = Math.min(childCount.value - 1, active);
+      state.width = props.width ? +props.width : (state.rect as DOMRect).width;
+      state.height = props.height
+        ? +props.height
+        : (state.rect as DOMRect).height;
+      state.active = active;
+      state.offset = getOffset(state.active);
+      state.moving = true;
+      autoplay();
+      getStyle();
+    };
 
     const onTouchStart = (e: TouchEvent) => {
-      if (props.isPreventDefault) e.preventDefault()
-      if (props.isStopPropagation) e.stopPropagation()
+      if (props.isPreventDefault) e.preventDefault();
+      if (props.isStopPropagation) e.stopPropagation();
 
-      if (!props.touchable) return
-      touch.start(e)
-      state.touchTime = Date.now()
-      stopAutoPlay()
-      resetPosition()
-    }
+      if (!props.touchable) return;
+      touch.start(e);
+      state.touchTime = Date.now();
+      stopAutoPlay();
+      resetPosition();
+    };
 
     const onTouchMove = (e: TouchEvent) => {
       if (props.touchable && state.moving) {
-        touch.move(e)
+        touch.move(e);
         if (isCorrectDirection.value) {
-          move({ offset: delTa.value })
+          move({ offset: delTa.value });
         }
       }
-    }
+    };
 
     const onTouchEnd = (e: TouchEvent) => {
       if (!props.touchable || !state.moving) {
-        return
+        return;
       }
 
-      const speed = delTa.value / (Date.now() - state.touchTime)
+      const speed = delTa.value / (Date.now() - state.touchTime);
 
-      const isShouldMove = Math.abs(speed) > 0.3 || Math.abs(delTa.value) > +(size.value / 2).toFixed(2)
+      const isShouldMove =
+        Math.abs(speed) > 0.3 ||
+        Math.abs(delTa.value) > +(size.value / 2).toFixed(2);
 
       if (isShouldMove && isCorrectDirection.value) {
-        let pace = 0
-        const offset = isVertical.value ? touch.state.offsetY : touch.state.offsetX
+        let pace = 0;
+        const offset = isVertical.value
+          ? touch.state.offsetY
+          : touch.state.offsetX;
         if (props.loop) {
-          pace = offset > 0 ? (delTa.value > 0 ? -1 : 1) : 0
+          pace = offset > 0 ? (delTa.value > 0 ? -1 : 1) : 0;
         } else {
-          pace = -Math[delTa.value > 0 ? 'ceil' : 'floor'](delTa.value / size.value)
+          pace = -Math[delTa.value > 0 ? 'ceil' : 'floor'](
+            delTa.value / size.value
+          );
         }
         move({
           pace,
           isEmit: true
-        })
+        });
       } else if (delTa.value) {
-        move({ pace: 0 })
+        move({ pace: 0 });
       }
-      state.moving = false
-      getStyle()
-      autoplay()
-    }
-
+      state.moving = false;
+      getStyle();
+      autoplay();
+    };
 
     const autoplay = () => {
-      if (props.autoPlay <= 0 || childCount.value <= 1) return
-      stopAutoPlay()
+      if (props.autoPlay <= 0 || childCount.value <= 1) return;
+      stopAutoPlay();
 
       state.autoplayTimer = window.setTimeout(() => {
-        next()
-        autoplay()
-      }, Number(props.autoPlay))
-    }
+        next();
+        autoplay();
+      }, Number(props.autoPlay));
+    };
 
     const next = () => {
-      resetPosition()
-      touch.reset()
+      resetPosition();
+      touch.reset();
       requestFrame(() => {
         requestFrame(() => {
-          state.moving = false
+          state.moving = false;
           move({
             pace: 1,
             isEmit: true
-          })
-        })
-      })
-    }
+          });
+        });
+      });
+    };
 
     const stopAutoPlay = () => {
-      clearTimeout(state.autoplayTimer)
-    }
+      clearTimeout(state.autoplayTimer);
+    };
 
     const getStyle = () => {
       let offset = 0;
@@ -240,34 +275,47 @@ export default create({
         let val = isVertical.value
           ? (state.rect as DOMRect).height - size.value
           : (state.rect as DOMRect).width - size.value;
-        offset = state.offset + (state.active === childCount.value - 1 ? -val / 2 : val / 2);
+        offset =
+          state.offset +
+          (state.active === childCount.value - 1 ? -val / 2 : val / 2);
       }
       state.style = {
         transitionDuration: `${state.moving ? 0 : props.duration}ms`,
         transform: `translate${isVertical.value ? 'Y' : 'X'}(${offset}px)`,
-        [isVertical.value ? 'height' : 'width']: `${size.value * childCount.value}px`,
-        [isVertical.value ? 'width' : 'height']: `${isVertical.value ? state.width : state.height}px`
+        [isVertical.value ? 'height' : 'width']: `${
+          size.value * childCount.value
+        }px`,
+        [isVertical.value ? 'width' : 'height']: `${
+          isVertical.value ? state.width : state.height
+        }px`
       };
-    }
+    };
 
     const relation = (child: ComponentInternalInstance) => {
-      let children = [] as VNode[]
+      let children = [] as VNode[];
       let slot = slots?.default?.() as VNode[];
       slot = slot.filter((item: VNode) => {
-        return item.children && Array.isArray(item.children)
-      })
+        return item.children && Array.isArray(item.children);
+      });
       slot.forEach((item: VNode) => {
-        children = children.concat(item.children as VNode[])
-      })
+        children = children.concat(item.children as VNode[]);
+      });
       if (!state.childrenVNode.length) {
         state.childrenVNode = children.slice();
         child.proxy && state.children.push(child.proxy);
       } else {
+        // childrenvnode includes all the child component since last call.  children includes all the child component currently have. here compare the current number of child component with the last saved number of child component
         if (state.childrenVNode.length > children.length) {
-          state.children = state.children.filter((item: ComponentPublicInstance) => child.proxy !== item);
+          state.children = state.children.filter(
+            (item: ComponentPublicInstance) => child.proxy !== item
+          );
         } else if (state.childrenVNode.length < children.length) {
+          // the code just find the mismatch item and added to childrenvnode, here is based on childrenvnode not children. after the loop if there is length not equal , then just add the new child component to the tail.
           for (let i = 0; i < state.childrenVNode.length; i++) {
-            if ((children[i] as VNode).key !== (state.childrenVNode[i] as VNode).key) {
+            if (
+              (children[i] as VNode).key !==
+              (state.childrenVNode[i] as VNode).key
+            ) {
               child.proxy && state.children.splice(i, 0, child.proxy);
               child.vnode && state.childrenVNode.splice(i, 0, child.vnode);
               break;
@@ -282,141 +330,148 @@ export default create({
           child.proxy && state.children.push(child.proxy);
         }
       }
-    }
+    };
 
     const range = (num: number, min: number, max: number) => {
-      return Math.min(Math.max(num, min), max)
-    }
+      return Math.min(Math.max(num, min), max);
+    };
 
     const requestFrame = (fn: FrameRequestCallback) => {
-      window.requestAnimationFrame.call(window, fn)
-    }
+      window.requestAnimationFrame.call(window, fn);
+    };
 
     const getOffset = (active: number, offset = 0) => {
-      let currentPosition = active * size.value
+      let currentPosition = active * size.value;
       // 如果用户设置不能循环播放
       if (!props.loop) {
-        currentPosition = Math.min(currentPosition, -minOffset.value)
+        currentPosition = Math.min(currentPosition, -minOffset.value);
       }
 
       let targetOffset = offset - currentPosition;
       if (!props.loop) {
-        targetOffset = range(targetOffset, minOffset.value, 0)
+        targetOffset = range(targetOffset, minOffset.value, 0);
       }
 
-      return targetOffset
-    }
+      return targetOffset;
+    };
 
     const getActive = (pace: number) => {
-      const { active } = state
+      const { active } = state;
       if (pace) {
         if (props.loop) {
-          return range(active + pace, -1, childCount.value)
+          return range(active + pace, -1, childCount.value);
         }
-        return range(active + pace, 0, childCount.value - 1)
+        return range(active + pace, 0, childCount.value - 1);
       }
       return active;
-    }
+    };
 
     const move = ({ pace = 0, offset = 0, isEmit = false }) => {
-      if (childCount.value <= 1) return
+      if (childCount.value <= 1) return;
 
       const { active } = state;
-      const targetActive = getActive(pace)
-      const targetOffset = getOffset(targetActive, offset)
+      const targetActive = getActive(pace);
+      const targetOffset = getOffset(targetActive, offset);
 
       if (props.loop) {
         if (state.children[0] && targetOffset !== minOffset.value) {
           const rightBound = targetOffset < minOffset.value;
-          (state.children[0] as any).setOffset(rightBound ? trackSize.value : 0)
+          (state.children[0] as any).setOffset(
+            rightBound ? trackSize.value : 0
+          );
         }
         if (state.children[childCount.value - 1] && targetOffset !== 0) {
           const leftBound = targetOffset > 0;
-          (state.children[childCount.value - 1] as any).setOffset(leftBound ? -trackSize.value : 0)
+          (state.children[childCount.value - 1] as any).setOffset(
+            leftBound ? -trackSize.value : 0
+          );
         }
       }
 
-      state.active = targetActive
-      state.offset = targetOffset
+      state.active = targetActive;
+      state.offset = targetOffset;
 
       if (isEmit && active !== state.active) {
-        emit('change', activePagination.value)
+        emit('change', activePagination.value);
       }
 
-      getStyle()
-
-    }
+      getStyle();
+    };
 
     const resetPosition = () => {
-      state.moving = true
-      const { active } = state
+      state.moving = true;
+      const { active } = state;
       if (active >= childCount.value) {
-        move({ pace: -childCount.value })
+        move({ pace: -childCount.value });
       }
       if (active <= -1) {
-        move({ pace: childCount.value })
+        move({ pace: childCount.value });
       }
-    }
+    };
     const prev = () => {
-      resetPosition()
-      touch.reset()
+      resetPosition();
+      touch.reset();
 
       requestFrame(() => {
         requestFrame(() => {
-          state.moving = false
+          state.moving = false;
           move({
             pace: -1,
             isEmit: true
-          })
-        })
-      })
-    }
+          });
+        });
+      });
+    };
     provide('parent', {
       props,
       size,
       relation
-    })
+    });
 
     const to = (index: number) => {
-      resetPosition()
+      resetPosition();
 
-      touch.reset()
+      touch.reset();
 
       requestFrame(() => {
         requestFrame(() => {
-          state.moving = false
-          let targetIndex
+          state.moving = false;
+          let targetIndex;
           if (props.loop && childCount.value === index) {
-            targetIndex = state.active === 0 ? 0 : index
+            targetIndex = state.active === 0 ? 0 : index;
           } else {
-            targetIndex = index % childCount.value
+            targetIndex = index % childCount.value;
           }
           move({
-            pace: targetIndex - state.active, isEmit: true
-          })
-        })
-      })
-    }
+            pace: targetIndex - state.active,
+            isEmit: true
+          });
+        });
+      });
+    };
 
     useExpose({
       prev,
       next,
       to
-    })
+    });
 
     onDeactivated(() => {
-      stopAutoPlay()
-    })
+      stopAutoPlay();
+    });
 
     onBeforeUnmount(() => {
-      stopAutoPlay()
-    })
+      stopAutoPlay();
+    });
 
-    watch(() => props.initPage, (val: any) => {
-      nextTick(() => {
-        init(Number(val))
-      })
-    })
+    watch(
+      () => props.initPage,
+      (val: any) => {
+        nextTick(() => {
+          init(Number(val));
+        });
+      }
+    );
 
     watch(
       () => state.children.length,
@@ -445,8 +500,7 @@ export default create({
       slots,
       container,
       activePagination
-    }
-  },
-
-})
+    };
+  }
+});
 </script>
