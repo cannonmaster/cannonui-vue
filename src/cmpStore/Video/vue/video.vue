@@ -56,13 +56,9 @@ export default create({
         preload: ''
       },
       required: true
-    },
-    model: {
-      type: String,
-      default: ''
     }
   },
-  emits: ['click', 'play', 'pause', 'playend', 'ended', 'timeupdate'],
+  emits: ['play', 'pause', 'ended', 'timeupdate'],
   setup(props, { emit }) {
     const rootRef = ref<HTMLVideoElement>();
     const state = reactive({

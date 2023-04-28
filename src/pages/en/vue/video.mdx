@@ -1,33 +1,149 @@
 ---
-title: 'Introduction'
+title: 'Video Introduction'
 description: 'Docs intro'
 layout: '@/layouts/MainLayout.astro'
+cname: 'video'
 ---
 
 import VideoVue from '@/cmpStore/Video/vue/demo.vue';
 
+The `CannonUI Video` component is a Vue.js component that allows for the rendering of video content in a web application.
+
+### Example Usages
+
 <VideoVue client:visible />
 
-### 介绍
+Here’s an example of how to use the video component:
 
-## 代码演示
+```vue
+<style lang="scss" scoped></style>
+<template>
+  <div class="phone">
+    <div class="phone-top">Video</div>
+    <div class="phone-content">
+      <div class="cannonui-video">
+        <h2 class="cmp-usage__title">{{ h2_title.basic }}</h2>
+        <cannonui-video
+          :source="src"
+          :type="type"
+          :options="options1"
+        ></cannonui-video>
+        <h2 class="cmp-usage__title">{{ h2_title.auto }}</h2>
+        <cannonui-video
+          :source="src"
+          :type="type"
+          :options="options2"
+        ></cannonui-video>
+      </div>
+    </div>
+  </div>
+</template>
+<script lang="ts">
+interface Translation {
+  [key: string]: {
+    h2_title: {
+      basic: string;
+      auto: string;
+    };
+  };
+}
+const translation: Translation = {
+  en: {
+    h2_title: {
+      basic: 'basic',
+      auto: 'auto play'
+    }
+  },
+  'zh-CN': {
+    h2_title: {
+      basic: '简单使用',
+      auto: '自动播放'
+    }
+  }
+};
+import { reactive, toRefs } from 'vue';
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {
+    const { lang } = props;
+    const state = reactive({
+      src: '/src/samplev.mp4',
+      type: 'video/mp4',
+      options1: {
+        autoplay: false,
+        volumn: '0.5',
+        poster: '',
+        loop: false,
+        controls: true,
+        muted: false,
+        disabled: false,
+        playsinline: false,
+        preload: '',
+        touchPlay: false
+      },
+      options2: {
+        autoplay: true,
+        volumn: '0.5',
+        poster: '',
+        loop: false,
+        controls: true,
+        muted: true,
+        disabled: false,
+        playsinline: false,
+        preload: '',
+        touchPlay: 'true'
+      }
+    });
+    return {
+      ...translation[lang],
+      ...toRefs(state)
+    };
+  }
+};
+</script>
+```
 
-### 基础用法 1
+## Props
 
-## API
+The `CannonUI Video` component accepts the following props:
 
-### Props
+| Prop name | Type   | Default | Required | Description                                                                                        |
+| --------- | ------ | ------- | -------- | -------------------------------------------------------------------------------------------------- |
+| `source`  | String | `''`    | No       | The URL of the video file to be played.                                                            |
+| `type`    | String | `''`    | No       | The MIME type of the video file.                                                                   |
+| `options` | Object | `{}`    | Yes      | An object that specifies various options for the video player, such as autoplay, volume, and loop. |
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+### `options` object
 
-### Events
+The `options` object passed as a prop should have the following structure:
 
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+| Property      | Type    | Default | Description                                                                                                        |
+| ------------- | ------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
+| `autoplay`    | Boolean | `false` | Specifies whether the video should start playing automatically.                                                    |
+| `volume`      | Number  | `0.5`   | Specifies the volume of the video, between 0 and 1.                                                                |
+| `poster`      | String  | `''`    | Specifies the URL of an image to be displayed while the video is downloading or until it plays.                    |
+| `loop`        | Boolean | `false` | Specifies whether the video should play again from the beginning after it ends.                                    |
+| `controls`    | Boolean | `true`  | Specifies whether the video player should display controls such as play/pause buttons.                             |
+| `muted`       | Boolean | `false` | Specifies whether the video should be muted.                                                                       |
+| `disabled`    | Boolean | `false` | Specifies whether the video player should be disabled.                                                             |
+| `playsinline` | Boolean | `false` | Specifies whether the video should play inline on mobile devices.                                                  |
+| `touchPlay`   | Boolean | `false` | Specifies whether the video should play on touch devices when the user touches the screen.                         |
+| `preload`     | String  | `''`    | Specifies whether and how the video should be preloaded. Possible values are `'none'`, `'metadata'`, and `'auto'`. |
+
+## Events
+
+The `CannonUI Video` component emits the following events:
+
+| Event name   | Description                                              |
+| ------------ | -------------------------------------------------------- |
+| `play`       | Triggered when the video starts playing.                 |
+| `pause`      | Triggered when the video is paused.                      |
+| `ended`      | Triggered when the video reaches the end.                |
+| `timeupdate` | Triggered when the current time of the video is updated. |

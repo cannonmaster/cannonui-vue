@@ -31,6 +31,9 @@ export const componentMap: Record<string, ComponentMeta> = {
   },
   video: {
     props: ["src='' autoplay=false volumn=0.5 poster='' loop=false controls=true muted=false disabled=false playsinline=false preload='' touchPlay=false "]
-  }
+  },
+  swiper: {
+    props: ["width='' height='' direction='horizontal' isStopPropagation=fasle  paginationColor='#fff' paginastionVisible=false duration=500 touchable=true isPreventDefault=true loop=true autoPlay=0"]
+   }
 }
 ;

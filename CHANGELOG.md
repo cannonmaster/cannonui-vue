@@ -1,3 +1,5 @@
+##  v0.9.6 (2023-04-28)
+- ⚡ added swipe component
 ##  v0.9.3 (2023-04-26)
 - ⚡ added video component
 ##  v0.9.2 (2023-04-24)

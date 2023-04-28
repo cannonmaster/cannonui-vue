@@ -1,7 +1,7 @@
 <style lang="scss" scoped></style>
 <template>
   <div class="phone">
-    <div class="phone-top"></div>
+    <div class="phone-top">Video</div>
     <div class="phone-content">
       <div class="cannonui-video">
         <h2 class="cmp-usage__title">{{ h2_title.basic }}</h2>

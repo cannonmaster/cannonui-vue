@@ -172,6 +172,7 @@ export default create({
     const init = (active: number = +props.initPage) => {
       stopAutoPlay();
       state.rect = container.value.getBoundingClientRect();
+
       active = Math.min(childCount.value - 1, active);
       state.width = props.width ? +props.width : (state.rect as DOMRect).width;
       state.height = props.height
@@ -180,8 +181,8 @@ export default create({
       state.active = active;
       state.offset = getOffset(state.active);
       state.moving = true;
-      autoplay();
       getStyle();
+      autoplay();
     };
 
     const onTouchStart = (e: TouchEvent) => {
