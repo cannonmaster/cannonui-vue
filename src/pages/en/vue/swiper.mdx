@@ -8,26 +8,41 @@ import SwiperVue from '@/cmpStore/Swiper/vue/demo.vue';
 
 <SwiperVue client:visible />
 
-### 介绍
-
-## 代码演示
-
-### 基础用法 1
-
-## API
+This is a Vue.js component for creating a swiper/slider. It provides options for customizing the slider, including direction, loop, autoplay, pagination, and more.
 
 ### Props
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+| Prop Name         | Type          | Default                                              | Description                                                                              |
+| ----------------- | ------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| width             | Number/String | typeof window === 'object' ? window.innerWidth : 375 | The width of the slider container.                                                       |
+| height            | Number/String | 0                                                    | The height of the slider container.                                                      |
+| direction         | String        | 'horizontal'                                         | The direction of the slider. Can be 'horizontal' or 'vertical'.                          |
+| isStopPropagation | Boolean       | false                                                | Whether to stop touch event propagation.                                                 |
+| paginationColor   | String        | '#fff'                                               | The color of the pagination dots.                                                        |
+| paginationVisible | Boolean       | false                                                | Whether to show the pagination dots.                                                     |
+| loop              | Boolean       | true                                                 | Whether to loop the slider.                                                              |
+| duration          | Number/String | 500                                                  | The duration of the slide animation in milliseconds.                                     |
+| autoPlay          | Number/String | 0                                                    | The interval between autoplay slides in milliseconds. If set to 0, autoplay is disabled. |
+| initPage          | Number/String | 0                                                    | The initial page to show when the slider is loaded.                                      |
+| touchable         | Boolean       | true                                                 | Whether the slider is touchable.                                                         |
+| isPreventDefault  | Boolean       | true                                                 | Whether to prevent default touch behavior.                                               |
+| isCenter          | Boolean       | false                                                | Whether to center the active slide.                                                      |
 
 ### Events
 
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+| Event Name | Description                                                                                                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------- |
+| change     | Emitted when the active slide is changed. Passes the new active index as an argument to the event handler function. |
+
+### Slots
+
+| Slot Name | Description                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------- |
+| Default   | The content of the slides.                                                                                    |
+| page      | Use this slot to customize the pagination dots. If this slot is used, the default pagination dots are hidden. |
+
+### Example
+
+```vue
+
+```
