@@ -1,14 +1,184 @@
 ---
-title: 'Introduction'
+title: 'Swiper Component'
 description: 'Docs intro'
 layout: '@/layouts/MainLayout.astro'
+cname: 'swiper'
 ---
 
 import SwiperVue from '@/cmpStore/Swiper/vue/demo.vue';
 
+This is a Vue.js component for creating a swiper/slider. It provides options for customizing the slider, including direction, loop, autoplay, pagination, and more.
+
+### Example usage
+
 <SwiperVue client:visible />
 
-This is a Vue.js component for creating a swiper/slider. It provides options for customizing the slider, including direction, loop, autoplay, pagination, and more.
+Here’s an example of how to use the video component:
+
+```vue
+<style lang="scss" scoped></style>
+<template>
+  <div class="demo">
+    <section class="cmp-usage__section">
+      <h2 class="cmp-usage__title">horizontal</h2>
+      <view class="demo-box">
+        <cannonui-swiper
+          :init-page="page"
+          :pagination-visibile="true"
+          auto-play="2000"
+        >
+          <cannonui-swiperitem
+            v-for="item in list"
+            :key="item"
+          >
+            <img
+              :src="item"
+              alt=""
+            />
+          </cannonui-swiperitem>
+        </cannonui-swiper>
+      </view>
+    </section>
+    <section class="cmp-usage__section">
+      <h2 class="cmp-usage__title">with nav indicator</h2>
+      <view class="demo-box">
+        <cannonui-swiper
+          :init-page="page"
+          :pagination-visible="true"
+          pagination-color="cyan"
+          auto-play="2000"
+        >
+          <cannonui-swiperitem
+            v-for="item in list1"
+            :key="item"
+          >
+            <img
+              :src="item"
+              alt=""
+            />
+          </cannonui-swiperitem>
+        </cannonui-swiper>
+      </view>
+    </section>
+    <section class="cmp-usage__section">
+      <h2 class="cmp-usage__title">vertical</h2>
+      <view class="demo-box">
+        <cannonui-swiper
+          direction="vertical"
+          :init-page="page"
+          :pagination-visible="true"
+          pagination-color="cyan"
+          auto-play="2000"
+          style="height: 150px"
+        >
+          <cannonui-swiperitem
+            v-for="item in list1"
+            :key="item"
+          >
+            <img
+              :src="item"
+              alt=""
+            />
+          </cannonui-swiperitem>
+        </cannonui-swiper>
+      </view>
+    </section>
+  </div>
+</template>
+<script lang="ts">
+import { onMounted, reactive, ref, toRefs } from 'vue';
+export default {
+  props: {},
+  emits: [],
+  components: {},
+  setup(props) {
+    const swiper = ref(null);
+    const state = reactive({
+      page: 2,
+      current: 1,
+      list: [
+        'https://picsum.photos/id/28/750/300',
+        'https://picsum.photos/id/26/750/300',
+        'https://picsum.photos/id/30/750/300',
+        'https://picsum.photos/id/32/750/300'
+      ],
+      list1: [] as string[]
+    });
+    const change = (index: number) => {
+      state.current = index + 1;
+    };
+    onMounted(() => {
+      state.list1 = state.list.slice();
+    });
+    return {
+      ...toRefs(state),
+      swiper,
+      change
+    };
+  }
+};
+</script>
+<style lang="scss" scoped>
+.demo-box {
+  position: relative;
+
+  .cannonui-swiperitem {
+    height: 150px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &.vertical-center {
+    height: 300px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  ::v-deep(.cannonui-swiper-pagination-vertical) {
+    i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      &.active {
+        height: 18px;
+        border-radius: 5px;
+      }
+    }
+  }
+  .page {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 46px;
+    height: 22px;
+    background: rgba(0, 0, 0, 0.33);
+    border-radius: 22px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+  }
+  .cannonui-swiper-btns {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    span {
+      display: flex;
+      align-items: center;
+      width: 20px;
+      height: 30px;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+</style>
+```
 
 ### Props
 
@@ -40,9 +210,3 @@ This is a Vue.js component for creating a swiper/slider. It provides options for
 | --------- | ------------------------------------------------------------------------------------------------------------- |
 | Default   | The content of the slides.                                                                                    |
 | page      | Use this slot to customize the pagination dots. If this slot is used, the default pagination dots are hidden. |
-
-### Example
-
-```vue
-
-```

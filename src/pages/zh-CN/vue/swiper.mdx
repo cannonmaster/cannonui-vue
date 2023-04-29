@@ -1,35 +1,215 @@
 ---
-title: "Introduction"
-description: "Docs intro"
-layout: "@/layouts/MainLayout.astro"
+title: 'Swiper组件'
+description: '文档介绍'
+layout: '@/layouts/MainLayout.astro'
+cname: 'swiper'
 ---
 
-import SwiperReact from "@/cmpStore/Swiper/react/demo"
-import SwiperVue from "@/cmpStore/Swiper/vue/demo.vue"
+import SwiperVue from '@/cmpStore/Swiper/vue/demo.vue';
 
-<SwiperReact client:visible />
-<SwiperVue client:visible />
+这是一个用于创建 Swiper/轮播图的 Vue.js 组件。它提供了自定义滑块的选项，包括方向、循环、自动播放、分页等等。
 
-### 介绍
+### 使用示例
 
-## 代码演示
+<SwiperVue
+  client:visible
+  lang="zh-CN"
+/>
 
-### 基础用法 1
+以下是如何使用视频组件的示例：
 
-## API
+```vue
+<style lang="scss" scoped></style>
+<template>
+  <div class="demo">
+    <section class="cmp-usage__section">
+      <h2 class="cmp-usage__title">horizontal</h2>
+      <view class="demo-box">
+        <cannonui-swiper
+          :init-page="page"
+          :pagination-visibile="true"
+          auto-play="2000"
+        >
+          <cannonui-swiperitem
+            v-for="item in list"
+            :key="item"
+          >
+            <img
+              :src="item"
+              alt=""
+            />
+          </cannonui-swiperitem>
+        </cannonui-swiper>
+      </view>
+    </section>
+    <section class="cmp-usage__section">
+      <h2 class="cmp-usage__title">with nav indicator</h2>
+      <view class="demo-box">
+        <cannonui-swiper
+          :init-page="page"
+          :pagination-visible="true"
+          pagination-color="cyan"
+          auto-play="2000"
+        >
+          <cannonui-swiperitem
+            v-for="item in list1"
+            :key="item"
+          >
+            <img
+              :src="item"
+              alt=""
+            />
+          </cannonui-swiperitem>
+        </cannonui-swiper>
+      </view>
+    </section>
+    <section class="cmp-usage__section">
+      <h2 class="cmp-usage__title">vertical</h2>
+      <view class="demo-box">
+        <cannonui-swiper
+          direction="vertical"
+          :init-page="page"
+          :pagination-visible="true"
+          pagination-color="cyan"
+          auto-play="2000"
+          style="height: 150px"
+        >
+          <cannonui-swiperitem
+            v-for="item in list1"
+            :key="item"
+          >
+            <img
+              :src="item"
+              alt=""
+            />
+          </cannonui-swiperitem>
+        </cannonui-swiper>
+      </view>
+    </section>
+  </div>
+</template>
+<script lang="ts">
+import { onMounted, reactive, ref, toRefs } from 'vue';
+export default {
+  props: {},
+  emits: [],
+  components: {},
+  setup(props) {
+    const swiper = ref(null);
+    const state = reactive({
+      page: 2,
+      current: 1,
+      list: [
+        'https://picsum.photos/id/28/750/300',
+        'https://picsum.photos/id/26/750/300',
+        'https://picsum.photos/id/30/750/300',
+        'https://picsum.photos/id/32/750/300'
+      ],
+      list1: [] as string[]
+    });
+    const change = (index: number) => {
+      state.current = index + 1;
+    };
+    onMounted(() => {
+      state.list1 = state.list.slice();
+    });
+    return {
+      ...toRefs(state),
+      swiper,
+      change
+    };
+  }
+};
+</script>
+<style lang="scss" scoped>
+.demo-box {
+  position: relative;
+
+  .cannonui-swiperitem {
+    height: 150px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &.vertical-center {
+    height: 300px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  ::v-deep(.cannonui-swiper-pagination-vertical) {
+    i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      &.active {
+        height: 18px;
+        border-radius: 5px;
+      }
+    }
+  }
+  .page {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 46px;
+    height: 22px;
+    background: rgba(0, 0, 0, 0.33);
+    border-radius: 22px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+  }
+  .cannonui-swiper-btns {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    span {
+      display: flex;
+      align-items: center;
+      width: 20px;
+      height: 30px;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+</style>
+```
 
 ### Props
 
-| 参数         | 说明                             | 类型   | 默认值              |
-| ------------ | -------------------------------- | ------ | ------------------- |
-| name         | 图标名称或图片链接               | String | -                   |
-| color        | 图标颜色                         | String | -                   |
-| size         | 图标大小，如 '20px' '2em' '2rem' | String | -                   |
-| class-prefix | 类名前缀，用于使用自定义图标     | String | 'chihuoui-iconfont' |
-| tag          | HTML 标签                        | String | 'i'                 |
+| 属性名            | 类型          | 默认值                                               | 描述                                                                         |
+| ----------------- | ------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------- |
+| width             | Number/String | typeof window === 'object' ? window.innerWidth : 375 | 滑块容器的宽度。                                                             |
+| height            | Number/String | 0                                                    | 滑块容器的高度。                                                             |
+| direction         | String        | 'horizontal'                                         | 滑块的方向。可以是'horizontal'（水平）或'vertical'（垂直）。                 |
+| isStopPropagation | Boolean       | false                                                | 是否停止触摸事件传播。                                                       |
+| paginationColor   | String        | '#fff'                                               | 分页点的颜色。                                                               |
+| paginationVisible | Boolean       | false                                                | 是否显示分页点。                                                             |
+| loop              | Boolean       | true                                                 | 是否循环播放。                                                               |
+| duration          | Number/String | 500                                                  | 幻灯片动画的持续时间（以毫秒为单位）。                                       |
+| autoPlay          | Number/String | 0                                                    | 自动播放幻灯片之间的时间间隔（以毫秒为单位）。如果设置为 0，则禁用自动播放。 |
+| initPage          | Number/String | 0                                                    | 当加载滑块时要显示的初始页面。                                               |
+| touchable         | Boolean       | true                                                 | 滑块是否可触摸。                                                             |
+| isPreventDefault  | Boolean       | true                                                 | 是否阻止默认触摸行为。                                                       |
+| isCenter          | Boolean       | false                                                | 是否将当前活动幻灯片居中显示。                                               |
 
 ### Events
 
-| 事件名 | 说明           | 回调参数     |
-| ------ | -------------- | ------------ |
-| click  | 点击图标时触发 | event: Event |
+| 事件名 | 描述                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| change | 当活动幻灯片更改时发出。将新活动索引作为参数传递给事件处理程序函数。 |
+
+### Slots
+
+| 插槽名 | 描述                                                           |
+| ------ | -------------------------------------------------------------- |
+| 默认   | 幻灯片的内容。                                                 |
+| page   | 使用此插槽自定义分页点。如果使用此插槽，则默认分页点将被隐藏。 |

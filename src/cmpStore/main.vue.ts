@@ -1,4 +1,5 @@
 import type { App } from 'vue';
+import Button from './Button/vue';
 import Card from './Card/vue';
 import Skeleton from './Skeleton/vue';
 import Col from './Col/vue';
@@ -13,7 +14,7 @@ import SwiperItem from './SwiperItem/vue';
 import Price from './Price/vue';
 const version = '0.9.0';
 function install(app: App) {
-  const packages = [Card, Switch, Skeleton, Col, Row, Drag, InfiniteLoading, SearchBar, Price, Swiper, SwiperItem, Video];
+  const packages = [Button, Card, Switch, Skeleton, Col, Row, Drag, InfiniteLoading, SearchBar, Price, Swiper, SwiperItem, Video];
 
   packages.forEach((pkg: any) => {
     if (pkg.install) {
@@ -23,5 +24,5 @@ function install(app: App) {
     }
   });
 }
-export { install, Card, Skeleton, Col, Row, Switch, Drag };
+export { install, Button, Card, Switch, Skeleton, Col, Row, Drag, InfiniteLoading, SearchBar, Price, Swiper, SwiperItem, Video };
 export default { install, version };

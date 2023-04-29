@@ -6,6 +6,11 @@
           "text": "Introduction",
           "link": "en/introduction",
           "show": true
+        },
+        {
+          "text": "Button",
+          "link": "en/vue/button",
+          "show": true
         }
       ],
       "Feedback": [
@@ -76,7 +81,7 @@
         {
           "text": "SwiperItem",
           "link": "en/vue/swiperitem",
-          "show": true
+          "show": false
         },
         {
           "text": "Video",
@@ -97,6 +102,11 @@
         {
           "text": "Introduction",
           "link": "en/introduction",
+          "show": true
+        },
+        {
+          "text": "Button",
+          "link": "en/react/button",
           "show": true
         }
       ],
@@ -194,7 +204,13 @@
           "show": true
         }
       ],
-      "基础组件": [],
+      "基础组件": [
+        {
+          "text": "按钮",
+          "link": "zh-CN/vue/button",
+          "show": true
+        }
+      ],
       "布局组件": [
         {
           "text": "布局",
@@ -258,7 +274,7 @@
         {
           "text": "走马灯子项",
           "link": "zh-CN/vue/swiperitem",
-          "show": true
+          "show": false
         },
         {
           "text": "视频播放器",
@@ -282,7 +298,13 @@
           "show": true
         }
       ],
-      "基础组件": [],
+      "基础组件": [
+        {
+          "text": "按钮",
+          "link": "zh-CN/react/button",
+          "show": true
+        }
+      ],
       "布局组件": [
         {
           "show": true,
@@ -346,7 +368,7 @@
         {
           "text": "走马灯子项",
           "link": "zh-CN/react/swiperitem",
-          "show": true
+          "show": false
         },
         {
           "text": "视频播放器",

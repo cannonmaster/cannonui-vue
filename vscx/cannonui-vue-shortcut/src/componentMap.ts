@@ -34,6 +34,9 @@ export const componentMap: Record<string, ComponentMeta> = {
   },
   swiper: {
     props: ["width='' height='' direction='horizontal' isStopPropagation=fasle  paginationColor='#fff' paginastionVisible=false duration=500 touchable=true isPreventDefault=true loop=true autoPlay=0"]
+   },
+   button: {
+    props: ["shape='round' size='small' type='primary'"]
    }
 }
 ;

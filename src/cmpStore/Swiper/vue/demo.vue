@@ -3,84 +3,121 @@
 </style>
 <template>
   <div class="demo">
-    <h2>基本使用</h2>
-    <view class="demo-box">
-      <Swiper
-        :init-page="page"
-        :pagination-visibile="true"
-        auto-play="2000"
-      >
-        <SwiperItem
-          v-for="item in list"
-          :key="item"
+    <section class="cmp-usage__section">
+      <h2 class="cmp-usage__title">{{ h2_title.basic }}</h2>
+      <view class="demo-box">
+        <Swiper
+          :init-page="page"
+          :pagination-visibile="true"
+          auto-play="2000"
         >
-          <img
-            :src="item"
-            alt=""
-          />
-        </SwiperItem>
-      </Swiper>
-    </view>
-    <h2>导航图标</h2>
-    <view class="demo-box">
-      <Swiper
-        :init-page="page"
-        :pagination-visible="true"
-        pagination-color="cyan"
-        auto-play="2000"
-      >
-        <SwiperItem
-          v-for="item in list1"
-          :key="item"
+          <SwiperItem
+            v-for="item in list"
+            :key="item"
+          >
+            <img
+              :src="item"
+              alt=""
+            />
+          </SwiperItem>
+        </Swiper>
+      </view>
+    </section>
+    <section class="cmp-usage__section">
+      <h2 class="cmp-usage__title">{{ h2_title.nav }}</h2>
+      <view class="demo-box">
+        <Swiper
+          :init-page="page"
+          :pagination-visible="true"
+          pagination-color="cyan"
+          auto-play="2000"
         >
-          <img
-            :src="item"
-            alt=""
-          />
-        </SwiperItem>
-      </Swiper>
-    </view>
-    <h2>导航图标</h2>
-    <view class="demo-box">
-      <Swiper
-        direction="vertical"
-        :init-page="page"
-        :pagination-visible="true"
-        pagination-color="cyan"
-        auto-play="2000"
-        style="height: 150px"
-      >
-        <SwiperItem
-          v-for="item in list1"
-          :key="item"
+          <SwiperItem
+            v-for="item in list1"
+            :key="item"
+          >
+            <img
+              :src="item"
+              alt=""
+            />
+          </SwiperItem>
+        </Swiper>
+      </view>
+    </section>
+    <section class="cmp-usage__section">
+      <h2 class="cmp-usage__title">{{ h2_title.vertical }}</h2>
+      <view class="demo-box">
+        <Swiper
+          direction="vertical"
+          :init-page="page"
+          :pagination-visible="true"
+          pagination-color="cyan"
+          auto-play="2000"
+          style="height: 150px"
         >
-          <img
-            :src="item"
-            alt=""
-          />
-        </SwiperItem>
-      </Swiper>
-    </view>
+          <SwiperItem
+            v-for="item in list1"
+            :key="item"
+          >
+            <img
+              :src="item"
+              alt=""
+            />
+          </SwiperItem>
+        </Swiper>
+      </view>
+    </section>
   </div>
 </template>
 <script lang="ts">
+interface Translation {
+  [key: string]: {
+    h2_title: {
+      basic: string;
+      nav: string;
+      vertical: string;
+    };
+  };
+}
+const translation: Translation = {
+  en: {
+    h2_title: {
+      basic: 'basic usage',
+      nav: 'nav',
+      vertical: 'vertical'
+    }
+  },
+  'zh-CN': {
+    h2_title: {
+      basic: '基本使用',
+      nav: '导航指示器',
+      vertical: '纵向'
+    }
+  }
+};
 import SwiperItem from '@/cmpStore/SwiperItem/vue';
 import { onMounted, reactive, ref, toRefs } from 'vue';
 import Swiper from './swiper.vue';
 export default {
-  props: {},
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
   emits: [],
   components: { Swiper, SwiperItem },
   setup(props) {
     const swiper = ref(null);
+    const { lang } = props;
     const state = reactive({
       page: 2,
       current: 1,
       list: [
-        'https://storage.360buyimg.com/jdc-article/NutUItaro34.jpg',
-        'https://storage.360buyimg.com/jdc-article/NutUItaro2.jpg',
-        'https://storage.360buyimg.com/jdc-article/welcomenutui.jpg',
-        'https://storage.360buyimg.com/jdc-article/fristfabu.jpg'
+        'https://picsum.photos/id/28/750/300',
+        'https://picsum.photos/id/26/750/300',
+        'https://picsum.photos/id/30/750/300',
+        'https://picsum.photos/id/32/750/300'
       ],
       list1: [] as string[]
     });
@@ -92,6 +129,7 @@ export default {
     });
     return {
       ...toRefs(state),
+      ...translation[lang],
       swiper,
       change
     };
