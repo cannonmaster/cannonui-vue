@@ -1,25 +1,201 @@
 ---
-title: Button
-description: "Docs intro"
-layout: "@/layouts/MainLayout.astro"
+title: 按钮
+description: '文档简介'
+layout: '@/layouts/MainLayout.astro'
 cname: button
 ---
 
-{/* TODO: remove unnessary cmp */}
-import ButtonReact from '@/cmpStore/Button/react/demo'
-import ButtonVue from '@/cmpStore/Button/vue/demo.vue'
+import ButtonVue from '@/cmpStore/Button/vue/demo.vue';
 
-### Example Usages
+这是一个可定制的按钮组件，支持不同的形状、大小、类型和颜色。
 
-{/* TODO: remove unnessary cmp */}
+### 示例用法
 
-<ButtonReact client:visible />
 <ButtonVue client:visible />
 
-Here’s an example of how to use the infinite component:
+这是一个使用该组件的示例：
 
 ```vue
-
+<style lang="scss" scoped>
+.cannonui-button {
+  margin-right: 10px !important;
+  margin-bottom: 10px !important;
+}
+</style>
+<template>
+  <div class="phone">
+    <div class="phone-top">Button</div>
+    <div class="phone-content">
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ h2_title.basic }}</h2>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="primary"
+        >
+          primary
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="info"
+        >
+          info
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="success"
+        >
+          success
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="default"
+        >
+          default
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="danger"
+        >
+          {{ h2_title.basic }}
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="warning"
+        >
+          warning
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="warning"
+          style="background: pink; color: azure"
+        >
+          customize
+        </cannonui-button>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ h2_title.shape }}</h2>
+        <cannonui-button
+          type="info"
+          shape="square"
+          size="small"
+        >
+          square
+        </cannonui-button>
+        <cannonui-button
+          type="info"
+          shape="round"
+          size="small"
+        >
+          round
+        </cannonui-button>
+        <cannonui-button
+          type="info"
+          shape="round"
+          size="small"
+          style="border-radius: 26px"
+        >
+          customize
+        </cannonui-button>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ h2_title.shape }}</h2>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="success"
+          style="border-radius: 26px"
+        >
+          mini
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="normal"
+          type="info"
+        >
+          normal
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="small"
+          >small</cannonui-button
+        >
+        <cannonui-button
+          type="primary"
+          size="large"
+          shape="round"
+        >
+          large</cannonui-button
+        >
+      </section>
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
+</template>
+<script lang="ts">
+interface Translation {
+  [key: string]: {
+    h2_title: {
+      basic: string;
+      shape: string;
+    };
+  };
+}
+const translation: Translation = {
+  en: {
+    h2_title: {
+      basic: 'type',
+      shape: 'shape'
+    }
+  },
+  'zh-CN': {
+    h2_title: {
+      basic: '类型',
+      shape: '形状'
+    }
+  }
+};
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {
+    const { lang } = props;
+    return {
+      ...translation[lang]
+    };
+  }
+};
+</script>
 ```
 
-### Props
+## Props
+
+| 名称       | 类型   | 默认值      | 描述                                                                                                        |
+| ---------- | ------ | ----------- | ----------------------------------------------------------------------------------------------------------- |
+| `color`    | 字符串 | `undefined` | 按钮的背景颜色。可以是十六进制码、RGB 值或 CSS 颜色名称。                                                   |
+| `shape`    | 字符串 | `"round"`   | 按钮的形状。可以是 `"round"` 或 `"square"`。                                                                |
+| `plain`    | 布尔值 | `false`     | 按钮是否应该是 plain 样式。如果为 `true`，按钮将没有背景颜色，并且文本颜色将是在 `color` 属性中指定的颜色。 |
+| `loading`  | 布尔值 | `false`     | 按钮是否应该处于加载状态。如果为 `true`，将显示加载动画，并且按钮将被禁用。                                 |
+| `disabled` | 布尔值 | `false`     | 按钮是否应该被禁用。如果为 `true`，按钮将被禁用，单击按钮将没有任何效果。                                   |
+| `type`     | 字符串 | `"default"` | 按钮的类型。可以是 `"default"`、`"primary"`、`"info"`、`"success"`、`"warning"` 或 `"danger"`。             |
+| `style`    | 对象   | `{}`        | 要应用到按钮的自定义样式。                                                                                  |
+| `size`     | 字符串 | `"normal"`  | 按钮的大小。可以是 `"large"`、`"normal"`、`"small"` 或 `"mini"`。                                           |
+| `block`    | 布尔值 | `false`     | 按钮是否应该是块级元素。如果为 `true`，按钮将占据其容器的整个宽度。                                         |
+
+## 事件
+
+| 名称    | 描述                                                         |
+| ------- | ------------------------------------------------------------ |
+| `click` | 当单击按钮时触发。单击事件对象将作为参数传递给事件处理程序。 |

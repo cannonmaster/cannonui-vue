@@ -37,6 +37,9 @@ export const componentMap: Record<string, ComponentMeta> = {
    },
    button: {
     props: ["shape='round' size='small' type='primary'"]
+   },
+   tag: {
+    props: ["type='default' color='' textColor='' plain=false round=false mark=false closeable=false @click='click' @close='close' "]
    }
 }
 ;

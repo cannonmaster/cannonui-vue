@@ -1,25 +1,201 @@
 ---
 title: Button
-description: "Docs intro"
-layout: "@/layouts/MainLayout.astro"
+description: 'Docs intro'
+layout: '@/layouts/MainLayout.astro'
 cname: button
 ---
 
-{/* TODO: remove unnessary cmp */}
-import ButtonReact from '@/cmpStore/Button/react/demo'
-import ButtonVue from '@/cmpStore/Button/vue/demo.vue'
+import ButtonVue from '@/cmpStore/Button/vue/demo.vue';
+
+A customizable button component with support for different shapes, sizes, types, and colors.
 
 ### Example Usages
 
-{/* TODO: remove unnessary cmp */}
-
-<ButtonReact client:visible />
 <ButtonVue client:visible />
 
 Here’s an example of how to use the infinite component:
 
 ```vue
-
+<style lang="scss" scoped>
+.cannonui-button {
+  margin-right: 10px !important;
+  margin-bottom: 10px !important;
+}
+</style>
+<template>
+  <div class="phone">
+    <div class="phone-top">Button</div>
+    <div class="phone-content">
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ h2_title.basic }}</h2>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="primary"
+        >
+          primary
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="info"
+        >
+          info
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="success"
+        >
+          success
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="default"
+        >
+          default
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="danger"
+        >
+          {{ h2_title.basic }}
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="warning"
+        >
+          warning
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="warning"
+          style="background: pink; color: azure"
+        >
+          customize
+        </cannonui-button>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ h2_title.shape }}</h2>
+        <cannonui-button
+          type="info"
+          shape="square"
+          size="small"
+        >
+          square
+        </cannonui-button>
+        <cannonui-button
+          type="info"
+          shape="round"
+          size="small"
+        >
+          round
+        </cannonui-button>
+        <cannonui-button
+          type="info"
+          shape="round"
+          size="small"
+          style="border-radius: 26px"
+        >
+          customize
+        </cannonui-button>
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ h2_title.shape }}</h2>
+        <cannonui-button
+          shape="square"
+          size="mini"
+          type="success"
+          style="border-radius: 26px"
+        >
+          mini
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="normal"
+          type="info"
+        >
+          normal
+        </cannonui-button>
+        <cannonui-button
+          shape="square"
+          size="small"
+          >small</cannonui-button
+        >
+        <cannonui-button
+          type="primary"
+          size="large"
+          shape="round"
+        >
+          large</cannonui-button
+        >
+      </section>
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
+</template>
+<script lang="ts">
+interface Translation {
+  [key: string]: {
+    h2_title: {
+      basic: string;
+      shape: string;
+    };
+  };
+}
+const translation: Translation = {
+  en: {
+    h2_title: {
+      basic: 'type',
+      shape: 'shape'
+    }
+  },
+  'zh-CN': {
+    h2_title: {
+      basic: '类型',
+      shape: '形状'
+    }
+  }
+};
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {
+    const { lang } = props;
+    return {
+      ...translation[lang]
+    };
+  }
+};
+</script>
 ```
 
-### Props
+## Props
+
+| Name       | Type    | Default     | Description                                                                                                                                                        |
+| ---------- | ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `color`    | String  | `undefined` | The background color of the button. Can be a hex code, RGB value, or CSS color name.                                                                               |
+| `shape`    | String  | `"round"`   | The shape of the button. Can be `"round"` or `"square"`.                                                                                                           |
+| `plain`    | Boolean | `false`     | Whether the button should be plain or not. If `true`, the button will have no background color and the text color will be the color specified in the `color` prop. |
+| `loading`  | Boolean | `false`     | Whether the button should be in a loading state. If `true`, a loading spinner will be displayed and the button will be disabled.                                   |
+| `disabled` | Boolean | `false`     | Whether the button should be disabled or not. If `true`, the button will be disabled and clicking on it will have no effect.                                       |
+| `type`     | String  | `"default"` | The type of button. Can be `"default"`, `"primary"`, `"info"`, `"success"`, `"warning"`, or `"danger"`.                                                            |
+| `style`    | Object  | `{}`        | Custom styles to apply to the button.                                                                                                                              |
+| `size`     | String  | `"normal"`  | The size of the button. Can be `"large"`, `"normal"`, `"small"`, or `"mini"`.                                                                                      |
+| `block`    | Boolean | `false`     | Whether the button should be a block-level element or not. If `true`, the button will take up the full width of its container.                                     |
+
+## Events
+
+| Name    | Description                                                                                                 |
+| ------- | ----------------------------------------------------------------------------------------------------------- |
+| `click` | Triggered when the button is clicked. The click event object is passed as a parameter to the event handler. |

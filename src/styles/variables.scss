@@ -154,3 +154,23 @@ $searchbar-input-height: 32px !default;
 $searchbar-input-width: 100% !default;
 $searchbar-input-border-radius: 16px !default;
 $searchbar-input-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04) !default;
+
+//tag
+$tag-font-size: 12px !default;
+$tag-default-border-radius: 4px !default;
+$tag-round-border-radius: 8px !default;
+$tag-default-background-color: #000000 !default;
+$tag-primary-background-color: #3460fa !default;
+$tag-success-background-color: #4fc08d !default;
+$tag-danger-background-color: linear-gradient(
+  135deg,
+  rgba(242, 20, 12, 1) 0%,
+  rgba(232, 34, 14, 1) 70%,
+  rgba(242, 77, 12, 1) 100%
+) !default;
+$tag-danger-background-color-plain: #df3526 !default;
+$tag-warning-background-color: #f3812e !default;
+$tag-default-color: #ffffff !default;
+$tag-border-width: 1px !default;
+$tag-plain-background-color: #fff !default;
+$tag-height: auto !default;

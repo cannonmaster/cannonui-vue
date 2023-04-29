@@ -87,6 +87,11 @@
           "text": "Video",
           "link": "en/vue/video",
           "show": true
+        },
+        {
+          "text": "Tag",
+          "link": "en/vue/tag",
+          "show": true
         }
       ],
       "Featured": [
@@ -184,6 +189,11 @@
           "text": "Video",
           "link": "en/react/video",
           "show": true
+        },
+        {
+          "text": "Tag",
+          "link": "en/react/tag",
+          "show": true
         }
       ],
       "Featured": [
@@ -280,6 +290,11 @@
           "text": "视频播放器",
           "link": "zh-CN/vue/video",
           "show": true
+        },
+        {
+          "text": "标签",
+          "link": "zh-CN/vue/tag",
+          "show": true
         }
       ],
       "特色组件": [
@@ -373,6 +388,11 @@
         {
           "text": "视频播放器",
           "link": "zh-CN/react/video",
+          "show": true
+        },
+        {
+          "text": "标签",
+          "link": "zh-CN/react/tag",
           "show": true
         }
       ],
