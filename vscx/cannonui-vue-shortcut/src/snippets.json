@@ -1,7 +1,0 @@
-{
-  "cannonui-card": {
-    "prefix": "ccard",
-    "body": ["<cannonui-card>", "\t$1", "</cannonui-card>"],
-    "description": "cannonui Card component"
-  }
-}
