@@ -1,5 +1,7 @@
 # CannonUI
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
+
 CannonUI is a mobile UI component library based on Vue 3 and typescript, characterized by high quality, strong usability, and good extensibility. CannonUI is in the development stage and will gradually add various basic and business components, such as buttons, forms, lists, popups, carousels, etc. CannonUI's goal is to speed up mobile development efficiency.
 
 ## Features
@@ -58,6 +60,6 @@ Then you could use the CannonUI component in the template such as:
 
 ## License
 
-Cannonui is licensed under the MIT license.
+Cannonui is licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
