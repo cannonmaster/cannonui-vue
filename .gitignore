@@ -20,13 +20,13 @@ pnpm-debug.log*
 .DS_Store
 
 # wallaby.js
-wallably.js
+wallaby.js
 
 # lcoal test
 ui-test/
-ui-prod-test/*
+ui-prod-test/
 # vsc extension
-vscx/*
+vscx/
 
 # plugin such as prettier
 plugin/
@@ -45,10 +45,10 @@ stats.html
 pnpm-lock.yaml
 
 
-mingnode/*
+mingnode/
 CannonUI_mind_
 
 README-cn.md
 __mocks__
-coverage/*
-md/*
+coverage/
+md/
