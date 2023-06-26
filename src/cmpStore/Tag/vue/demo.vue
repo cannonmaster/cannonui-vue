@@ -123,8 +123,8 @@ const translation: Translation = {
   },
   'zh-CN': {
     h2_title: {
-      basic: '',
-      shape: ''
+      basic: '类型',
+      shape: '形状'
     }
   }
 };

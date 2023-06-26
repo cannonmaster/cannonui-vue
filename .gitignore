@@ -1,7 +1,6 @@
 # build output
 dist/
-# test
-ui-test/
+
 # dependencies
 node_modules/
 **/node_modules/
@@ -25,9 +24,9 @@ wallably.js
 
 # lcoal test
 ui-test/
-
+ui-prod-test/*
 # vsc extension
-vscx/
+vscx/*
 
 # plugin such as prettier
 plugin/
@@ -44,3 +43,12 @@ cannonVue/
 # stats html
 stats.html
 pnpm-lock.yaml
+
+
+mingnode/*
+CannonUI_mind_
+
+README-cn.md
+__mocks__
+coverage/*
+md/*

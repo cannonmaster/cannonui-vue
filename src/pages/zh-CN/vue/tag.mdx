@@ -1,25 +1,197 @@
 ---
-title: Tag
-description: "Docs intro"
-layout: "@/layouts/MainLayout.astro"
+title: 标签
+description: '组件介绍'
+layout: '@/layouts/MainLayout.astro'
 cname: tag
 ---
 
 {/* TODO: remove unnessary cmp */}
-import TagReact from '@/cmpStore/Tag/react/demo'
 import TagVue from '@/cmpStore/Tag/vue/demo.vue'
 
-### Example Usages
+标签组件是一种 UI 元素，用于显示短标签或标签来描述或分类内容。
 
-{/* TODO: remove unnessary cmp */}
+### 示例
 
-<TagReact client:visible />
-<TagVue client:visible />
+<TagVue
+  lang="zh-CN"
+  client:visible
+/>
 
-Here’s an example of how to use the infinite component:
+以下是如何使用该组件的示例：
 
 ```vue
+<style lang="scss" scoped>
+.cannonui-tag {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+</style>
+<template>
+  <div class="phone">
+    <div class="phone-top">Tag</div>
+    <div class="phone-content">
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ h2_title.basic }}</h2>
+        <cannonui-tag
+          type="primary"
+          color=""
+          textColor=""
+          @click="click"
+          @close="close"
+          >primary</cannonui-tag
+        >
+        <cannonui-tag
+          type="success"
+          color=""
+          textColor=""
+          @click="click"
+          @close="close"
+          >success</cannonui-tag
+        >
+        <cannonui-tag
+          type="danger"
+          color=""
+          textColor=""
+          @click="click"
+          @close="close"
+          >danger</cannonui-tag
+        >
+        <cannonui-tag
+          type="warning"
+          color=""
+          textColor=""
+          @click="click"
+          @close="close"
+          >warning</cannonui-tag
+        >
+        <cannonui-tag
+          type="warning"
+          color=""
+          textColor=""
+          @click="click"
+          @close="close"
+          style="background-color: gold; color: #000"
+          >customize</cannonui-tag
+        >
+      </section>
+      <section class="cmp-usage__section">
+        <h2 class="cmp-usage__title">{{ h2_title.shape }}</h2>
+        <cannonui-tag
+          type="primary"
+          color=""
+          textColor=""
+          mark
+          @click="click"
+          @close="close"
+          >mark</cannonui-tag
+        >
+        <cannonui-tag
+          type="success"
+          color=""
+          textColor=""
+          round
+          @click="click"
+          @close="close"
+          >round</cannonui-tag
+        >
+        <cannonui-tag
+          type="danger"
+          color="#000"
+          textColor=""
+          plain
+          @click="click"
+          @close="close"
+          >plain</cannonui-tag
+        >
+        <cannonui-tag
+          type="warning"
+          color=""
+          textColor=""
+          @click="click"
+          @close="close"
+          >customize</cannonui-tag
+        >
+        <cannonui-tag
+          type="warning"
+          color=""
+          textColor=""
+          @click="click"
+          @close="close"
+          closeable
+          v-show="display"
+          style="background-color: gold; color: #000"
+          >Closeable</cannonui-tag
+        >
+      </section>
+    </div>
+    <div class="phone-bottom"></div>
+  </div>
+</template>
+<script lang="ts">
+interface Translation {
+  [key: string]: {
+    h2_title: {
+      basic: string;
+      shape: string;
+    };
+  };
+}
+const translation: Translation = {
+  en: {
+    h2_title: {
+      basic: 'type',
+      shape: 'shape'
+    }
+  },
+  'zh-CN': {
+    h2_title: {
+      basic: '类型',
+      shape: '形状'
+    }
+  }
+};
+import { ref } from 'vue';
+export default {
+  props: {
+    lang: {
+      type: String,
+      default: 'en'
+    }
+  },
+  emits: [],
+  components: {},
+  setup(props) {
+    const display = ref(true);
+    const { lang } = props;
+    const click = () => {
+      console.log('clicked');
+    };
+    const close = () => {
+      display.value = false;
+    };
 
+    return { ...translation[lang], click, close, display };
+  }
+};
+</script>
 ```
 
-### Props
+### 属性
+
+| 属性名    | 类型    | 默认值      | 描述                                                                   |
+| --------- | ------- | ----------- | ---------------------------------------------------------------------- |
+| type      | String  | `'default'` | 标签类型。可以是 `'primary'`，`'success'`，`'danger'` 或 `'warning'`。 |
+| color     | String  | `''`        | 标签的背景颜色。                                                       |
+| textColor | String  | `'default'` | 标签文本的颜色。                                                       |
+| plain     | Boolean | `false`     | 标签是否有带颜色的边框。                                               |
+| round     | Boolean | `false`     | 标签是否有圆角边框。                                                   |
+| mark      | Boolean | `false`     | 标签是否被突出显示或标记。                                             |
+| closeable | Boolean | `false`     | 标签是否带有关闭按钮。                                                 |
+| style     | Object  | `{}`        | 要应用于标签的自定义样式。                                             |
+
+### 事件
+
+| 事件名 | 描述                           |
+| ------ | ------------------------------ |
+| close  | 当关闭按钮被点击时触发的事件。 |
+| click  | 当标签被点击时触发的事件。     |

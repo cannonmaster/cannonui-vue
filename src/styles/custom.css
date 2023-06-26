@@ -73,7 +73,7 @@
   background-color: #000;
   border: 1px solid black;
   border-bottom: none;
-  z-index: 10;
+  z-index: 6;
 }
 
 /* Add a home button to the phone screen */

@@ -1,6 +1,6 @@
 # CannonUI
 
-CannonUI is a mobile UI component library based on Vue.js and React, characterized by high quality, strong usability, and good extensibility. CannonUI is in the development stage and will gradually add various basic and business components, such as buttons, forms, lists, popups, carousels, etc. CannonUI's goal is to speed up mobile development efficiency.
+CannonUI is a mobile UI component library based on Vue 3 and typescript, characterized by high quality, strong usability, and good extensibility. CannonUI is in the development stage and will gradually add various basic and business components, such as buttons, forms, lists, popups, carousels, etc. CannonUI's goal is to speed up mobile development efficiency.
 
 ## Features
 
@@ -17,7 +17,7 @@ npm install @cannonui/vue --save
 
 ## Quick Start
 
-Using CannonUI is very simple. In your Vue.js project, you only need to first import CannonUI:
+Using CannonUI is very simple. In your Vue.js project, you only need to first import CannonUI: 
 
 ```js
 import { createApp } from 'vue';
@@ -28,7 +28,7 @@ import '@cannonui/vue/style.css';
 
 createApp(App).use(CannonUI).mount('#app');
 ```
-Then you can use the CannonUI component in the template:
+Then you could use the CannonUI component in the template such as:
 
 ```vue
 <script lang="ts">

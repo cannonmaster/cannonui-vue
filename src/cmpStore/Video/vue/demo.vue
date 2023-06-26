@@ -57,7 +57,7 @@ export default {
   setup(props) {
     const { lang } = props;
     const state = reactive({
-      src: 'https://storage.360buyimg.com/nutui/video/video_NutUI.mp4',
+      src: 'https://cannonuivideo-j2a4--5173--a19575a2.local-credentialless.webcontainer.io/src/samplev.mp4',
       type: 'video/mp4',
       options1: {
         autoplay: false,

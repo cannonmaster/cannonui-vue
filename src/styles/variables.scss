@@ -29,6 +29,8 @@ $white: #fff !default;
 $black: #000 !default;
 $required-color: #fa2c19 !default;
 
+$dark-color: $white !default;
+
 // Font
 $font-size-0: 10px !default;
 $font-size-1: 12px !default;
@@ -41,6 +43,25 @@ $font-size-small: $font-size-1 !default;
 $font-size-base: $font-size-2 !default;
 $font-size-large: $font-size-3 !default;
 $line-height-base: 1.5 !default;
+
+// 标题常规文字
+$title-color: #1a1a1a !default;
+// 副标题
+$title-color2: #666666 !default;
+
+// picker
+$picker-cancel-color: #808080 !default;
+$picker-ok-color: $primary-color !default;
+$picker-bar-cancel-font-size: 14px !default;
+$picker-bar-ok-font-size: 14px !default;
+$picker-bar-button-padding: 0 15px !default;
+$picker-bar-title-font-size: 16px !default;
+$picker-bar-title-color: $title-color !default;
+$picker-bar-title-font-weight: normal !default;
+$picker-item-height: 36px !default;
+$picker-item-text-color: $title-color !default;
+$picker-item-text-font-size: 14px !default;
+$picker-item-active-line-border: 1px solid #d8d8d8 !default;
 
 //button
 $button-border-radius: $cannon-border-radius-7 !default;

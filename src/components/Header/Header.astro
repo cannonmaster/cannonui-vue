@@ -17,25 +17,34 @@ const lang = getLanguageFromURL(currentPage);
 
 <header>
 	<SkipToContent />
-	<nav class="nav-wrapper" title="Top Navigation">
+	<nav
+		class="nav-wrapper"
+		title="Top Navigation"
+	>
 		<div class="menu-toggle">
 			<SidebarToggle client:idle />
 		</div>
 		<div class="logo flex">
 			<a href="/">
-				<AstroLogo size={40} />
+				<!-- <AstroLogo size={40} /> -->
 				<h1>{CONFIG.SITE.title ?? 'Documentation'}</h1>
 			</a>
 		</div>
 		<div style="flex-grow: 1;"></div>
 		<div id="theme">
-
-			<ThemeToggleButton client:load/>
+			<ThemeToggleButton client:load />
 		</div>
-		{KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}
-		<div class="search-item">
+		{
+			KNOWN_LANGUAGE_CODES.length > 1 && (
+				<LanguageSelect
+					lang={lang}
+					client:idle
+				/>
+			)
+		}
+		<!-- <div class="search-item">
 			<Search client:idle />
-		</div>
+		</div> -->
 	</nav>
 </header>
 
@@ -106,7 +115,7 @@ const lang = getLanguageFromURL(currentPage);
 		gap: 1em;
 		width: 100%;
 		max-width: 82em;
-		padding: 0 1rem;
+		/* padding: 0 1rem; */
 	}
 
 	@media (min-width: 50em) {
@@ -154,7 +163,6 @@ const lang = getLanguageFromURL(currentPage);
 
 	@media (max-width: 26em) {
 	}
-	
 </style>
 
 <style is:global>
