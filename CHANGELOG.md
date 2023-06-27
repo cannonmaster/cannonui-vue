@@ -1,3 +1,5 @@
+##  v0.9.6 (2023-06-27)
+- ⚡ added pick component
 ##  v0.9.6 (2023-04-28)
 - ⚡ added swipe component
 ##  v0.9.3 (2023-04-26)

@@ -3,7 +3,7 @@
   <div class="phone">
     <div class="phone-top">Pick</div>
     <div class="phone-content">
-      <h2>test</h2>
+      <h2></h2>
       <Pick
         :columns="columns"
         title="123"

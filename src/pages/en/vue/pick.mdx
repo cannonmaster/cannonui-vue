@@ -8,16 +8,47 @@ cname: pick
 {/* TODO: remove unnessary cmp */}
 import PickVue from '@/cmpStore/Pick/vue/demo.vue'
 
+The Pick component is a customizable picker used to select values from a list of options. It provides a user interface for selecting items or values, such as dates, times, or custom options.
+
 ### Example Usages
 
 {/* TODO: remove unnessary cmp */}
 
 <PickVue client:visible />
 
-Here’s an example of how to use the infinite component:
+Here’s an example of how to use the pick component:
 
 ```vue
 
 ```
 
 ### Props
+
+| Name             | Type                                         | Default | Description                                                                                                                                                                               |
+| ---------------- | -------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| modelValue       | Array of (string \| number)                  | `[]`    | The selected values.                                                                                                                                                                      |
+| title            | String                                       | `''`    | The title displayed at the top of the picker.                                                                                                                                             |
+| cancelText       | String                                       | `''`    | The text for the cancel button in the toolbar.                                                                                                                                            |
+| okText           | String                                       | `''`    | The text for the OK/confirm button in the toolbar.                                                                                                                                        |
+| columns          | Array of (PickerOption \| PickerOption[])\[] | `[]`    | The options for each column in the picker. Each column can be represented by a single `PickerOption` or an array of `PickerOption` objects in case of multiple options within the column. |
+| threeDimensional | Boolean                                      | `true`  | Whether the picker has three-dimensional scrolling. If set to `true`, the columns will scroll independently. If set to `false`, the columns will scroll together.                         |
+| swipeDuration    | Number \| String                             | `1000`  | The duration of the swipe animation in milliseconds.                                                                                                                                      |
+| showToolbar      | Boolean                                      | `true`  | Whether to show the toolbar at the top of the picker.                                                                                                                                     |
+| visibleOptionNum | Number \| String                             | `7`     | The number of visible options in each column.                                                                                                                                             |
+| optionHeight     | Number \| String                             | `36`    | The height of each option in pixels.                                                                                                                                                      |
+
+### Events
+
+| Name              | Description                                                                                         |
+| ----------------- | --------------------------------------------------------------------------------------------------- |
+| cancel            | Triggered when the cancel button is clicked.                                                        |
+| change            | Triggered when the selected values change. The updated selected values are emitted as an event.     |
+| confirm           | Triggered when the OK/confirm button is clicked.                                                    |
+| update:modelValue | Triggered when the selected values change. The updated selected values are emitted using `v-model`. |
+
+### Slots
+
+| Name    | Description                                                              |
+| ------- | ------------------------------------------------------------------------ |
+| top     | Custom content to be placed at the top of the picker, above the columns. |
+| default | Custom content to be placed below the columns and toolbar in the picker. |

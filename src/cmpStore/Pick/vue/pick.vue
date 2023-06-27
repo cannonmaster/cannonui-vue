@@ -10,7 +10,7 @@
       <view
         class="cannonui-picker__left"
         @click="cancel"
-        >取消</view
+        >cancel</view
       >
       <view class="cannonui-picker__title"> {{ title }}</view>
       <view
