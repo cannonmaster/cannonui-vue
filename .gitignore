@@ -46,9 +46,8 @@ pnpm-lock.yaml
 
 
 mingnode/
-CannonUI_mind_
 
 README-cn.md
-__mocks__
+__mocks__/
 coverage/
 md/
