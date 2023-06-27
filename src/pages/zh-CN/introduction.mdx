@@ -4,4 +4,76 @@ description: Docs intro
 layout: ../../layouts/MainLayout.astro
 ---
 
-# 介绍
+**欢迎使用 CannonUI！**
+
+CannonUI 是一个基于 Vue 3 和 TypeScript 的移动端 UI 组件库，以高质量、易用性强和可扩展性好为特点。CannonUI 正处于开发阶段，将逐步添加各种基础和业务组件，如按钮、表单、列表、弹出框、轮播图等。CannonUI 的目标是提高移动端开发效率。
+
+- ✅ **以高质量、易用性强和可扩展性好为特点**
+- ✅ **提供各种基础和业务组件，如按钮、表单、列表、弹出框、轮播图等**
+- ✅ **即将推出 React 版本**
+
+## 入门指南
+
+你可以通过 npm 安装 CannonUI for Vue：
+
+```bash
+npm install @cannonui/vue --save
+```
+
+## 快速开始
+
+使用 CannonUI 非常简单。在你的 Vue.js 项目中，首先需要导入 CannonUI：
+
+```js
+import { createApp } from 'vue';
+import App from './App.vue';
+import './style.css';
+import CannonUI from '@cannonui/vue';
+import '@cannonui/vue/style.css';
+
+createApp(App).use(CannonUI).mount('#app');
+```
+
+然后你就可以在模板中使用 CannonUI 组件了，例如：
+
+```vue
+<script lang="ts">
+import { reactive } from 'vue';
+
+export default {
+  setup() {
+    const state = reactive({
+      imgUrl: '',
+      title: '测试',
+      price: '388',
+      vipPrice: '368',
+      shopDesc: '测试',
+      delivery: '测试',
+      shopName: '测试'
+    });
+
+    return {
+      state
+    };
+  }
+};
+</script>
+
+<template>
+  <cannonui-card
+    :img-url="state.imgUrl"
+    :title="state.title"
+    :price="state.price"
+    :vipPrice="state.vipPrice"
+    :shopDesc="state.shopDesc"
+    :delivery="state.delivery"
+    :shopName="state.shopName"
+  ></cannonui-card>
+</template>
+
+<style scoped></style>
+```
+
+## 许可证
+
+CannonUI 使用 [MIT 许可证](https://opensource.org/licenses/MIT)。
