@@ -5,5 +5,7 @@
 // if (window.location.hostname !== 'localhost')
 // 	window.location.pathname = `${window.location.hostname}/en/introduction`;
 // else window.location.pathname = `/en/introduction`;
-window.location.pathname = 'en/introduction';
+// window.location.pathname = 'en/introduction';
+const currentPath = window.location.pathname;
+window.location.pathname = currentPath + 'en/introduction';
 </script>
