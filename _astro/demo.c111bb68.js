@@ -1,0 +1,1 @@
+import"./index.f1bc5ebf.js";import{S as e}from"./swiperitem.198b7602.js";import{j as r}from"./jsx-runtime.109e40f8.js";/* empty css                       */import"./index.2e4736b8.js";const p=()=>r.jsx(r.Fragment,{children:r.jsxs("div",{className:"demo",children:[r.jsx("h2",{children:"基础用法"}),r.jsx(e,{})]})});export{p as default};

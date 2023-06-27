@@ -1,0 +1,1 @@
+import{S as o}from"./swiperitem.e1d5bf69.js";/* empty css                       */import{_ as r}from"./_plugin-vue_export-helper.a85d8817.js";import"./runtime-core.esm-bundler.23703bfe.js";const e={props:{},emits:[],components:{SwiperItem:o},setup(t){return{}}};function p(t,s,n,a,c,m){return null}const u=r(e,[["render",p],["__scopeId","data-v-bda6482b"]]);export{u as default};

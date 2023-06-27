@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us" class="initial astro-OUAMJN2I">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="generator" content="Astro v2.1.9">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<link rel="sitemap" href="/sitemap.xml">
+
+<!-- Preload Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- Scrollable a11y code helper -->
+<script src="/make-scrollable-code-focusable.js"></script>
+
+<!-- This is intentionally inlined to avoid FOUC -->
+<script>
+	const root = document.documentElement;
+	const theme = localStorage.getItem('theme');
+	if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+		root.classList.add('theme-dark');
+	} else {
+		root.classList.remove('theme-dark');
+	}
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9" is:inline></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TEL60V1WM9');
+</script> -->
+    <!-- Page Metadata --><link rel="canonical" href="http://astro.build/en/react/pick/">
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content="Pick 🚀 Cannon UI">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://astro.build/en/react/pick/">
+<meta property="og:locale" content="en_US">
+<!-- <meta property="og:image" content={canonicalImageSrc} /> -->
+<!-- <meta property="og:image:alt" content={imageAlt} /> -->
+<meta name="description" property="og:description" content="Docs intro">
+<meta property="og:site_name" content="Cannon UI">
+
+<!-- Twitter Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="astrodotbuild">
+<meta name="twitter:title" content="Pick 🚀 Cannon UI">
+<meta name="twitter:description" content="Docs intro">
+<meta name="twitter:image" content="https://github.com/withastro/astro/blob/main/assets/social/banner-minimal.png?raw=true">
+<meta name="twitter:image:alt" content="astro logo on a starry expanse of space, with a purple saturn-like planet floating in the right foreground">
+
+<!--
+  TODO: Add json+ld data, maybe https://schema.org/APIReference makes sense?
+  Docs: https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data
+  https://www.npmjs.com/package/schema-dts seems like a great resource for implementing this.
+  Even better, there's a React component that integrates with `schema-dts`: https://github.com/google/react-schemaorg
+-->
+    <title>
+      Pick 🚀 Cannon UI
+    </title>
+    
+    
+  <link rel="stylesheet" href="/_astro/pick.b8454f3a.css" />
+<link rel="stylesheet" href="/_astro/page-2.464db88a.css" />
+<link rel="stylesheet" href="/_astro/pickcolumn.fe46cad3.css" />
+<link rel="stylesheet" href="/_astro/pick.4cc1065f.css" /><script type="module">let o="Copy Code",l="Stackblitz",r=Array.from(document.querySelectorAll("pre"));for(let e of r){let n=document.createElement("div");n.style.position="relative";let t=document.createElement("button");if(t.className="copy-code",t.innerHTML=o,e.setAttribute("tabindex","0"),e.appendChild(t),document.getElementById("frontmatter")?.dataset.pagedata){let a=document.createElement("a"),c=document.getElementById("frontmatter")?.dataset.pagedata;a.href=`https://stackblitz.com/edit/cannonui-${c}?file=src%2FApp.vue`,a.target="_blank",a.className="stackblitz",a.innerHTML=l,e.appendChild(a)}e.parentNode?.insertBefore(n,e),t.addEventListener("click",async()=>{await i(e,t)})}async function i(e,n){let t=e.querySelector("code"),a=t?t.innerText:"";await navigator.clipboard.writeText(a),n.innerText="Code Copied",setTimeout(()=>{n.innerText=o},700)}
+</script></head>
+
+  <body class="astro-OUAMJN2I">
+    <header class="astro-2W66RQV5">
+	<a href="#article" class="sr-only focus:not-sr-only skiplink astro-DMGOOZ7Y"><span class="astro-DMGOOZ7Y">Skip to Content</span></a>
+	<nav class="nav-wrapper astro-2W66RQV5" title="Top Navigation">
+		<div class="menu-toggle astro-2W66RQV5">
+			<script>(self.Astro=self.Astro||{}).idle=t=>{const e=async()=>{await(await t())()};"requestIdleCallback"in window?window.requestIdleCallback(e):setTimeout(e,200)},window.dispatchEvent(new Event("astro:idle"));</script><astro-island uid="UvC40" component-url="/_astro/SidebarToggle.c7c67a70.js" component-export="default" renderer-url="/_astro/client.15ddb572.js" props="{&quot;class&quot;:[0,&quot;astro-2W66RQV5&quot;]}" ssr="" client="idle" opts="{&quot;name&quot;:&quot;SidebarToggle&quot;,&quot;value&quot;:true}" await-children=""><button type="button" aria-pressed="false" id="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg><span class="sr-only">Toggle sidebar</span></button></astro-island>
+		</div>
+		<div class="logo flex astro-2W66RQV5">
+			<a href="/" class="astro-2W66RQV5">
+				<!-- <AstroLogo size={40} /> -->
+				<h1 class="astro-2W66RQV5">Cannon UI</h1>
+			</a>
+		</div>
+		<div style="flex-grow: 1;" class="astro-2W66RQV5"></div>
+		<div id="theme" class="astro-2W66RQV5">
+			<script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));</script><astro-island uid="Z1NGVBb" component-url="/_astro/ThemeToggleButton.1fbc6fc8.js" component-export="default" renderer-url="/_astro/client.15ddb572.js" props="{&quot;class&quot;:[0,&quot;astro-2W66RQV5&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;ThemeToggleButton&quot;,&quot;value&quot;:true}" await-children=""><div class="theme-toggle"><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd"></path></svg><input type="radio" name="theme-toggle" value="light" title="Use light theme" aria-label="Use light theme" /></label><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><input type="radio" name="theme-toggle" value="dark" title="Use dark theme" aria-label="Use dark theme" /></label></div></astro-island>
+		</div>
+		<astro-island uid="2khpG2" component-url="/_astro/LanguageSelect.ca745cec.js" component-export="default" renderer-url="/_astro/client.fd400d45.js" props="{&quot;lang&quot;:[0,&quot;en&quot;]}" ssr="" client="idle" opts="{&quot;name&quot;:&quot;LanguageSelect&quot;,&quot;value&quot;:true}" await-children=""><div class="language-select-wrapper"><svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.6 77.3" height="1.2em" width="1.2em"><path fill="currentColor" d="M61,24.6h7.9l18.7,51.6h-7.7l-5.4-15.5H54.3l-5.6,15.5h-7.2L61,24.6z M72.6,55l-8-22.8L56.3,55H72.6z"></path><path fill="currentColor" d="M53.6,60.6c-10-4-16-9-22-14c0,0,1.3,1.3,0,0c-6,5-20,13-20,13l-4-6c8-5,10-6,19-13c-2.1-1.9-12-13-13-19h8          c4,9,10,14,10,14c10-8,10-19,10-19h8c0,0-1,13-12,24l0,0c5,5,10,9,19,13L53.6,60.6z M1.6,16.6h56v-8h-23v-7h-9v7h-24V16.6z"></path></svg><select class="language-select"><option value="en" selected="">English</option><option value="zh-CN">Chinese</option></select></div></astro-island>
+		<!-- <div class="search-item">
+			<Search client:idle />
+		</div> -->
+	</nav>
+</header>
+    <main class="layout astro-OUAMJN2I">
+      <aside id="grid-left" class="grid-sidebar astro-OUAMJN2I" title="Site Navigation">
+        <nav aria-labelledby="grid-left" class="astro-KQNE5HRN">
+	<ul class="nav-groups astro-KQNE5HRN">
+		<li class="astro-KQNE5HRN">
+					<div class="nav-group astro-KQNE5HRN">
+						<h2 class="astro-KQNE5HRN">General</h2>
+						<ul class="astro-KQNE5HRN">
+							<li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/button" class="astro-KQNE5HRN">
+												Button
+											</a>
+										</li>
+						</ul>
+					</div>
+				</li><li class="astro-KQNE5HRN">
+					<div class="nav-group astro-KQNE5HRN">
+						<h2 class="astro-KQNE5HRN">Feedback</h2>
+						<ul class="astro-KQNE5HRN">
+							<li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/switch" class="astro-KQNE5HRN">
+												Switch
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/drag" class="astro-KQNE5HRN">
+												Drag
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/infiniteloading" class="astro-KQNE5HRN">
+												InfiniteLoading
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/searchbar" class="astro-KQNE5HRN">
+												SearchBar
+											</a>
+										</li>
+						</ul>
+					</div>
+				</li><li class="astro-KQNE5HRN">
+					<div class="nav-group astro-KQNE5HRN">
+						<h2 class="astro-KQNE5HRN">Layout</h2>
+						<ul class="astro-KQNE5HRN">
+							<li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/layout" class="astro-KQNE5HRN">
+												Layout
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/skeleton" class="astro-KQNE5HRN">
+												Skeleton
+											</a>
+										</li>
+						</ul>
+					</div>
+				</li><li class="astro-KQNE5HRN">
+					<div class="nav-group astro-KQNE5HRN">
+						<h2 class="astro-KQNE5HRN">Display</h2>
+						<ul class="astro-KQNE5HRN">
+							<li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/price" class="astro-KQNE5HRN">
+												Price
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/swiper" class="astro-KQNE5HRN">
+												Swiper
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/video" class="astro-KQNE5HRN">
+												Video
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/tag" class="astro-KQNE5HRN">
+												Tag
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/pick" class="astro-KQNE5HRN">
+												Pick
+											</a>
+										</li>
+						</ul>
+					</div>
+				</li><li class="astro-KQNE5HRN">
+					<div class="nav-group astro-KQNE5HRN">
+						<h2 class="astro-KQNE5HRN">Featured</h2>
+						<ul class="astro-KQNE5HRN">
+							<li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/card" class="astro-KQNE5HRN">
+												Card
+											</a>
+										</li>
+						</ul>
+					</div>
+				</li>
+	</ul>
+</nav>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+	var target = document.querySelector('[aria-current="page"]');
+	if (target && target.offsetTop > window.innerHeight - 100) {
+		document.querySelector('.nav-groups').scrollTop = target.offsetTop;
+	}
+});
+</script>
+      </aside>
+      <div id="grid-main" class="astro-OUAMJN2I">
+        <article id="article" class="content astro-J75B3YUS">
+	<section class="main-section astro-J75B3YUS">
+		<h1 class="content-title astro-J75B3YUS" id="overview">Pick</h1>
+		<nav class="block sm:hidden astro-J75B3YUS">
+			<script>(self.Astro=self.Astro||{}).media=(s,a)=>{const t=async()=>{await(await s())()};if(a.value){const e=matchMedia(a.value);e.matches?t():e.addEventListener("change",t,{once:!0})}},window.dispatchEvent(new Event("astro:media"));</script><astro-island uid="GdN1B" component-url="/_astro/TableOfContents.8c3f2d22.js" component-export="default" renderer-url="/_astro/client.15ddb572.js" props="{&quot;headings&quot;:[1,&quot;[[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;example-usages\&quot;],\&quot;text\&quot;:[0,\&quot;Example Usages\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;props\&quot;],\&quot;text\&quot;:[0,\&quot;Props\&quot;]}]]&quot;],&quot;class&quot;:[0,&quot;astro-J75B3YUS&quot;]}" ssr="" client="media" opts="{&quot;name&quot;:&quot;TableOfContents&quot;,&quot;value&quot;:&quot;(max-width: 50em)&quot;}" await-children=""><h2 id="on-this-page-heading" class="heading">On this page</h2><ul><li class="header-link depth-3"><a href="#example-usages">Example Usages</a></li><li class="header-link depth-3"><a href="#props">Props</a></li></ul></astro-island>
+		</nav>
+		
+
+<h3 id="example-usages">Example Usages</h3>
+
+<astro-island uid="1vmzyA" component-url="/_astro/demo.c9058918.js" component-export="default" renderer-url="/_astro/client.fd400d45.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;PickDemo&quot;,&quot;value&quot;:true}" await-children=""><div class="demo"><h2>基础用法</h2><div class="cannonui-pick">Pick</div></div></astro-island>
+<style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="BDn1s" component-url="/_astro/demo.b763ef5e.js" component-export="default" renderer-url="/_astro/client.d549b5d7.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:{&quot;props&quot;:{},&quot;emits&quot;:[],&quot;components&quot;:{&quot;Pick&quot;:{&quot;components&quot;:{&quot;cannonui-pickcolumn&quot;:{&quot;props&quot;:{&quot;value&quot;:[null,null],&quot;column&quot;:{},&quot;threeDimensional&quot;:{&quot;default&quot;:true},&quot;swipeDuration&quot;:{&quot;type&quot;:[null,null],&quot;default&quot;:1000},&quot;visibleOptionNum&quot;:{&quot;type&quot;:[null,null],&quot;default&quot;:7},&quot;optionHeight&quot;:{&quot;type&quot;:[null,null],&quot;default&quot;:36}},&quot;emits&quot;:[&quot;click&quot;,&quot;change&quot;],&quot;baseName&quot;:&quot;pickcolumn&quot;,&quot;name&quot;:&quot;cannonui-pickcolumn&quot;,&quot;__scopeId&quot;:&quot;data-v-5f6f3c80&quot;}},&quot;props&quot;:{&quot;modelValue&quot;:{},&quot;title&quot;:{&quot;default&quot;:&quot;&quot;},&quot;cancelText&quot;:{&quot;default&quot;:&quot;&quot;},&quot;okText&quot;:{&quot;default&quot;:&quot;&quot;},&quot;columns&quot;:{},&quot;threeDimensional&quot;:{&quot;default&quot;:true},&quot;swipeDuration&quot;:{&quot;type&quot;:[null,null],&quot;default&quot;:1000},&quot;showToolbar&quot;:{&quot;default&quot;:true},&quot;visibleOptionNum&quot;:{&quot;type&quot;:[null,null],&quot;default&quot;:7},&quot;optionHeight&quot;:{&quot;type&quot;:[null,null],&quot;default&quot;:36}},&quot;emits&quot;:[&quot;cancel&quot;,&quot;change&quot;,&quot;confirm&quot;,&quot;update:modelValue&quot;],&quot;baseName&quot;:&quot;pick&quot;,&quot;name&quot;:&quot;cannonui-pick&quot;,&quot;__scopeId&quot;:&quot;data-v-7ed36959&quot;}}},&quot;value&quot;:true}" await-children=""><div class="phone"><div class="phone-top">Pick</div><div class="phone-content"><h2></h2><div class="cannonui-picker" data-v-7ed36959><view class="cannonui-picker__bar" data-v-7ed36959><view class="cannonui-picker__left" data-v-7ed36959>cancel</view><view class="cannonui-picker__title" data-v-7ed36959>123</view><view class="cannonui-picker__right" data-v-7ed36959>ok</view></view><!--[--><!--]--><view class="cannonui-picker__column" style="height:252px;--lineHeight:36px;" data-v-7ed36959><!--[--><view class="cannonui-picker__columnitem" data-v-7ed36959><view class="cannonui-picker__list" data-v-7ed36959 data-v-5f6f3c80><view class="cannonui-picker-roller" style="transition:transform 0ms cubic-bezier(0.17, 0.89, 0.45, 1);transform:rotate3d(1, 0, 0, 0);top:calc(50% - 18px);" data-v-5f6f3c80><!--[--><!--[--><view class="cannonui-picker-roller-item" style="transform: rotate3d(1, 0, 0, -20deg) translate3d(0px, 0px, 104px)" data-v-5f6f3c80>nanJing</view><!----><!--]--><!--[--><view class="cannonui-picker-roller-item" style="transform: rotate3d(1, 0, 0, -40deg) translate3d(0px, 0px, 104px)" data-v-5f6f3c80>wuXi</view><!----><!--]--><!--[--><view class="cannonui-picker-roller-item" style="transform: rotate3d(1, 0, 0, -60deg) translate3d(0px, 0px, 104px)" data-v-5f6f3c80>zangZu</view><!----><!--]--><!--[--><view class="cannonui-picker-roller-item" style="transform: rotate3d(1, 0, 0, -80deg) translate3d(0px, 0px, 104px)" data-v-5f6f3c80>beiJing</view><!----><!--]--><!--[--><view class="cannonui-picker-roller-item" style="transform: rotate3d(1, 0, 0, -100deg) translate3d(0px, 0px, 104px)" data-v-5f6f3c80>lianYunGang</view><!----><!--]--><!--[--><view class="cannonui-picker-roller-item" style="transform: rotate3d(1, 0, 0, -120deg) translate3d(0px, 0px, 104px)" data-v-5f6f3c80>zheJiang</view><!----><!--]--><!--[--><view class="cannonui-picker-roller-item" style="transform: rotate3d(1, 0, 0, -140deg) translate3d(0px, 0px, 104px)" data-v-5f6f3c80>jiangSu</view><!----><!--]--><!--]--></view><view class="cannonui-picker-roller-mask" style="background-size:100% 108px;" data-v-5f6f3c80></view></view></view><!--]--></view><!--[--><!--]--></div></div><div class="phone-bottom"></div></div></astro-island>
+<p>Here’s an example of how to use the infinite component:</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"></span></code></pre>
+<h3 id="props">Props</h3>
+	</section>
+	<nav class="block sm:hidden astro-J75B3YUS">
+		
+<ul class="astro-BYIKQF6W">
+	<!-- {
+		editHref && (
+			<li class={`header-link depth-2`}>
+				<a class="edit-on-github" href={editHref} target="_blank">
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						data-prefix="fas"
+						data-icon="pen"
+						class="svg-inline--fa fa-pen fa-w-16"
+						role="img"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 512 512"
+						height="1em"
+						width="1em"
+					>
+						<path
+							fill="currentColor"
+							d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"
+						/>
+					</svg>
+					<span>Edit this page</span>
+				</a>
+			</li>
+		)
+	} -->
+	
+</ul>
+<!-- <div style="margin: 2rem 0; text-align: center;">
+	<ThemeToggleButton client:visible />
+</div> -->
+	</nav>
+</article>
+      </div>
+      <aside id="grid-right" class="grid-sidebar astro-OUAMJN2I" title="Table of Contents">
+        <nav class="sidebar-nav astro-ROIVMLUZ" aria-labelledby="grid-right">
+	<div class="sidebar-nav-inner astro-ROIVMLUZ">
+		<astro-island uid="Z1DwFgB" component-url="/_astro/TableOfContents.8c3f2d22.js" component-export="default" renderer-url="/_astro/client.15ddb572.js" props="{&quot;headings&quot;:[1,&quot;[[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;example-usages\&quot;],\&quot;text\&quot;:[0,\&quot;Example Usages\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;props\&quot;],\&quot;text\&quot;:[0,\&quot;Props\&quot;]}]]&quot;],&quot;class&quot;:[0,&quot;astro-ROIVMLUZ&quot;]}" ssr="" client="media" opts="{&quot;name&quot;:&quot;TableOfContents&quot;,&quot;value&quot;:&quot;(min-width: 50em)&quot;}" await-children=""><h2 id="on-this-page-heading" class="heading">On this page</h2><ul><li class="header-link depth-3"><a href="#example-usages">Example Usages</a></li><li class="header-link depth-3"><a href="#props">Props</a></li></ul></astro-island>
+		
+<ul class="astro-BYIKQF6W">
+	<!-- {
+		editHref && (
+			<li class={`header-link depth-2`}>
+				<a class="edit-on-github" href={editHref} target="_blank">
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						data-prefix="fas"
+						data-icon="pen"
+						class="svg-inline--fa fa-pen fa-w-16"
+						role="img"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 512 512"
+						height="1em"
+						width="1em"
+					>
+						<path
+							fill="currentColor"
+							d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"
+						/>
+					</svg>
+					<span>Edit this page</span>
+				</a>
+			</li>
+		)
+	} -->
+	
+</ul>
+<!-- <div style="margin: 2rem 0; text-align: center;">
+	<ThemeToggleButton client:visible />
+</div> -->
+	</div>
+</nav>
+      </aside>
+    </main>
+    <footer class="astro-AK3UPACL">
+	<!-- <AvatarList path={path} /> -->
+</footer>
+    <div id="frontmatter" data-pagedata="pick" class="astro-OUAMJN2I"></div>
+
+    
+  </body>
+</html>

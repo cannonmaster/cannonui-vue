@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us" class="initial astro-OUAMJN2I">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="generator" content="Astro v2.1.9">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<link rel="sitemap" href="/sitemap.xml">
+
+<!-- Preload Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- Scrollable a11y code helper -->
+<script src="/make-scrollable-code-focusable.js"></script>
+
+<!-- This is intentionally inlined to avoid FOUC -->
+<script>
+	const root = document.documentElement;
+	const theme = localStorage.getItem('theme');
+	if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+		root.classList.add('theme-dark');
+	} else {
+		root.classList.remove('theme-dark');
+	}
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9" is:inline></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TEL60V1WM9');
+</script> -->
+    <!-- Page Metadata --><link rel="canonical" href="http://astro.build/en/vue/video/">
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content="Video Introduction 🚀 Cannon UI">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://astro.build/en/vue/video/">
+<meta property="og:locale" content="en_US">
+<!-- <meta property="og:image" content={canonicalImageSrc} /> -->
+<!-- <meta property="og:image:alt" content={imageAlt} /> -->
+<meta name="description" property="og:description" content="Docs intro">
+<meta property="og:site_name" content="Cannon UI">
+
+<!-- Twitter Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="astrodotbuild">
+<meta name="twitter:title" content="Video Introduction 🚀 Cannon UI">
+<meta name="twitter:description" content="Docs intro">
+<meta name="twitter:image" content="https://github.com/withastro/astro/blob/main/assets/social/banner-minimal.png?raw=true">
+<meta name="twitter:image:alt" content="astro logo on a starry expanse of space, with a purple saturn-like planet floating in the right foreground">
+
+<!--
+  TODO: Add json+ld data, maybe https://schema.org/APIReference makes sense?
+  Docs: https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data
+  https://www.npmjs.com/package/schema-dts seems like a great resource for implementing this.
+  Even better, there's a React component that integrates with `schema-dts`: https://github.com/google/react-schemaorg
+-->
+    <title>
+      Video Introduction 🚀 Cannon UI
+    </title>
+    
+    
+  <link rel="stylesheet" href="/_astro/page-2.464db88a.css" />
+<link rel="stylesheet" href="/_astro/video.7bf66fe0.css" /><script type="module">let o="Copy Code",l="Stackblitz",r=Array.from(document.querySelectorAll("pre"));for(let e of r){let n=document.createElement("div");n.style.position="relative";let t=document.createElement("button");if(t.className="copy-code",t.innerHTML=o,e.setAttribute("tabindex","0"),e.appendChild(t),document.getElementById("frontmatter")?.dataset.pagedata){let a=document.createElement("a"),c=document.getElementById("frontmatter")?.dataset.pagedata;a.href=`https://stackblitz.com/edit/cannonui-${c}?file=src%2FApp.vue`,a.target="_blank",a.className="stackblitz",a.innerHTML=l,e.appendChild(a)}e.parentNode?.insertBefore(n,e),t.addEventListener("click",async()=>{await i(e,t)})}async function i(e,n){let t=e.querySelector("code"),a=t?t.innerText:"";await navigator.clipboard.writeText(a),n.innerText="Code Copied",setTimeout(()=>{n.innerText=o},700)}
+</script></head>
+
+  <body class="astro-OUAMJN2I">
+    <header class="astro-2W66RQV5">
+	<a href="#article" class="sr-only focus:not-sr-only skiplink astro-DMGOOZ7Y"><span class="astro-DMGOOZ7Y">Skip to Content</span></a>
+	<nav class="nav-wrapper astro-2W66RQV5" title="Top Navigation">
+		<div class="menu-toggle astro-2W66RQV5">
+			<script>(self.Astro=self.Astro||{}).idle=t=>{const e=async()=>{await(await t())()};"requestIdleCallback"in window?window.requestIdleCallback(e):setTimeout(e,200)},window.dispatchEvent(new Event("astro:idle"));</script><astro-island uid="UvC40" component-url="/_astro/SidebarToggle.c7c67a70.js" component-export="default" renderer-url="/_astro/client.15ddb572.js" props="{&quot;class&quot;:[0,&quot;astro-2W66RQV5&quot;]}" ssr="" client="idle" opts="{&quot;name&quot;:&quot;SidebarToggle&quot;,&quot;value&quot;:true}" await-children=""><button type="button" aria-pressed="false" id="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg><span class="sr-only">Toggle sidebar</span></button></astro-island>
+		</div>
+		<div class="logo flex astro-2W66RQV5">
+			<a href="/" class="astro-2W66RQV5">
+				<!-- <AstroLogo size={40} /> -->
+				<h1 class="astro-2W66RQV5">Cannon UI</h1>
+			</a>
+		</div>
+		<div style="flex-grow: 1;" class="astro-2W66RQV5"></div>
+		<div id="theme" class="astro-2W66RQV5">
+			<script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));</script><astro-island uid="Z1NGVBb" component-url="/_astro/ThemeToggleButton.1fbc6fc8.js" component-export="default" renderer-url="/_astro/client.15ddb572.js" props="{&quot;class&quot;:[0,&quot;astro-2W66RQV5&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;ThemeToggleButton&quot;,&quot;value&quot;:true}" await-children=""><div class="theme-toggle"><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd"></path></svg><input type="radio" name="theme-toggle" value="light" title="Use light theme" aria-label="Use light theme" /></label><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><input type="radio" name="theme-toggle" value="dark" title="Use dark theme" aria-label="Use dark theme" /></label></div></astro-island>
+		</div>
+		<astro-island uid="2khpG2" component-url="/_astro/LanguageSelect.ca745cec.js" component-export="default" renderer-url="/_astro/client.fd400d45.js" props="{&quot;lang&quot;:[0,&quot;en&quot;]}" ssr="" client="idle" opts="{&quot;name&quot;:&quot;LanguageSelect&quot;,&quot;value&quot;:true}" await-children=""><div class="language-select-wrapper"><svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.6 77.3" height="1.2em" width="1.2em"><path fill="currentColor" d="M61,24.6h7.9l18.7,51.6h-7.7l-5.4-15.5H54.3l-5.6,15.5h-7.2L61,24.6z M72.6,55l-8-22.8L56.3,55H72.6z"></path><path fill="currentColor" d="M53.6,60.6c-10-4-16-9-22-14c0,0,1.3,1.3,0,0c-6,5-20,13-20,13l-4-6c8-5,10-6,19-13c-2.1-1.9-12-13-13-19h8          c4,9,10,14,10,14c10-8,10-19,10-19h8c0,0-1,13-12,24l0,0c5,5,10,9,19,13L53.6,60.6z M1.6,16.6h56v-8h-23v-7h-9v7h-24V16.6z"></path></svg><select class="language-select"><option value="en" selected="">English</option><option value="zh-CN">Chinese</option></select></div></astro-island>
+		<!-- <div class="search-item">
+			<Search client:idle />
+		</div> -->
+	</nav>
+</header>
+    <main class="layout astro-OUAMJN2I">
+      <aside id="grid-left" class="grid-sidebar astro-OUAMJN2I" title="Site Navigation">
+        <nav aria-labelledby="grid-left" class="astro-KQNE5HRN">
+	<ul class="nav-groups astro-KQNE5HRN">
+		<li class="astro-KQNE5HRN">
+					<div class="nav-group astro-KQNE5HRN">
+						<h2 class="astro-KQNE5HRN">General</h2>
+						<ul class="astro-KQNE5HRN">
+							<li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/button" class="astro-KQNE5HRN">
+												Button
+											</a>
+										</li>
+						</ul>
+					</div>
+				</li><li class="astro-KQNE5HRN">
+					<div class="nav-group astro-KQNE5HRN">
+						<h2 class="astro-KQNE5HRN">Feedback</h2>
+						<ul class="astro-KQNE5HRN">
+							<li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/switch" class="astro-KQNE5HRN">
+												Switch
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/drag" class="astro-KQNE5HRN">
+												Drag
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/infiniteloading" class="astro-KQNE5HRN">
+												InfiniteLoading
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/searchbar" class="astro-KQNE5HRN">
+												SearchBar
+											</a>
+										</li>
+						</ul>
+					</div>
+				</li><li class="astro-KQNE5HRN">
+					<div class="nav-group astro-KQNE5HRN">
+						<h2 class="astro-KQNE5HRN">Layout</h2>
+						<ul class="astro-KQNE5HRN">
+							<li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/layout" class="astro-KQNE5HRN">
+												Layout
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/skeleton" class="astro-KQNE5HRN">
+												Skeleton
+											</a>
+										</li>
+						</ul>
+					</div>
+				</li><li class="astro-KQNE5HRN">
+					<div class="nav-group astro-KQNE5HRN">
+						<h2 class="astro-KQNE5HRN">Display</h2>
+						<ul class="astro-KQNE5HRN">
+							<li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/price" class="astro-KQNE5HRN">
+												Price
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/swiper" class="astro-KQNE5HRN">
+												Swiper
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/video" aria-current="page" class="astro-KQNE5HRN">
+												Video
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/tag" class="astro-KQNE5HRN">
+												Tag
+											</a>
+										</li><li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/pick" class="astro-KQNE5HRN">
+												Pick
+											</a>
+										</li>
+						</ul>
+					</div>
+				</li><li class="astro-KQNE5HRN">
+					<div class="nav-group astro-KQNE5HRN">
+						<h2 class="astro-KQNE5HRN">Featured</h2>
+						<ul class="astro-KQNE5HRN">
+							<li class="nav-link astro-KQNE5HRN">
+											<a href="/en/vue/card" class="astro-KQNE5HRN">
+												Card
+											</a>
+										</li>
+						</ul>
+					</div>
+				</li>
+	</ul>
+</nav>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+	var target = document.querySelector('[aria-current="page"]');
+	if (target && target.offsetTop > window.innerHeight - 100) {
+		document.querySelector('.nav-groups').scrollTop = target.offsetTop;
+	}
+});
+</script>
+      </aside>
+      <div id="grid-main" class="astro-OUAMJN2I">
+        <article id="article" class="content astro-J75B3YUS">
+	<section class="main-section astro-J75B3YUS">
+		<h1 class="content-title astro-J75B3YUS" id="overview">Video Introduction</h1>
+		<nav class="block sm:hidden astro-J75B3YUS">
+			<script>(self.Astro=self.Astro||{}).media=(s,a)=>{const t=async()=>{await(await s())()};if(a.value){const e=matchMedia(a.value);e.matches?t():e.addEventListener("change",t,{once:!0})}},window.dispatchEvent(new Event("astro:media"));</script><astro-island uid="Z1qs4Gl" component-url="/_astro/TableOfContents.8c3f2d22.js" component-export="default" renderer-url="/_astro/client.15ddb572.js" props="{&quot;headings&quot;:[1,&quot;[[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;example-usages\&quot;],\&quot;text\&quot;:[0,\&quot;Example Usages\&quot;]}],[0,{\&quot;depth\&quot;:[0,2],\&quot;slug\&quot;:[0,\&quot;props\&quot;],\&quot;text\&quot;:[0,\&quot;Props\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;options-object\&quot;],\&quot;text\&quot;:[0,\&quot;options object\&quot;]}],[0,{\&quot;depth\&quot;:[0,2],\&quot;slug\&quot;:[0,\&quot;events\&quot;],\&quot;text\&quot;:[0,\&quot;Events\&quot;]}]]&quot;],&quot;class&quot;:[0,&quot;astro-J75B3YUS&quot;]}" ssr="" client="media" opts="{&quot;name&quot;:&quot;TableOfContents&quot;,&quot;value&quot;:&quot;(max-width: 50em)&quot;}" await-children=""><h2 id="on-this-page-heading" class="heading">On this page</h2><ul><li class="header-link depth-3"><a href="#example-usages">Example Usages</a></li><li class="header-link depth-2"><a href="#props">Props</a></li><li class="header-link depth-3"><a href="#options-object">options object</a></li><li class="header-link depth-2"><a href="#events">Events</a></li></ul></astro-island>
+		</nav>
+		<p>The <code>CannonUI Video</code> component is a Vue.js component that allows for the rendering of video content in a web application.</p>
+<h3 id="example-usages">Example Usages</h3>
+<style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="8D1hd" component-url="/_astro/demo.4125ba3a.js" component-export="default" renderer-url="/_astro/client.d549b5d7.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:{&quot;props&quot;:{&quot;lang&quot;:{&quot;default&quot;:&quot;en&quot;}},&quot;emits&quot;:[],&quot;components&quot;:{&quot;Video&quot;:{&quot;props&quot;:{&quot;source&quot;:{&quot;default&quot;:&quot;&quot;},&quot;type&quot;:{&quot;default&quot;:&quot;&quot;},&quot;options&quot;:{&quot;default&quot;:{&quot;autoplay&quot;:false,&quot;volume&quot;:0.5,&quot;poster&quot;:&quot;&quot;,&quot;loop&quot;:false,&quot;controls&quot;:true,&quot;muted&quot;:false,&quot;disabled&quot;:false,&quot;playsinline&quot;:false,&quot;touchPlay&quot;:false,&quot;preload&quot;:&quot;&quot;},&quot;required&quot;:true}},&quot;emits&quot;:[&quot;play&quot;,&quot;pause&quot;,&quot;ended&quot;,&quot;timeupdate&quot;],&quot;baseName&quot;:&quot;video&quot;,&quot;name&quot;:&quot;cannonui-video&quot;,&quot;__scopeId&quot;:&quot;data-v-d294a32b&quot;}}},&quot;value&quot;:true}" await-children=""><div class="phone"><div class="phone-top">Video</div><div class="phone-content"><div class="cannonui-video"><h2 class="cmp-usage__title">basic</h2><div class="cannonui-video" data-v-d294a32b><video auto-play="false" poster="" controls preload="" data-v-d294a32b><source src="https://cannonuivideo-j2a4--5173--a19575a2.local-credentialless.webcontainer.io/src/samplev.mp4" type="video/mp4" data-v-d294a32b></video></div><h2 class="cmp-usage__title">auto play</h2><div class="cannonui-video" data-v-d294a32b><video muted auto-play="true" poster="" controls preload="" data-v-d294a32b><source src="https://cannonuivideo-j2a4--5173--a19575a2.local-credentialless.webcontainer.io/src/samplev.mp4" type="video/mp4" data-v-d294a32b></video></div></div></div></div></astro-island>
+<p>Here’s an example of how to use the video component:</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">&lt;</span><span style="color:#7EE787">style</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">lang</span><span style="color:#C9D1D9">=</span><span style="color:#A5D6FF">&quot;scss&quot;</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">scoped</span><span style="color:#C9D1D9">&gt;&lt;/</span><span style="color:#7EE787">style</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">&lt;</span><span style="color:#7EE787">template</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">  &lt;</span><span style="color:#7EE787">div</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">class</span><span style="color:#C9D1D9">=</span><span style="color:#A5D6FF">&quot;phone&quot;</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">    &lt;</span><span style="color:#7EE787">div</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">class</span><span style="color:#C9D1D9">=</span><span style="color:#A5D6FF">&quot;phone-top&quot;</span><span style="color:#C9D1D9">&gt;Video&lt;/</span><span style="color:#7EE787">div</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">    &lt;</span><span style="color:#7EE787">div</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">class</span><span style="color:#C9D1D9">=</span><span style="color:#A5D6FF">&quot;phone-content&quot;</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">      &lt;</span><span style="color:#7EE787">div</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">class</span><span style="color:#C9D1D9">=</span><span style="color:#A5D6FF">&quot;cannonui-video&quot;</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">        &lt;</span><span style="color:#7EE787">h2</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">class</span><span style="color:#C9D1D9">=</span><span style="color:#A5D6FF">&quot;cmp-usage__title&quot;</span><span style="color:#C9D1D9">&gt;{{ h2_title.basic }}&lt;/</span><span style="color:#7EE787">h2</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">        &lt;</span><span style="color:#7EE787">cannonui-video</span></span>
+<span class="line"><span style="color:#C9D1D9">          :</span><span style="color:#79C0FF">source</span><span style="color:#C9D1D9">=</span><span style="color:#C9D1D9">&quot;</span><span style="color:#C9D1D9">src</span><span style="color:#C9D1D9">&quot;</span></span>
+<span class="line"><span style="color:#C9D1D9">          :</span><span style="color:#79C0FF">type</span><span style="color:#C9D1D9">=</span><span style="color:#C9D1D9">&quot;</span><span style="color:#C9D1D9">type</span><span style="color:#C9D1D9">&quot;</span></span>
+<span class="line"><span style="color:#C9D1D9">          :</span><span style="color:#79C0FF">options</span><span style="color:#C9D1D9">=</span><span style="color:#C9D1D9">&quot;</span><span style="color:#C9D1D9">options1</span><span style="color:#C9D1D9">&quot;</span></span>
+<span class="line"><span style="color:#C9D1D9">        &gt;&lt;/</span><span style="color:#7EE787">cannonui-video</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">        &lt;</span><span style="color:#7EE787">h2</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">class</span><span style="color:#C9D1D9">=</span><span style="color:#A5D6FF">&quot;cmp-usage__title&quot;</span><span style="color:#C9D1D9">&gt;{{ h2_title.auto }}&lt;/</span><span style="color:#7EE787">h2</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">        &lt;</span><span style="color:#7EE787">cannonui-video</span></span>
+<span class="line"><span style="color:#C9D1D9">          :</span><span style="color:#79C0FF">source</span><span style="color:#C9D1D9">=</span><span style="color:#C9D1D9">&quot;</span><span style="color:#C9D1D9">src</span><span style="color:#C9D1D9">&quot;</span></span>
+<span class="line"><span style="color:#C9D1D9">          :</span><span style="color:#79C0FF">type</span><span style="color:#C9D1D9">=</span><span style="color:#C9D1D9">&quot;</span><span style="color:#C9D1D9">type</span><span style="color:#C9D1D9">&quot;</span></span>
+<span class="line"><span style="color:#C9D1D9">          :</span><span style="color:#79C0FF">options</span><span style="color:#C9D1D9">=</span><span style="color:#C9D1D9">&quot;</span><span style="color:#C9D1D9">options2</span><span style="color:#C9D1D9">&quot;</span></span>
+<span class="line"><span style="color:#C9D1D9">        &gt;&lt;/</span><span style="color:#7EE787">cannonui-video</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">      &lt;/</span><span style="color:#7EE787">div</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">    &lt;/</span><span style="color:#7EE787">div</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">  &lt;/</span><span style="color:#7EE787">div</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">&lt;/</span><span style="color:#7EE787">template</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#C9D1D9">&lt;</span><span style="color:#7EE787">script</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">lang</span><span style="color:#C9D1D9">=</span><span style="color:#A5D6FF">&quot;ts&quot;</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#FF7B72">interface</span><span style="color:#C9D1D9"> </span><span style="color:#FFA657">Translation</span><span style="color:#C9D1D9"> {</span></span>
+<span class="line"><span style="color:#C9D1D9">  [</span><span style="color:#FFA657">key</span><span style="color:#FF7B72">:</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">string</span><span style="color:#C9D1D9">]</span><span style="color:#FF7B72">:</span><span style="color:#C9D1D9"> {</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#FFA657">h2_title</span><span style="color:#FF7B72">:</span><span style="color:#C9D1D9"> {</span></span>
+<span class="line"><span style="color:#C9D1D9">      </span><span style="color:#FFA657">basic</span><span style="color:#FF7B72">:</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">string</span><span style="color:#C9D1D9">;</span></span>
+<span class="line"><span style="color:#C9D1D9">      </span><span style="color:#FFA657">auto</span><span style="color:#FF7B72">:</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">string</span><span style="color:#C9D1D9">;</span></span>
+<span class="line"><span style="color:#C9D1D9">    };</span></span>
+<span class="line"><span style="color:#C9D1D9">  };</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span>
+<span class="line"><span style="color:#FF7B72">const</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">translation</span><span style="color:#FF7B72">:</span><span style="color:#C9D1D9"> </span><span style="color:#FFA657">Translation</span><span style="color:#C9D1D9"> </span><span style="color:#FF7B72">=</span><span style="color:#C9D1D9"> {</span></span>
+<span class="line"><span style="color:#C9D1D9">  en: {</span></span>
+<span class="line"><span style="color:#C9D1D9">    h2_title: {</span></span>
+<span class="line"><span style="color:#C9D1D9">      basic: </span><span style="color:#A5D6FF">&#39;basic&#39;</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">      auto: </span><span style="color:#A5D6FF">&#39;auto play&#39;</span></span>
+<span class="line"><span style="color:#C9D1D9">    }</span></span>
+<span class="line"><span style="color:#C9D1D9">  },</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#A5D6FF">&#39;zh-CN&#39;</span><span style="color:#C9D1D9">: {</span></span>
+<span class="line"><span style="color:#C9D1D9">    h2_title: {</span></span>
+<span class="line"><span style="color:#C9D1D9">      basic: </span><span style="color:#A5D6FF">&#39;简单使用&#39;</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">      auto: </span><span style="color:#A5D6FF">&#39;自动播放&#39;</span></span>
+<span class="line"><span style="color:#C9D1D9">    }</span></span>
+<span class="line"><span style="color:#C9D1D9">  }</span></span>
+<span class="line"><span style="color:#C9D1D9">};</span></span>
+<span class="line"><span style="color:#FF7B72">import</span><span style="color:#C9D1D9"> { reactive, toRefs } </span><span style="color:#FF7B72">from</span><span style="color:#C9D1D9"> </span><span style="color:#A5D6FF">&#39;vue&#39;</span><span style="color:#C9D1D9">;</span></span>
+<span class="line"><span style="color:#FF7B72">export</span><span style="color:#FFA657"> </span><span style="color:#FF7B72">default</span><span style="color:#FFA657"> {</span></span>
+<span class="line"><span style="color:#FFA657">  </span><span style="color:#C9D1D9">props: {</span></span>
+<span class="line"><span style="color:#C9D1D9">    lang: {</span></span>
+<span class="line"><span style="color:#C9D1D9">      type: String,</span></span>
+<span class="line"><span style="color:#C9D1D9">      default: </span><span style="color:#A5D6FF">&#39;en&#39;</span></span>
+<span class="line"><span style="color:#C9D1D9">    }</span></span>
+<span class="line"><span style="color:#C9D1D9">  }</span><span style="color:#FFA657">,</span></span>
+<span class="line"><span style="color:#FFA657">  </span><span style="color:#C9D1D9">emits: []</span><span style="color:#FFA657">,</span></span>
+<span class="line"><span style="color:#FFA657">  </span><span style="color:#C9D1D9">components: {}</span><span style="color:#FFA657">,</span></span>
+<span class="line"><span style="color:#FFA657">  </span><span style="color:#D2A8FF">setup</span><span style="color:#FFA657">(props) </span><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#FF7B72">const</span><span style="color:#C9D1D9"> { </span><span style="color:#79C0FF">lang</span><span style="color:#C9D1D9"> } </span><span style="color:#FF7B72">=</span><span style="color:#C9D1D9"> props;</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#FF7B72">const</span><span style="color:#C9D1D9"> </span><span style="color:#79C0FF">state</span><span style="color:#C9D1D9"> </span><span style="color:#FF7B72">=</span><span style="color:#C9D1D9"> </span><span style="color:#D2A8FF">reactive</span><span style="color:#C9D1D9">({</span></span>
+<span class="line"><span style="color:#C9D1D9">      src: </span><span style="color:#A5D6FF">&#39;/src/samplev.mp4&#39;</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">      type: </span><span style="color:#A5D6FF">&#39;video/mp4&#39;</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">      options1: {</span></span>
+<span class="line"><span style="color:#C9D1D9">        autoplay: </span><span style="color:#79C0FF">false</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        volumn: </span><span style="color:#A5D6FF">&#39;0.5&#39;</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        poster: </span><span style="color:#A5D6FF">&#39;&#39;</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        loop: </span><span style="color:#79C0FF">false</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        controls: </span><span style="color:#79C0FF">true</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        muted: </span><span style="color:#79C0FF">false</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        disabled: </span><span style="color:#79C0FF">false</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        playsinline: </span><span style="color:#79C0FF">false</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        preload: </span><span style="color:#A5D6FF">&#39;&#39;</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        touchPlay: </span><span style="color:#79C0FF">false</span></span>
+<span class="line"><span style="color:#C9D1D9">      },</span></span>
+<span class="line"><span style="color:#C9D1D9">      options2: {</span></span>
+<span class="line"><span style="color:#C9D1D9">        autoplay: </span><span style="color:#79C0FF">true</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        volumn: </span><span style="color:#A5D6FF">&#39;0.5&#39;</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        poster: </span><span style="color:#A5D6FF">&#39;&#39;</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        loop: </span><span style="color:#79C0FF">false</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        controls: </span><span style="color:#79C0FF">true</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        muted: </span><span style="color:#79C0FF">true</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        disabled: </span><span style="color:#79C0FF">false</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        playsinline: </span><span style="color:#79C0FF">false</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        preload: </span><span style="color:#A5D6FF">&#39;&#39;</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">        touchPlay: </span><span style="color:#A5D6FF">&#39;true&#39;</span></span>
+<span class="line"><span style="color:#C9D1D9">      }</span></span>
+<span class="line"><span style="color:#C9D1D9">    });</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#FF7B72">return</span><span style="color:#C9D1D9"> {</span></span>
+<span class="line"><span style="color:#C9D1D9">      </span><span style="color:#FF7B72">...</span><span style="color:#C9D1D9">translation[lang],</span></span>
+<span class="line"><span style="color:#C9D1D9">      </span><span style="color:#FF7B72">...</span><span style="color:#D2A8FF">toRefs</span><span style="color:#C9D1D9">(state)</span></span>
+<span class="line"><span style="color:#C9D1D9">    };</span></span>
+<span class="line"><span style="color:#C9D1D9">  }</span></span>
+<span class="line"><span style="color:#FFA657">}</span><span style="color:#C9D1D9">;</span></span>
+<span class="line"><span style="color:#C9D1D9">&lt;/</span><span style="color:#7EE787">script</span><span style="color:#C9D1D9">&gt;</span></span></code></pre>
+<h2 id="props">Props</h2>
+<p>The <code>CannonUI Video</code> component accepts the following props:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Prop name</th><th>Type</th><th>Default</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>source</code></td><td>String</td><td><code>&#39;&#39;</code></td><td>No</td><td>The URL of the video file to be played.</td></tr><tr><td><code>type</code></td><td>String</td><td><code>&#39;&#39;</code></td><td>No</td><td>The MIME type of the video file.</td></tr><tr><td><code>options</code></td><td>Object</td><td><code>{}</code></td><td>Yes</td><td>An object that specifies various options for the video player, such as autoplay, volume, and loop.</td></tr></tbody></table>
+<h3 id="options-object"><code>options</code> object</h3>
+<p>The <code>options</code> object passed as a prop should have the following structure:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>autoplay</code></td><td>Boolean</td><td><code>false</code></td><td>Specifies whether the video should start playing automatically.</td></tr><tr><td><code>volume</code></td><td>Number</td><td><code>0.5</code></td><td>Specifies the volume of the video, between 0 and 1.</td></tr><tr><td><code>poster</code></td><td>String</td><td><code>&#39;&#39;</code></td><td>Specifies the URL of an image to be displayed while the video is downloading or until it plays.</td></tr><tr><td><code>loop</code></td><td>Boolean</td><td><code>false</code></td><td>Specifies whether the video should play again from the beginning after it ends.</td></tr><tr><td><code>controls</code></td><td>Boolean</td><td><code>true</code></td><td>Specifies whether the video player should display controls such as play/pause buttons.</td></tr><tr><td><code>muted</code></td><td>Boolean</td><td><code>false</code></td><td>Specifies whether the video should be muted.</td></tr><tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Specifies whether the video player should be disabled.</td></tr><tr><td><code>playsinline</code></td><td>Boolean</td><td><code>false</code></td><td>Specifies whether the video should play inline on mobile devices.</td></tr><tr><td><code>touchPlay</code></td><td>Boolean</td><td><code>false</code></td><td>Specifies whether the video should play on touch devices when the user touches the screen.</td></tr><tr><td><code>preload</code></td><td>String</td><td><code>&#39;&#39;</code></td><td>Specifies whether and how the video should be preloaded. Possible values are <code>&#39;none&#39;</code>, <code>&#39;metadata&#39;</code>, and <code>&#39;auto&#39;</code>.</td></tr></tbody></table>
+<h2 id="events">Events</h2>
+<p>The <code>CannonUI Video</code> component emits the following events:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Event name</th><th>Description</th></tr></thead><tbody><tr><td><code>play</code></td><td>Triggered when the video starts playing.</td></tr><tr><td><code>pause</code></td><td>Triggered when the video is paused.</td></tr><tr><td><code>ended</code></td><td>Triggered when the video reaches the end.</td></tr><tr><td><code>timeupdate</code></td><td>Triggered when the current time of the video is updated.</td></tr></tbody></table>
+	</section>
+	<nav class="block sm:hidden astro-J75B3YUS">
+		
+<ul class="astro-BYIKQF6W">
+	<!-- {
+		editHref && (
+			<li class={`header-link depth-2`}>
+				<a class="edit-on-github" href={editHref} target="_blank">
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						data-prefix="fas"
+						data-icon="pen"
+						class="svg-inline--fa fa-pen fa-w-16"
+						role="img"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 512 512"
+						height="1em"
+						width="1em"
+					>
+						<path
+							fill="currentColor"
+							d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"
+						/>
+					</svg>
+					<span>Edit this page</span>
+				</a>
+			</li>
+		)
+	} -->
+	
+</ul>
+<!-- <div style="margin: 2rem 0; text-align: center;">
+	<ThemeToggleButton client:visible />
+</div> -->
+	</nav>
+</article>
+      </div>
+      <aside id="grid-right" class="grid-sidebar astro-OUAMJN2I" title="Table of Contents">
+        <nav class="sidebar-nav astro-ROIVMLUZ" aria-labelledby="grid-right">
+	<div class="sidebar-nav-inner astro-ROIVMLUZ">
+		<astro-island uid="1iXzOn" component-url="/_astro/TableOfContents.8c3f2d22.js" component-export="default" renderer-url="/_astro/client.15ddb572.js" props="{&quot;headings&quot;:[1,&quot;[[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;example-usages\&quot;],\&quot;text\&quot;:[0,\&quot;Example Usages\&quot;]}],[0,{\&quot;depth\&quot;:[0,2],\&quot;slug\&quot;:[0,\&quot;props\&quot;],\&quot;text\&quot;:[0,\&quot;Props\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;options-object\&quot;],\&quot;text\&quot;:[0,\&quot;options object\&quot;]}],[0,{\&quot;depth\&quot;:[0,2],\&quot;slug\&quot;:[0,\&quot;events\&quot;],\&quot;text\&quot;:[0,\&quot;Events\&quot;]}]]&quot;],&quot;class&quot;:[0,&quot;astro-ROIVMLUZ&quot;]}" ssr="" client="media" opts="{&quot;name&quot;:&quot;TableOfContents&quot;,&quot;value&quot;:&quot;(min-width: 50em)&quot;}" await-children=""><h2 id="on-this-page-heading" class="heading">On this page</h2><ul><li class="header-link depth-3"><a href="#example-usages">Example Usages</a></li><li class="header-link depth-2"><a href="#props">Props</a></li><li class="header-link depth-3"><a href="#options-object">options object</a></li><li class="header-link depth-2"><a href="#events">Events</a></li></ul></astro-island>
+		
+<ul class="astro-BYIKQF6W">
+	<!-- {
+		editHref && (
+			<li class={`header-link depth-2`}>
+				<a class="edit-on-github" href={editHref} target="_blank">
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						data-prefix="fas"
+						data-icon="pen"
+						class="svg-inline--fa fa-pen fa-w-16"
+						role="img"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 512 512"
+						height="1em"
+						width="1em"
+					>
+						<path
+							fill="currentColor"
+							d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"
+						/>
+					</svg>
+					<span>Edit this page</span>
+				</a>
+			</li>
+		)
+	} -->
+	
+</ul>
+<!-- <div style="margin: 2rem 0; text-align: center;">
+	<ThemeToggleButton client:visible />
+</div> -->
+	</div>
+</nav>
+      </aside>
+    </main>
+    <footer class="astro-AK3UPACL">
+	<!-- <AvatarList path={path} /> -->
+</footer>
+    <div id="frontmatter" data-pagedata="video" class="astro-OUAMJN2I"></div>
+
+    
+  </body>
+</html>

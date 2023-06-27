@@ -1,0 +1,1 @@
+import{H as o}from"./runtime-core.esm-bundler.23703bfe.js";const f=c=>{const n="cannonui-"+c;return{componentName:n,create:function(e){return e.baseName=c,e.name=n,e.install=s=>{s.component(e.name,e)},o(e)}}},u=(c,n)=>{const e=c.__vccOpts||c;for(const[s,t]of n)e[s]=t;return e};export{u as _,f as c};
