@@ -31,7 +31,7 @@ const LanguageSelect: FunctionComponent<{ lang: string }> = ({ lang }) => {
 					const newLang = e.target.value;
 					let actualDest = window.location.pathname.replace(langPathRegex, '/');
 					if (actualDest == '/') actualDest = `/introduction`;
-					window.location.pathname = '/' + newLang + actualDest;
+					window.location.pathname = '/cannonui-vue/' + newLang + actualDest.slice(13);
 				}}
 			>
 				{Object.entries(KNOWN_LANGUAGES).map(([key, value]) => {

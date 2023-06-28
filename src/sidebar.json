@@ -4,88 +4,88 @@
       "General": [
         {
           "text": "Introduction",
-          "link": "en/introduction",
+          "link": "cannonui-vue/en/introduction",
           "show": false
         },
         {
           "text": "Button",
-          "link": "en/vue/button",
+          "link": "cannonui-vue/en/vue/button",
           "show": true
         }
       ],
       "Feedback": [
         {
           "text": "Page 4",
-          "link": "en/page-4",
+          "link": "cannonui-vue/en/page-4",
           "show": false
         },
         {
           "text": "Switch",
-          "link": "en/vue/switch",
+          "link": "cannonui-vue/en/vue/switch",
           "show": true
         },
         {
           "text": "Drag",
-          "link": "en/vue/drag",
+          "link": "cannonui-vue/en/vue/drag",
           "show": true
         },
         {
           "text": "InfiniteLoading",
-          "link": "en/vue/infiniteloading",
+          "link": "cannonui-vue/en/vue/infiniteloading",
           "show": true
         },
         {
           "text": "SearchBar",
-          "link": "en/vue/searchbar",
+          "link": "cannonui-vue/en/vue/searchbar",
           "show": true
         }
       ],
       "Layout": [
         {
           "text": "Layout",
-          "link": "en/vue/layout",
+          "link": "cannonui-vue/en/vue/layout",
           "show": true
         },
         {
           "text": "Col",
-          "link": "en/vue/col",
+          "link": "cannonui-vue/en/vue/col",
           "show": false
         },
         {
           "text": "Row",
-          "link": "en/vue/row",
+          "link": "/cannonui-vue/en/vue/row",
           "show": false
         },
         {
           "text": "Skeleton",
-          "link": "en/vue/skeleton",
+          "link": "cannonui-vue/en/vue/skeleton",
           "show": true
         }
       ],
       "Display": [
         {
           "text": "Table",
-          "link": "en/vue/table",
+          "link": "cannonui-vue/en/vue/table",
           "show": false
         },
         {
           "text": "Price",
-          "link": "en/vue/price",
+          "link": "cannonui-vue/en/vue/price",
           "show": true
         },
         {
           "text": "Swiper",
-          "link": "en/vue/swiper",
+          "link": "cannonui-vue/en/vue/swiper",
           "show": true
         },
         {
           "text": "SwiperItem",
-          "link": "en/vue/swiperitem",
+          "link": "cannonui-vue/en/vue/swiperitem",
           "show": false
         },
         {
           "text": "Video",
-          "link": "en/vue/video",
+          "link": "cannonui-vue/en/vue/video",
           "show": true
         },
         {
@@ -95,19 +95,19 @@
         },
         {
           "text": "Pick",
-          "link": "en/vue/pick",
+          "link": "cannonui-vue/en/vue/pick",
           "show": true
         },
         {
           "text": "PickColumn",
-          "link": "en/vue/pickcolumn",
+          "link": "cannonui-vue/en/vue/pickcolumn",
           "show": false
         }
       ],
       "Featured": [
         {
           "text": "Card",
-          "link": "en/vue/card",
+          "link": "cannonui-vue/en/vue/card",
           "show": true
         }
       ]
@@ -116,110 +116,110 @@
       "General": [
         {
           "text": "Introduction",
-          "link": "en/introduction",
+          "link": "cannonui-vue/en/introduction",
           "show": true
         },
         {
           "text": "Button",
-          "link": "en/react/button",
+          "link": "cannonui-vue/en/react/button",
           "show": true
         }
       ],
       "Feedback": [
         {
           "text": "Page 4",
-          "link": "en/page-4",
+          "link": "cannonui-vue/en/page-4",
           "show": true
         },
         {
           "text": "Switch",
-          "link": "en/react/switch",
+          "link": "cannonui-vue/en/react/switch",
           "show": true
         },
         {
           "text": "Drag",
-          "link": "en/react/drag",
+          "link": "cannonui-vue/en/react/drag",
           "show": true
         },
         {
           "text": "InfiniteLoading",
-          "link": "en/react/infiniteloading",
+          "link": "cannonui-vue/en/react/infiniteloading",
           "show": true
         },
         {
           "text": "SearchBar",
-          "link": "en/react/searchbar",
+          "link": "cannonui-vue/en/react/searchbar",
           "show": true
         }
       ],
       "Layout": [
         {
           "text": "Layout",
-          "link": "en/react/layout",
+          "link": "cannonui-vue/en/react/layout",
           "show": true
         },
         {
           "text": "Col",
-          "link": "en/react/col",
+          "link": "cannonui-vue/en/react/col",
           "show": false
         },
         {
           "text": "Row",
-          "link": "en/react/row",
+          "link": "cannonui-vue/en/react/row",
           "show": false
         },
         {
           "text": "Skeleton",
-          "link": "en/react/skeleton",
+          "link": "cannonui-vue/en/react/skeleton",
           "show": true
         }
       ],
       "Display": [
         {
           "text": "Table",
-          "link": "en/react/table",
+          "link": "cannonui-vue/en/react/table",
           "show": true
         },
         {
           "text": "Price",
-          "link": "en/react/price",
+          "link": "cannonui-vue/en/react/price",
           "show": true
         },
         {
           "text": "Swiper",
-          "link": "en/react/swiper",
+          "link": "cannonui-vue/en/react/swiper",
           "show": true
         },
         {
           "text": "SwiperItem",
-          "link": "en/react/swiperitem",
+          "link": "cannonui-vue/en/react/swiperitem",
           "show": true
         },
         {
           "text": "Video",
-          "link": "en/react/video",
+          "link": "cannonui-vue/en/react/video",
           "show": true
         },
         {
           "text": "Tag",
-          "link": "en/react/tag",
+          "link": "cannonui-vue/en/react/tag",
           "show": true
         },
         {
           "text": "Pick",
-          "link": "en/react/pick",
+          "link": "cannonui-vue/en/react/pick",
           "show": true
         },
         {
           "text": "PickColumn",
-          "link": "en/react/pickcolumn",
+          "link": "cannonui-vue/en/react/pickcolumn",
           "show": true
         }
       ],
       "Featured": [
         {
           "text": "Card",
-          "link": "en/react/card",
+          "link": "cannonui-vue/en/react/card",
           "show": true
         }
       ]
@@ -237,93 +237,93 @@
       "布局组件": [
         {
           "text": "布局",
-          "link": "zh-CN/vue/layout",
+          "link": "cannonui-vue/zh-CN/vue/layout",
           "show": true
         },
         {
           "text": "布局辅助列",
-          "link": "zh-CN/vue/col",
+          "link": "cannonui-vue/zh-CN/vue/col",
           "show": false
         },
         {
           "text": "布局辅助行",
-          "link": "zh-CN/vue/row",
+          "link": "cannonui-vue/zh-CN/vue/row",
           "show": false
         },
         {
           "text": "骨架屏",
-          "link": "zh-CN/vue/skeleton",
+          "link": "cannonui-vue/zh-CN/vue/skeleton",
           "show": true
         }
       ],
       "操作反馈": [
         {
           "text": "开关",
-          "link": "zh-CN/vue/switch",
+          "link": "cannonui-vue/zh-CN/vue/switch",
           "show": true
         },
         {
           "text": "拉拽",
-          "link": "zh-CN/vue/drag",
+          "link": "cannonui-vue/zh-CN/vue/drag",
           "show": true
         },
         {
           "text": "滚动加载",
-          "link": "zh-CN/vue/infiniteloading",
+          "link": "cannonui-vue/zh-CN/vue/infiniteloading",
           "show": true
         },
         {
           "text": "搜索框",
-          "link": "zh-CN/vue/searchbar",
+          "link": "cannonui-vue/zh-CN/vue/searchbar",
           "show": true
         }
       ],
       "数据展示": [
         {
           "text": "表格",
-          "link": "zh-CN/vue/table",
+          "link": "cannonui-vue/zh-CN/vue/table",
           "show": false
         },
         {
           "text": "价格",
-          "link": "zh-CN/vue/price",
+          "link": "cannonui-vue/zh-CN/vue/price",
           "show": true
         },
         {
           "text": "走马灯",
-          "link": "zh-CN/vue/swiper",
+          "link": "cannonui-vue/zh-CN/vue/swiper",
           "show": true
         },
         {
           "text": "走马灯子项",
-          "link": "zh-CN/vue/swiperitem",
+          "link": "cannonui-vue/zh-CN/vue/swiperitem",
           "show": false
         },
         {
           "text": "视频播放器",
-          "link": "zh-CN/vue/video",
+          "link": "cannonui-vue/zh-CN/vue/video",
           "show": true
         },
         {
           "text": "标签",
-          "link": "zh-CN/vue/tag",
+          "link": "cannonui-vue/zh-CN/vue/tag",
           "show": true
         },
         {
           "text": "选择器",
-          "link": "zh-CN/vue/pick",
+          "link": "cannonui-vue/zh-CN/vue/pick",
           "show": true
         },
         {
           "text": "选择器列表",
-          "link": "zh-CN/vue/pickcolumn",
+          "link": "cannonui-vue/zh-CN/vue/pickcolumn",
           "show": false
         }
       ],
       "特色组件": [
         {
           "text": "商品卡片",
-          "link": "zh-CN/vue/card",
+          "link": "cannonui-vue/zh-CN/vue/card",
           "show": true
         }
       ]
@@ -332,14 +332,14 @@
       "通用": [
         {
           "text": "按钮",
-          "link": "zh-CN/button",
+          "link": "cannonui-vue/zh-CN/button",
           "show": true
         }
       ],
       "基础组件": [
         {
           "text": "按钮",
-          "link": "zh-CN/react/button",
+          "link": "cannonui-vue/zh-CN/react/button",
           "show": true
         }
       ],
@@ -347,92 +347,92 @@
         {
           "show": true,
           "text": "布局",
-          "link": "zh-CN/react/layout"
+          "link": "cannonui-vue/zh-CN/react/layout"
         },
         {
           "text": "布局辅助列",
-          "link": "zh-CN/react/col",
+          "link": "cannonui-vue/zh-CN/react/col",
           "show": false
         },
         {
           "text": "布局辅助行",
-          "link": "zh-CN/react/row",
+          "link": "cannonui-vue/zh-CN/react/row",
           "show": false
         },
         {
           "text": "骨架屏",
-          "link": "zh-CN/react/skeleton",
+          "link": "cannonui-vue/zh-CN/react/skeleton",
           "show": true
         }
       ],
       "操作反馈": [
         {
           "text": "开关",
-          "link": "zh-CN/react/switch",
+          "link": "cannonui-vue/zh-CN/react/switch",
           "show": true
         },
         {
           "text": "拉拽",
-          "link": "zh-CN/react/drag",
+          "link": "cannonui-vue/zh-CN/react/drag",
           "show": true
         },
         {
           "text": "滚动加载",
-          "link": "zh-CN/react/infiniteloading",
+          "link": "cannonui-vue/zh-CN/react/infiniteloading",
           "show": true
         },
         {
           "text": "搜索框",
-          "link": "zh-CN/react/searchbar",
+          "link": "cannonui-vue/zh-CN/react/searchbar",
           "show": true
         }
       ],
       "数据展示": [
         {
           "text": "表格",
-          "link": "zh-CN/react/table",
+          "link": "cannonui-vue/zh-CN/react/table",
           "show": true
         },
         {
           "text": "价格",
-          "link": "zh-CN/react/price",
+          "link": "cannonui-vue/zh-CN/react/price",
           "show": true
         },
         {
           "text": "走马灯",
-          "link": "zh-CN/react/swiper",
+          "link": "cannonui-vue/zh-CN/react/swiper",
           "show": true
         },
         {
           "text": "走马灯子项",
-          "link": "zh-CN/react/swiperitem",
+          "link": "cannonui-vue/zh-CN/react/swiperitem",
           "show": false
         },
         {
           "text": "视频播放器",
-          "link": "zh-CN/react/video",
+          "link": "cannonui-vue/zh-CN/react/video",
           "show": true
         },
         {
           "text": "标签",
-          "link": "zh-CN/react/tag",
+          "link": "cannonui-vue/zh-CN/react/tag",
           "show": true
         },
         {
           "text": "选择器",
-          "link": "zh-CN/react/pick",
+          "link": "cannonui-vue/zh-CN/react/pick",
           "show": true
         },
         {
           "text": "选择器列表",
-          "link": "zh-CN/react/pickcolumn",
+          "link": "cannonui-vue/zh-CN/react/pickcolumn",
           "show": true
         }
       ],
       "特色组件": [
         {
           "text": "商品卡片",
-          "link": "zh-CN/react/card",
+          "link": "cannonui-vue/zh-CN/react/card",
           "show": true
         }
       ]

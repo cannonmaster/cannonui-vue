@@ -39,6 +39,5 @@ export default defineConfig({
     react(),
     mdx(),
     vue()
-  ],
-  site: `http://astro.build`
+  ]
 });
