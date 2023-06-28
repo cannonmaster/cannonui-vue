@@ -4,6 +4,8 @@
 
 CannonUI is a mobile UI component library based on Vue 3 and typescript, characterized by high quality, strong usability, and good extensibility. CannonUI is in the development stage and will gradually add various basic and business components, such as buttons, forms, lists, popups, carousels, etc. CannonUI's goal is to speed up mobile development efficiency.
 
+Currently still in a developing stage, committed to adding new components every week.
+
 [Live Demo](https://cannonmaster.github.io/cannonui-vue)
 
 ## Features
