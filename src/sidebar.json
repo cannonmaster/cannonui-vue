@@ -230,7 +230,7 @@
       "基础组件": [
         {
           "text": "按钮",
-          "link": "zh-CN/vue/button",
+          "link": "cannonui-vue/zh-CN/vue/button",
           "show": true
         }
       ],
